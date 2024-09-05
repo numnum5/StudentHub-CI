@@ -32,6 +32,17 @@ public class MockUserDAO implements IUserDAO {
         users.remove(user);
     }
 
+    @Override
+    public int searchUser(String username, String password) {
+
+        for(User user : users){
+            if(user.getPassword() == password && user.getUsername() == username){
+                return user.getId();
+            }
+        }
+        return -1;
+    }
+
     // Method for getting all a user in the database given id
     @Override
     public User getUser(int id) {
