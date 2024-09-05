@@ -31,6 +31,13 @@ public interface IUserDAO {
      */
     public int searchUser(String username, String password);
 
+
+    // Checks for password
+    public boolean checkPassword(String userPassword, String password);
+
+    // Checks for username
+    public boolean checkUsername(String userUsername, String username);
+
     /**
      * Retrieves a contact from the database.
      * @param id The id of the user to retrieve.

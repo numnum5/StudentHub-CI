@@ -36,19 +36,31 @@ public class MockUserDAO implements IUserDAO {
     public int searchUser(String username, String password) {
 
         for(User user : users){
-            if(user.getPassword() == password && user.getUsername() == username){
+            if(checkPassword(user.getPassword(), password) && checkUsername(user.getUsername(), username)){
                 return user.getId();
             }
         }
         return -1;
     }
 
+    // A method for checking current user's password with the given password
+    @Override
+    public boolean checkPassword(String userPassword, String password) {
+        return userPassword != null && userPassword.equals(password);
+    }
+
+    // A method for checking current user's username with the given username
+    @Override
+    public boolean checkUsername(String userUsername, String username) {
+        return userUsername != null && userUsername.equals(username);
+    }
+
     // Method for getting all a user in the database given id
     @Override
     public User getUser(int id) {
-        for (User contact : users) {
-            if (contact.getId() == id) {
-                return contact;
+        for (User user : users) {
+            if (user.getId() == id) {
+                return user;
             }
         }
         return null;
