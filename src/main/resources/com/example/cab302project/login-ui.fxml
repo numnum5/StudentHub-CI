@@ -15,7 +15,7 @@
       <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3d3d3" height="560.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" width="781.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9e9e9e" height="419.0" layoutX="55.0" layoutY="37.0" stroke="#5e5e5e" strokeType="INSIDE" width="681.0" />
-            <Text fx:id="registerTitle" layoutX="341.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register">
+            <Text fx:id="registerTitle" layoutX="414.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
                <font>
                   <Font size="27.0" />
                </font>
@@ -34,18 +34,6 @@
             <Button layoutX="495.0" layoutY="372.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="67.0" text="Login" />
             <PasswordField fx:id="passwordField" layoutX="323.0" layoutY="296.0" prefHeight="31.0" prefWidth="248.0" />
             <TextField fx:id="usernameField" layoutX="322.0" layoutY="230.0" prefHeight="31.0" prefWidth="248.0" />
-            <Text layoutX="190.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <TextField fx:id="lastNameField" layoutX="324.0" layoutY="166.0" prefHeight="31.0" prefWidth="248.0" />
-            <Text layoutX="188.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <TextField fx:id="firstNameField" layoutX="324.0" layoutY="106.0" prefHeight="31.0" prefWidth="248.0" />
       </children>
     </AnchorPane>
   </children>
