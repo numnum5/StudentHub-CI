@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cab302project.controller.HelloController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="471.0" prefWidth="717.0" VBox.vgrow="ALWAYS">
       <children>
@@ -30,7 +30,7 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <Button layoutX="412.0" layoutY="372.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="67.0" text="Submit" />
+            <Button fx:id="submitButton" layoutX="412.0" layoutY="372.0" mnemonicParsing="false" onAction="#Submit" prefHeight="27.0" prefWidth="67.0" text="Submit" />
             <Button layoutX="495.0" layoutY="372.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="67.0" text="Login" />
             <PasswordField layoutX="313.0" layoutY="298.0" prefHeight="31.0" prefWidth="248.0" />
             <TextField layoutX="313.0" layoutY="234.0" prefHeight="31.0" prefWidth="248.0" />
