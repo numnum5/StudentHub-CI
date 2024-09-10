@@ -18,6 +18,9 @@ public class LoginController {
     {
         String userName = usernameField.getText();
         String password = passwordField.getText();
+
+        System.out.println(userName);
+        System.out.println(password);
     }
 
 }

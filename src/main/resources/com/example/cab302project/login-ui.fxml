@@ -15,7 +15,7 @@
       <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3d3d3" height="560.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" width="781.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9e9e9e" height="419.0" layoutX="55.0" layoutY="37.0" stroke="#5e5e5e" strokeType="INSIDE" width="681.0" />
-            <Text fx:id="registerTitle" layoutX="414.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+            <Text fx:id="registerTitle" layoutX="414.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
                <font>
                   <Font size="27.0" />
                </font>
