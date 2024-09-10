@@ -16,7 +16,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlRegistration = new FXMLLoader(HelloApplication.class.getResource("register-ui.fxml"));
         Scene scene = new Scene(fxmlRegistration.load(), WIDTH, HEIGHT);
-        stage.setTitle("Hello!");
+        stage.setTitle("StudentHub");
         stage.setScene(scene);
         stage.show();
     }
