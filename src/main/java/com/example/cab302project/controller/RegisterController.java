@@ -44,14 +44,11 @@ public class RegisterController {
     @FXML
     private void Login() {
         try {
-            // Load the new FXML file (e.g., "login.fxml")
             FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("login-ui.fxml"));
             Scene newScene = new Scene(fxmlLoader.load());
 
-            // Get the current stage from the loginButton
             Stage currentStage = (Stage) loginButton.getScene().getWindow();
 
-            // Set the new scene to the current stage
             currentStage.setScene(newScene);
             currentStage.show();
 
