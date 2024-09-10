@@ -7,7 +7,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Application extends javafx.application.Application {
-    public static final String TITLE = "Student Hub";
     public static final int WIDTH = 770;
     public static final int HEIGHT = 560;
 
