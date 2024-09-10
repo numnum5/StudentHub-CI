@@ -2,12 +2,11 @@ package com.example.cab302project.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-public class HelloController {
+public class RegisterController {
     @FXML
     private Text registerTitle;
 
@@ -21,9 +20,18 @@ public class HelloController {
     private PasswordField passwordField;
 
     @FXML
+    private TextField firstNameField;
+
+    @FXML
+    private TextField lastNameField;
+
+    @FXML
     private void Submit()
     {
-
+        String firstName = firstNameField.getText();
+        String lastName = lastNameField.getText();
+        String userName = usernameField.getText();
+        String password = passwordField.getText();
     }
 
 }
