@@ -5,8 +5,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import com.example.cab302project.model.User;
+
 
 public class LoginController {
+
     @FXML
     private TextField usernameField;
 
@@ -19,8 +22,7 @@ public class LoginController {
         String userName = usernameField.getText();
         String password = passwordField.getText();
 
-        System.out.println(userName);
-        System.out.println(password);
+        User currentUser = new User(null, null, userName, password);
     }
 
 }
