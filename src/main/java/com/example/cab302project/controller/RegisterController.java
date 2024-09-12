@@ -46,7 +46,6 @@ public class RegisterController {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("login-ui.fxml"));
             Scene newScene = new Scene(fxmlLoader.load());
-
             Stage currentStage = (Stage) loginButton.getScene().getWindow();
 
             currentStage.setScene(newScene);

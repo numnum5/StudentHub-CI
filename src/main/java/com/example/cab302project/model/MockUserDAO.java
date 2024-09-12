@@ -66,6 +66,30 @@ public class MockUserDAO implements IUserDAO {
         return null;
     }
 
+    //Method to check if user exists.
+    public boolean userExists(String userName)
+    {
+        for (User user : users) {
+            if (user.getUsername().equals(userName)) {
+                return true; // Return true if a match is found
+            }
+        }
+        return false; // Return false only after checking all users
+    }
+
+    // Method to check if user password is the same for a certain user.
+    public boolean passwordCorrect(String userName, String password)
+    {
+        for (User user : users)
+        {
+            if (user.getUsername().equals(userName) && user.getPassword().equals(password))
+            {
+                return true; // Return true if a match is found
+            }
+        }
+        return false; // Return false if a match is found
+    }
+
     // Method for getting all users in the database
     @Override
     public List<User> getAllUsers() {

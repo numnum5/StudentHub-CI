@@ -31,7 +31,7 @@ public class SqliteUserDAO implements IUserDAO {
 //                    + "address VARCHAR NULL"
                     + ")";
             statement.execute(query);
-        } catch( Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -42,7 +42,7 @@ public class SqliteUserDAO implements IUserDAO {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO users (firstName, lastName, username, password) VALUES (?, ?, ?, ?)");
             statement.setString(1, user.getFirstName());
             statement.setString(2, user.getLastName());
-            statement.setString(3, user.getUsername());
+            statement.setString(3, user.getUsername().toLowerCase());
             statement.setString(4, user.getPassword());
             statement.executeUpdate();
             // Set the id of the new contact
@@ -147,5 +147,36 @@ public class SqliteUserDAO implements IUserDAO {
         }
         return users;
     }
+
+    public boolean userExists(String userName) {
+        try {
+            String query = "SELECT * FROM users WHERE username = '" + userName + "'";
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            if (resultSet.next()) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean passwordCorrect(String userName, String password)
+    {
+        try {
+            String query = "SELECT * FROM users WHERE username = '" + userName + "'";
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            String storedPassword = resultSet.getString("password");
+            return storedPassword.equals(password);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 }
 
