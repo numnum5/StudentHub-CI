@@ -1,6 +1,8 @@
 package com.example.cab302project.controller;
 
 import com.example.cab302project.Application;
+import com.example.cab302project.model.SqliteUserDAO;
+import com.example.cab302project.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,6 +14,9 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 
 public class RegisterController {
+
+    private SqliteUserDAO Connection = new SqliteUserDAO();
+
     @FXML
     private Text registerTitle;
 
@@ -40,6 +45,9 @@ public class RegisterController {
         String lastName = lastNameField.getText();
         String userName = usernameField.getText();
         String password = passwordField.getText();
+        User user = new User(firstName, lastName, userName, password);
+        Connection.addUser(user);
+
     }
     @FXML
     private void Login() {

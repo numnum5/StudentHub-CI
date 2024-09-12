@@ -10,11 +10,7 @@ import com.example.cab302project.model.User;
 
 
 public class LoginController {
-    private SqliteUserDAO Connection;
-
-    public void setConnection(SqliteUserDAO connection) {
-        this.Connection = connection;
-    }
+    private SqliteUserDAO Connection = new SqliteUserDAO();
 
     @FXML
     private TextField usernameField;
@@ -28,7 +24,6 @@ public class LoginController {
         String userName = usernameField.getText();
         String password = passwordField.getText();
 
-        User currentUser = new User(null, null, userName, password);
         boolean userExists = Connection.userExists(userName.toLowerCase());
         boolean passwordCorrect = Connection.passwordCorrect(userName, password);
         if(userExists)

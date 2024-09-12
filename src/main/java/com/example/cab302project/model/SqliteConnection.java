@@ -9,6 +9,7 @@ public class SqliteConnection {
     private SqliteConnection() {
         String url = "jdbc:sqlite:database.db";
         try {
+            
             instance = DriverManager.getConnection(url);
         } catch (SQLException sqlEx) {
             System.err.println(sqlEx);
