@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a870cc7c-1721-49a2-9ce7-6ee918315918" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/NavBarController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/css/nav-bar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/home.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/images/user.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/nav-bar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/nav-bar.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +23,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -35,12 +41,12 @@
     &quot;assignee&quot;: &quot;PPham853&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/numnum5/StudentHub.git",
-    "accountId": "38ca1fcd-66a5-4a52-9dcf-171fa931bb84"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/numnum5/StudentHub.git&quot;,
+    &quot;accountId&quot;: &quot;38ca1fcd-66a5-4a52-9dcf-171fa931bb84&quot;
   }
-}]]></component>
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -63,9 +69,9 @@
     "Application.Application.executor": "Run",
     "Application.HelloApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "refactor/nav__bar",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/stevenalexander/Documents/GitHub/StudentHub",
+    "last_opened_file_path": "C:/Users/Junseo Pyun/Downloads/StudentHubV3/StudentHub/src/main/resources/com/example/cab302project/Images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -79,6 +85,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Junseo Pyun\Downloads\StudentHubV3\StudentHub\src\main\resources\com\example\cab302project\Images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\tarek\Desktop\Uni tings\Bachelor\Year 1\Semester 1\CAB302\StudentHub\src\main\resources\com\example\cab302project" />
     </key>

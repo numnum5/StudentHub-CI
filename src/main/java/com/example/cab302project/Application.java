@@ -7,12 +7,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Application extends javafx.application.Application {
-    public static final int WIDTH = 770;
-    public static final int HEIGHT = 560;
+    public static final int WIDTH = 800;
+    public static final int HEIGHT = 600;
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlRegistration = new FXMLLoader(Application.class.getResource("register-ui.fxml"));
+        FXMLLoader fxmlRegistration = new FXMLLoader(Application.class.getResource("home.fxml"));
         Scene scene = new Scene(fxmlRegistration.load(), WIDTH, HEIGHT);
         stage.setTitle("StudentHub");
         stage.setScene(scene);
