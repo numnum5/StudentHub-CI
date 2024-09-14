@@ -9,30 +9,30 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cab302project.controller.LoginController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cab302project.controller.LoginController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="471.0" prefWidth="717.0" VBox.vgrow="ALWAYS">
       <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#282828" height="560.0" layoutX="-3.0" stroke="#4f4f4f" strokeType="INSIDE" width="781.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="488.0" layoutX="50.0" layoutY="39.0" stroke="BLACK" strokeType="INSIDE" width="681.0" />
-            <Text fx:id="registerTitle" fill="WHITE" layoutX="346.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#282828" height="600.0" layoutX="-3.0" stroke="#4f4f4f" strokeType="INSIDE" width="807.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="488.0" layoutX="60.0" layoutY="56.0" stroke="BLACK" strokeType="INSIDE" width="681.0" />
+            <Text fx:id="registerTitle" fill="WHITE" layoutX="356.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
                <font>
                   <Font name="Times New Roman Bold" size="33.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="213.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+            <Text fill="WHITE" layoutX="223.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="215.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+            <Text fill="WHITE" layoutX="225.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Button layoutX="512.0" layoutY="389.0" mnemonicParsing="false" onAction="#Submit" prefHeight="27.0" prefWidth="67.0" text="Submit" />
-            <PasswordField fx:id="passwordField" layoutX="213.0" layoutY="332.0" prefHeight="31.0" prefWidth="366.0" />
-            <TextField fx:id="usernameField" layoutX="213.0" layoutY="236.0" prefHeight="31.0" prefWidth="366.0" />
+            <Button layoutX="522.0" layoutY="406.0" mnemonicParsing="false" onAction="#Submit" prefHeight="27.0" prefWidth="67.0" text="Submit" />
+            <PasswordField fx:id="passwordField" layoutX="223.0" layoutY="349.0" prefHeight="31.0" prefWidth="366.0" />
+            <TextField fx:id="usernameField" layoutX="223.0" layoutY="253.0" prefHeight="31.0" prefWidth="366.0" />
       </children>
     </AnchorPane>
   </children>

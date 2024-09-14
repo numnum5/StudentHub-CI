@@ -9,48 +9,48 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cab302project.controller.RegisterController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cab302project.controller.RegisterController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="471.0" prefWidth="717.0" VBox.vgrow="ALWAYS">
       <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#282828" height="560.0" layoutX="-3.0" stroke="#4d4d4d" strokeType="INSIDE" width="781.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#111111" height="488.0" layoutX="50.0" layoutY="39.0" stroke="BLACK" strokeType="INSIDE" width="681.0" />
-            <Text fx:id="registerTitle" fill="WHITE" layoutX="333.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#282828" height="600.0" layoutX="-3.0" stroke="#4d4d4d" strokeType="INSIDE" width="807.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#111111" height="488.0" layoutX="62.0" layoutY="56.0" stroke="BLACK" strokeType="INSIDE" width="681.0" />
+            <Text fx:id="registerTitle" fill="WHITE" layoutX="345.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register">
                <font>
                   <Font name="Times New Roman Bold" size="33.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="206.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+            <Text fill="WHITE" layoutX="218.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="207.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+            <Text fill="WHITE" layoutX="219.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Button layoutX="505.0" layoutY="433.0" mnemonicParsing="false" onAction="#Submit" prefHeight="27.0" prefWidth="67.0" text="Submit" />
-            <Text fill="#6eb6ff" layoutX="205.0" layoutY="454.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already Have An Account?" underline="true">
+            <Button layoutX="517.0" layoutY="450.0" mnemonicParsing="false" onAction="#Submit" prefHeight="27.0" prefWidth="67.0" text="Submit" />
+            <Text fill="#6eb6ff" layoutX="217.0" layoutY="471.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already Have An Account?" underline="true">
                <font>
                   <Font size="16.0" />
                </font>
             </Text>
-            <Button fx:id="loginButton" layoutX="205.0" layoutY="434.0" mnemonicParsing="false" onAction="#Login" opacity="0.0" prefHeight="18.0" prefWidth="187.0" />
-            <PasswordField fx:id="passwordField" layoutX="205.0" layoutY="386.0" prefHeight="31.0" prefWidth="373.0" />
-            <TextField fx:id="usernameField" layoutX="205.0" layoutY="314.0" prefHeight="31.0" prefWidth="373.0" />
-            <Text fill="WHITE" layoutX="206.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
+            <Button fx:id="loginButton" layoutX="217.0" layoutY="451.0" mnemonicParsing="false" onAction="#Login" opacity="0.0" prefHeight="18.0" prefWidth="187.0" />
+            <PasswordField fx:id="passwordField" layoutX="217.0" layoutY="403.0" prefHeight="31.0" prefWidth="373.0" />
+            <TextField fx:id="usernameField" layoutX="217.0" layoutY="331.0" prefHeight="31.0" prefWidth="373.0" />
+            <Text fill="WHITE" layoutX="218.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <TextField fx:id="lastNameField" layoutX="205.0" layoutY="241.0" prefHeight="31.0" prefWidth="373.0" />
-            <Text fill="WHITE" layoutX="205.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
+            <TextField fx:id="lastNameField" layoutX="217.0" layoutY="258.0" prefHeight="31.0" prefWidth="373.0" />
+            <Text fill="WHITE" layoutX="217.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <TextField fx:id="firstNameField" layoutX="205.0" layoutY="171.0" prefHeight="31.0" prefWidth="373.0" />
+            <TextField fx:id="firstNameField" layoutX="217.0" layoutY="188.0" prefHeight="31.0" prefWidth="373.0" />
       </children>
     </AnchorPane>
   </children>
