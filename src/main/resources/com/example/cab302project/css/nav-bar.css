@@ -1,0 +1,86 @@
+/* Set the background color and padding for the navigation bar */
+.nav-bar {
+    -fx-background-color: #000000;
+    -fx-padding: 10px;
+}
+
+
+/* Style for the selected (active) button */
+.nav-button:selected {
+    -fx-background-color: transparent;
+    -fx-text-fill: grey;
+    -fx-font-size: 16px;
+    -fx-padding: 5 15;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-border-color: transparent;
+}
+/* Style for the navigation buttons */
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 5 15;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-border-color: transparent;
+}
+
+/* Hover effect for buttons */
+.nav-button:hover {
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+/* Style for the user icon button */
+.user-button {
+    -fx-background-image: url('../images/user.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: cover;
+    -fx-shape: "M 100, 50 m -50, 0 a 50,50 0 1,0 100,0 a 50,50 0 1,0 -100,0";
+    -fx-min-width: 35px;
+    -fx-min-height: 35px;
+    -fx-max-width: 35px;
+    -fx-max-height: 35px;
+    -fx-border-color: white;
+    -fx-border-width: 2px;
+    -fx-border-radius: 50%;
+}
+/* Remove the dropdown arrow from MenuButton */
+.user-button .arrow {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-opacity: 0;
+}
+/* Hover effect for the user button */
+.user-button:hover {
+    -fx-background-color: gray;
+    -fx-border-color: gray;
+    -fx-cursor: hand;
+}
+
+/* Hover effect for the user button */
+.user-button:hover {
+    -fx-background-color: gray;
+}
+
+
+
+.menu-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-padding: 5 10;
+    -fx-font-size: 16px;
+    -fx-border-radius: 5px;
+}
+
+
+/* Hover effect for MenuItems */
+.menu-item:hover {
+    -fx-background-color: gray;
+    -fx-cursor: hand;
+}
