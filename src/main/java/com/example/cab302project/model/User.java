@@ -1,6 +1,6 @@
 package com.example.cab302project.model;
 
-public class gitUser {
+public class User {
     private int id;
     private String firstName;
     private String lastName;
