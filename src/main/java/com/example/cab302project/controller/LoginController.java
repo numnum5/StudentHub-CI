@@ -28,8 +28,26 @@ public class LoginController {
     private Button submitButton;
 
     @FXML
+    private Button registerButton;
+
+
+    @FXML
     private Text warningLabel;
 
+    @FXML
+    private void Register()
+    {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("register-ui.fxml"));
+            Scene newScene = new Scene(fxmlLoader.load());
+            Stage currentStage = (Stage) registerButton.getScene().getWindow();
+
+            currentStage.setScene(newScene);
+            currentStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     @FXML
     private void Submit()
     {
