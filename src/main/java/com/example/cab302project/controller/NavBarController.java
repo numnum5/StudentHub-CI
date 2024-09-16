@@ -43,8 +43,16 @@ public class NavBarController {
     @FXML
     private MenuItem expertsContact;
 
-    // Have to somehow communicate to the login page to identify if user is logged in
-    private boolean isLoggedIn = false;
+
+    private String username;
+
+    public void setUsername(String username){
+        this.username = username;
+    }
+
+    public String getUsername(){
+        return this.username;
+    }
 
     private MainController mainController;
 
@@ -64,6 +72,7 @@ public class NavBarController {
     // Handlers for different buttons
     @FXML
     protected void onHomeButtonClick() throws IOException {
+        System.out.println(this.username);
         handleButtonClick(homeButton, "home.fxml");
     }
 
@@ -96,8 +105,7 @@ public class NavBarController {
     // Handle logging out
     @FXML
     private void onLogoutButtonClick() throws IOException {
-        // Redirect to home page
-        isLoggedIn = false;
+        setUsername(null);
         switchScene(homeButton, "login-ui.fxml");
     }
 

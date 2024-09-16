@@ -15,22 +15,29 @@ public class MainController {
     @FXML
     private BorderPane mainPane;
 
-    @FXML
-    public void initialize() {
+    private String username;
+
+    public void setUsername(String username){
+        this.username = username;
+    }
+    public String getUsername(){
+        return this.username;
+    }
+    public void setNavBar(){
         try {
             FXMLLoader navBarLoader = new FXMLLoader(getClass().getResource("/com/example/cab302project/nav-bar.fxml"));
             Parent navBar = navBarLoader.load();
-            NavBarController navBarController = navBarLoader.getController();
-            navBarController.setMainController(this);
+            NavBarController controller = navBarLoader.getController();
+            controller.setUsername(this.username);
+            controller.setMainController(this);
             mainPane.setTop(navBar);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     public void loadPage(String fxmlFile) {
         try {
-
-            System.out.println(fxmlFile);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/cab302project/" + fxmlFile));
             Parent page = loader.load();
             IController controller = loader.getController();
