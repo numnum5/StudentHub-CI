@@ -6,8 +6,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: #f5f5f5;">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.cab302project.controller.MainController" fx:id="mainPane">
+    <top>
+    </top>
     <center>
-        <Label text="Welcome to the Home Page"/>
     </center>
 </BorderPane>
