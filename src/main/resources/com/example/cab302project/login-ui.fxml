@@ -33,11 +33,7 @@
             <Button fx:id="submitButton" layoutX="522.0" layoutY="406.0" mnemonicParsing="false" onAction="#Submit" prefHeight="27.0" prefWidth="67.0" text="Submit" />
             <PasswordField fx:id="passwordField" layoutX="223.0" layoutY="349.0" prefHeight="31.0" prefWidth="366.0" />
             <TextField fx:id="usernameField" layoutX="223.0" layoutY="253.0" prefHeight="31.0" prefWidth="366.0" />
-            <Text fx:id="warningLabel" fill="WHITE" layoutX="69.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="670.9115600585938">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
+            <Button fx:id="registerButton" layoutX="233.0" layoutY="403.0" mnemonicParsing="false" onAction="#Register" prefHeight="27.0" prefWidth="67.0" text="Register" />
       </children>
     </AnchorPane>
   </children>
