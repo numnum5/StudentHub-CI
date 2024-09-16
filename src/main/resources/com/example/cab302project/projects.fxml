@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.cab302project.controller.ProjectsController">
+    <top>
+        <HBox alignment="center" spacing="10" style="-fx-padding: 10;">
+            <!-- Search TextField -->
+            <Button text="View Assignments" fx:id="viewAssignments" onAction="#onViewAssignmentsButtonClick"/>
+            <TextField fx:id="searchField" promptText="Search..." style="-fx-pref-width: 300px;"/>
+            <!-- Search Button -->
+            <Button text="Search" />
+
+        </HBox>
+    </top>
+    <center>
+
+        <HBox alignment="center" spacing="10" maxWidth="-Infinity">
+            <!-- Card 1 -->
+            <VBox fx:id="parentCardContainer" alignment="center" prefWidth="-Infinity" style="-fx-padding: 10; -fx-background-color: #ffffff;">
+
+                <!-- Card 1 -->
+                <VBox fx:id="card1" style="-fx-background-color: #f0f0f0; -fx-padding: 20;">
+                    <Text text="Card 1 Content" />
+                </VBox>
+
+                <!-- Card 2 -->
+                <VBox fx:id="card3" style="-fx-background-color: #e0e0e0; -fx-padding: 20;">
+                    <Text text="Card 2 Content" />
+                </VBox>
+
+            </VBox>
+
+            <!-- Card 2 -->
+            <VBox fx:id="card2" style="-fx-background-color: #e0e0e0; -fx-pref-width: 400px; -fx-padding: 20;">
+                <Text text="Card 2 Content" />
+            </VBox>
+
+        </HBox>
+
+    </center>
+</BorderPane>

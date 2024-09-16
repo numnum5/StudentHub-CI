@@ -46,6 +46,13 @@ public class NavBarController {
     // Have to somehow communicate to the login page to identify if user is logged in
     private boolean isLoggedIn = false;
 
+    private MainController mainController;
+
+    public void setMainController(MainController mainController) {
+        System.out.println("Maincoanfoasmfasomf");
+
+        this.mainController = mainController;
+    }
 
     // Initalisation method
     @FXML
@@ -53,6 +60,7 @@ public class NavBarController {
         // Select home page as default
         homeButton.setSelected(true);
     }
+
 
 
     // Handlers for different buttons
@@ -112,13 +120,14 @@ public class NavBarController {
         resetButtons();
 
         // Check currently selected button to avoid reloading the same scene if the button is already active
-        if (activeButton.isSelected()) {
-            return;
-        }
+//        if (activeButton.isSelected()) {
+//            return;
+//        }
         // Set the active button and switch the page
         activeButton.setSelected(true);
         // Switch page
-        switchScene(activeButton, fxmlFile);
+        mainController.loadPage(fxmlFile);
+//        switchScene(activeButton, fxmlFile);
     }
 
 
