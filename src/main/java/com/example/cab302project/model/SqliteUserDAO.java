@@ -9,6 +9,7 @@ import java.util.List;
 
 public class SqliteUserDAO implements IUserDAO {
     private Connection connection;
+    public boolean userUnique;
 
     public SqliteUserDAO() {
         this.connection = SqliteConnection.getInstance();
@@ -16,12 +17,11 @@ public class SqliteUserDAO implements IUserDAO {
     }
 
     private void createTable() {
-
         try {
             Statement statement = connection.createStatement();
             String query = "CREATE TABLE IF NOT EXISTS users ("
                     + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + "username VARCHAR NOT NULL,"
+                    + "username VARCHAR NOT NULL UNIQUE,"
                     + "password VARCHAR NOT NULL,"
                     + "firstName VARCHAR NOT NULL,"
                     + "lastName VARCHAR NOT NULL"
@@ -47,10 +47,17 @@ public class SqliteUserDAO implements IUserDAO {
             statement.executeUpdate();
             // Set the id of the new contact
             ResultSet generatedKeys = statement.getGeneratedKeys();
+            userUnique = true;
             if (generatedKeys.next()) {
                 user.setId(generatedKeys.getInt(1));
             }
-        } catch (Exception e) {
+        }
+
+        catch (org.sqlite.SQLiteException e)
+        {
+            userUnique = false;
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
     }

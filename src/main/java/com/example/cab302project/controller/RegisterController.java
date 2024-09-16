@@ -39,6 +39,9 @@ public class RegisterController {
     private Button loginButton;
 
     @FXML
+    private Text warningLabel;
+
+    @FXML
     private void Submit()
     {
         String firstName = firstNameField.getText();
@@ -48,6 +51,14 @@ public class RegisterController {
         User user = new User(firstName, lastName, userName, password);
         Connection.addUser(user);
 
+        if(Connection.userUnique)
+        {
+            warningLabel.setText("Successfully Registered.");
+        }
+        else
+        {
+            warningLabel.setText("User already exists.");
+        }
     }
     @FXML
     private void Login() {
@@ -58,7 +69,6 @@ public class RegisterController {
 
             currentStage.setScene(newScene);
             currentStage.show();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
