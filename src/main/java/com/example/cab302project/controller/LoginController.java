@@ -63,11 +63,17 @@ public class LoginController {
             {
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("main-view.fxml"));
-                    Scene newScene = new Scene(fxmlLoader.load());
+                    Scene newScene = new Scene(fxmlLoader.load(), Application.WIDTH, Application.HEIGHT);
                     Stage currentStage = (Stage) submitButton.getScene().getWindow();
+                    MainController controller = fxmlLoader.getController();
+
+                    controller.setUsername(userName);
+                    controller.setNavBar();
+                    controller.loadPage("home.fxml");
 
                     currentStage.setScene(newScene);
                     currentStage.show();
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
