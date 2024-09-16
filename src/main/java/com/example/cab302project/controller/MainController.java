@@ -23,7 +23,6 @@ public class MainController {
     public String getUsername(){
         return this.username;
     }
-
     public void setNavBar(){
         try {
             FXMLLoader navBarLoader = new FXMLLoader(getClass().getResource("/com/example/cab302project/nav-bar.fxml"));

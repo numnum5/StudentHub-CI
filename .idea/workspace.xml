@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a870cc7c-1721-49a2-9ce7-6ee918315918" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/NavBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/NavBarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/RegisterController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +222,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/MainController.java</url>
-          <line>20</line>
+          <line>19</line>
           <properties class="com.example.cab302project.controller.MainController" method="setUsername">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
