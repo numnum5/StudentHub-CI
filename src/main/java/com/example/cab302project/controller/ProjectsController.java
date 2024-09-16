@@ -35,15 +35,11 @@ public class ProjectsController implements IController{
 
     @FXML
     private void onViewAssignmentsButtonClick() throws IOException {
-
-        System.out.println("WTF");
         mainController.loadPage("project-list.fxml");
     }
 
     @Override
     public void setMainController(MainController mainController) {
-
-        System.out.println("ADADDDsad");
         this.mainController =  mainController;
         System.out.println(this.mainController);
     }

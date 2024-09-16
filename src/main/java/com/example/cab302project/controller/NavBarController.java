@@ -49,8 +49,6 @@ public class NavBarController {
     private MainController mainController;
 
     public void setMainController(MainController mainController) {
-        System.out.println("Maincoanfoasmfasomf");
-
         this.mainController = mainController;
     }
 
