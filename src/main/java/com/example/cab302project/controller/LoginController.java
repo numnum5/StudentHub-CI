@@ -28,15 +28,19 @@ public class LoginController {
     private Button submitButton;
 
     @FXML
+    private Text warningLabel;
+
+    @FXML
     private void Submit()
     {
         String userName = usernameField.getText();
         String password = passwordField.getText();
 
         boolean userExists = Connection.userExists(userName.toLowerCase());
-        boolean passwordCorrect = Connection.passwordCorrect(userName, password);
+
         if(userExists)
         {
+            boolean passwordCorrect = Connection.passwordCorrect(userName, password);
             if(passwordCorrect)
             {
                 try {
@@ -52,12 +56,12 @@ public class LoginController {
             }
             else
             {
-
+                warningLabel.setText("The password you have entered is wrong.");
             }
         }
         else
         {
-
+            warningLabel.setText("user " + userName + " does not exist.");
         }
     }
 
