@@ -25,6 +25,10 @@ public class SqliteUserDAO implements IUserDAO {
                     + "password VARCHAR NOT NULL,"
                     + "firstName VARCHAR NOT NULL,"
                     + "lastName VARCHAR NOT NULL"
+//                    + "school VARCHAR NULL,"
+//                    + "email VARCHAR NULL,"
+//                    + "phone VARCHAR NULL,"
+//                    + "address VARCHAR NULL"
                     + ")";
             statement.execute(query);
         } catch (Exception e) {
@@ -175,4 +179,3 @@ public class SqliteUserDAO implements IUserDAO {
     }
 
 }
-
