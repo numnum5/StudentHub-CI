@@ -1,0 +1,73 @@
+/* create-assignment.css */
+
+/* General VBox styling */
+.vbox {
+    -fx-background-color: #2c2c2c; /* Dark grey background */
+    -fx-padding: 20px; /* Add padding */
+    -fx-spacing: 15px; /* Add spacing between elements */
+}
+
+/* Label styling */
+.label {
+-fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-fill: #ffffff; /* White text */
+}
+
+/* TextField styling */
+.text-field {
+    -fx-background-color: #444444; /* Darker grey background */
+    -fx-border-color: #666666; /* Light grey border */
+    -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff; /* White text */
+    -fx-padding: 5px;
+}
+.scroll-pane {
+   -fx-background: #444444;
+   -fx-border-color: #444444;
+}
+/* TextArea styling */
+.text-area {
+    -fx-background-color: #444444; /* Darker grey background */
+    -fx-border-color: #666666; /* Light grey border */
+    -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff; /* White text */
+    -fx-padding: 5px;
+}
+.text-area .content {
+-fx-background-color: #444444;
+}
+/* ComboBox styling */
+.combo-box {
+    -fx-background-color: #444444; /* Darker grey background */
+    -fx-border-color: #666666; /* Light grey border */
+    -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff; /* White text */
+}
+
+/* Button styling */
+.button {
+    -fx-background-color: #007bff; /* Blue background */
+    -fx-text-fill: #ffffff; /* White text */
+    -fx-border-radius: 10px;
+    -fx-padding: 10px 20px;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-cursor: hand; /* Cursor pointer on hover */
+}
+
+.button:hover {
+    -fx-background-color: #0056b3; /* Darker blue on hover */
+}
+
+.button:pressed {
+    -fx-background-color: #004494; /* Even darker blue when pressed */
+}
+
+/* DatePicker styling */
+.date-picker {
+    -fx-background-color: #444444; /* Darker grey background */
+    -fx-border-color: #666666; /* Light grey border */
+    -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff; /* White text */
+}

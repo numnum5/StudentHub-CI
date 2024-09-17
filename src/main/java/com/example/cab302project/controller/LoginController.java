@@ -30,7 +30,6 @@ public class LoginController {
     @FXML
     private Button registerButton;
 
-
     @FXML
     private Text warningLabel;
 

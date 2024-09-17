@@ -1,0 +1,86 @@
+/* Card styling */
+.card {
+    -fx-background-color: #3c3c3c;
+    -fx-padding: 15;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: #505050;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0.2, 2, 2);
+    -fx-margin: 10;
+    -fx-pref-width: 100%;
+    -fx-alignment: center-left;
+}
+
+
+/* Title, subtitle, assignment, and due date styles */
+.card-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+.card-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: lightgray;
+    -fx-font-style: italic;
+}
+.card-assignment {
+    -fx-font-size: 14px;
+    -fx-text-fill: #76ff03;
+    -fx-font-weight: bold;
+}
+.card-due-date {
+    -fx-font-size: 14px;
+    -fx-text-fill: #ffeb3b;  /* Yellow color for due date */
+    -fx-font-weight: bold;
+}
+.card-task-list {
+    -fx-padding: 5px;
+}
+
+.card-task-item {
+    -fx-padding: 2px;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333; /* Adjust color as needed */
+}
+
+/* Task list styling */
+.card-task-header {
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.card-task-list {
+    -fx-background-color: #3c3c3c;
+    -fx-border-color: #3c3c3c;
+    -fx-padding: 10;
+    -fx-control-inner-background: #505050;
+    -fx-text-fill: white;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-max-height: 150px;  /* Limit the height of the task list */
+}
+
+/* Status label (badge) styling */
+.card-status {
+    -fx-background-color: #ff5252;   /* Red background for urgent status */
+    -fx-text-fill: white;            /* White text */
+    -fx-font-size: 12px;             /* Smaller font for badge */
+    -fx-font-weight: bold;           /* Bold text for badge */
+    -fx-padding: 5px 10px;           /* Padding around the status */
+    -fx-background-radius: 10px;     /* Rounded corners for badge */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0.2, 1, 1); /* Slight shadow */
+    -fx-margin: 10px;                /* Added margin */
+}
+
+/* Edit Button styling */
+.edit-button {
+    -fx-background-color: #4CAF50;   /* Green background for the button */
+    -fx-text-fill: white;            /* White text */
+    -fx-font-weight: bold;           /* Bold text for the button */
+    -fx-padding: 10px 20px;          /* Padding inside the button */
+    -fx-background-radius: 8px;      /* Rounded corners */
+    -fx-border-radius: 8px;
+    -fx-alignment: center;           /* Center the button */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0.2, 1, 1); /* Slight shadow */
+    -fx-margin-top: 10px;            /* Margin at the top of the button */
+}
