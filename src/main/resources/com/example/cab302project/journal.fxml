@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" >
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" fx:controller="com.example.cab302project.controller.">
     <center>
-        <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #4d5159;">
-            <Label text="hhh" styleClass="content-label"/>
+        <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #4d5159;" >
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome To Journals!" />
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="What Is Your Mood Like Today?" />
+         <TextArea prefHeight="200.0" prefWidth="200.0" />
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Perhaps You Would Like To Tell Us What Happened Today?" />
+         <TextArea prefHeight="200.0" prefWidth="200.0" />
+            <Label prefHeight="366.0" prefWidth="448.0" styleClass="content-label" />
 
         </VBox>
     </center>
