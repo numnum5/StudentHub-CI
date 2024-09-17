@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import org.w3c.dom.Text;
 
-public class FinanceController implements IController{
+public class FinanceController {
 
     @FXML
     private Label label;
@@ -33,11 +33,7 @@ public class FinanceController implements IController{
     @FXML
     private AnchorPane anchor;
 
-    @Override
-    public void setMainController(MainController mainController)
-    {
 
-    }
 
     private void calculateBudget()
     {
@@ -75,29 +71,7 @@ public class FinanceController implements IController{
     @FXML
     private void resetButton()
     {
-//        int numWeeks = 5;
-//        int daysPerWeek = 7;
-//        //GridPane gridPane = new GridPane();
-//        VBox vBox = new VBox();
-//        HBox hBox = new HBox();
-//        hBox.getChildren().add(new Label("Monday"));
-//        hBox.getChildren().add(new Label("Tuesday"));
-//        hBox.getChildren().add(new Label("Wednesday"));
-//        hBox.getChildren().add(new Label("Thursday"));
-//        hBox.getChildren().add(new Label("Friday"));
-//        hBox.getChildren().add(new Label("Saturday"));
-//        hBox.getChildren().add(new Label("Sunday"));
-//        vBox.getChildren().add(hBox);
-//        /*for (int week = 0; week < numWeeks; week++) {
-//            HBox weekBox = new HBox();
-//            for (int day = 0; day < daysPerWeek; day++) {
-//                TextField dayField = new TextField();
-//                dayField.setPromptText("Day " + (day + 1));
-//                weekBox.getChildren().add(dayField);
-//            }
-//            gridPane.getChildren().add(weekBox);
-//        }*/
-//        anchor.getChildren().add(vBox);
+
     }
 
 
