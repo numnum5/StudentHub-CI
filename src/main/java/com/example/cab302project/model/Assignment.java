@@ -6,17 +6,16 @@ public class Assignment {
     private int id;
     private String name;
     private String description;
-    private float grade;
+    private float grade = 0;
     private String username;
     private Subject subject;
     private LocalDate dueDate;
 
     // Constructor
-    public Assignment(int id, String name, String description, float grade, String username, Subject subject, LocalDate dueDate) {
+    public Assignment(int id, String name, String description, String username, Subject subject, LocalDate dueDate) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.grade = grade;
         this.username = username;
         this.subject = subject;
         this.dueDate = dueDate;
