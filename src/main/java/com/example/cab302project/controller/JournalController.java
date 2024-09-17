@@ -1,21 +1,18 @@
 package com.example.cab302project.controller;
 
-import com.example.cab302project.Application;
+
 import com.example.cab302project.model.JournalDAO;
-import com.example.cab302project.model.MockSubjectDAO;
-import com.example.cab302project.model.SqliteUserDAO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class JournalController implements IController
 {
-    private JournalDAO Connection = new JournalDAO();
+    private JournalDAO connection = new JournalDAO();
 
     @FXML
     private Button viewEntry;
@@ -34,16 +31,23 @@ public class JournalController implements IController
     @FXML
     public TextArea JournalText;
 
-    public void Submit()
-    {
-        String MoodString = MoodText.getText();
-        String EntryString = JournalText.getText();
+    @FXML
+    private ListView<String> entriesListView;
 
-        Connection.addEntry(EntryString, MoodString);
+
+    public void Submit() {
+        String moodString = MoodText.getText();
+        String entryString = JournalText.getText();
+        String userName = mainController.getUsername();
+
+        connection.addEntry(entryString, moodString,userName);
     }
 
-    public void viewEntry()
-    {
-        System.out.println("xte");
+    @FXML
+    public void viewEntry() {
+        String userName = mainController.getUsername();
+
+        ObservableList<String> entries = FXCollections.observableArrayList(connection.getAllEntries(userName));
+        entriesListView.setItems(entries);
     }
 }
