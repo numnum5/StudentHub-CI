@@ -5,34 +5,20 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
-import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
-// FinanceController class is class to manage all the controls from the finance fxml page
+// FinanceController is a class to manage all the controls from the finance fxml page
 public class FinanceController {
 
     @FXML
     private TextField budgetField;
     @FXML
-    private SplitMenuButton splitMenu;
-    @FXML
-    private Label amountLeft;
-    @FXML
     private Label budgetLeft;
     @FXML
     private Label errorMessage;
-    @FXML
-    private Button calculateButton;
-    @FXML
-    private Button resetButton;
-    @FXML
-    private GridPane calendar;
-    @FXML
-    private AnchorPane anchor;
 
     // Text fields for user to write their daily spending
     @FXML
@@ -50,24 +36,25 @@ public class FinanceController {
     @FXML
     private TextField sundayText;
 
-    MockFinanceDAO financeData;
+    MockFinanceDAO mockFinanceDAO;
 
-    // calculate button controller and it calculates the budget of daily spending
+    // Calculate button controller and it calculates the budget of daily spending
     @FXML
     private void calculateButtonPressed()
     {
         HashMap <String, Float> textFieldMap = sendInfo();
 
-        float budget = financeData.getBudget();
+        float budget = mockFinanceDAO.getBudget();
         float sum = 0;
 
         for (Map.Entry<String, Float> entry : textFieldMap.entrySet())
         {
-           sum += entry.getValue();
+            if (!entry.getKey().equals("budget"))
+                sum += entry.getValue();
         }
 
         float leftOver = budget - sum;
-        budgetLeft.setText(String.valueOf(leftOver));
+        budgetLeft.setText(Float.toString(leftOver));
 
         if (leftOver > 0) {
             budgetLeft.setTextFill(Color.GREEN);
@@ -79,14 +66,14 @@ public class FinanceController {
 
     }       
 
-
+    // Function to send and return data
     private HashMap<String, Float> sendInfo()
     {
         HashMap<String, Float> textFieldMap = new HashMap<>();
         try
         {
-            float budget = Float.parseFloat(budgetField.getText());
-            if (budget <= 0)
+            float budget = floatHandler(budgetField.getText());
+            if (budget < 0)
             {
                 errorMessage.setOpacity(1);
                 return textFieldMap;
@@ -101,7 +88,7 @@ public class FinanceController {
             textFieldMap.put("amountSpentSat", floatHandler(saturdayText.getText()));
             textFieldMap.put("amountSpentSun", floatHandler(sundayText.getText()));
 
-            financeData = new MockFinanceDAO(budget, textFieldMap);
+            mockFinanceDAO = new MockFinanceDAO(budget, textFieldMap);
             return textFieldMap;
         }
         catch (NumberFormatException e)
@@ -111,6 +98,7 @@ public class FinanceController {
         }
     }
 
+    // Acts as exception handling to manage non float texts
     private float floatHandler(String textValue)
     {
         try
@@ -123,11 +111,20 @@ public class FinanceController {
         }
     }
 
-    // controller for the reset button to reset the budget and daily spending
+    // Controller for the reset button to reset the budget, daily spending, and amount left
     @FXML
     private void resetButton()
     {
-
+        budgetField.clear();
+        mondayText.clear();
+        tuesdayText.clear();
+        wednesdayText.clear();
+        thursdayText.clear();
+        fridayText.clear();
+        saturdayText.clear();
+        sundayText.clear();
+        budgetLeft.setText("0");
+        budgetLeft.setTextFill(Color.YELLOW);
     }
 
 

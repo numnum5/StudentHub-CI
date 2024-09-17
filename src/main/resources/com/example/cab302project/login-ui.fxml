@@ -31,11 +31,11 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <Button fx:id="submitButton" layoutX="522.0" layoutY="406.0" mnemonicParsing="false" onAction="#Submit" prefHeight="27.0" prefWidth="67.0" text="Submit" />
+            <Button fx:id="submitButton" layoutX="522.0" layoutY="392.0" mnemonicParsing="false" onAction="#Submit" prefHeight="27.0" prefWidth="67.0" text="Submit" />
             <PasswordField fx:id="passwordField" layoutX="223.0" layoutY="349.0" prefHeight="31.0" prefWidth="366.0" />
             <TextField fx:id="usernameField" layoutX="223.0" layoutY="253.0" prefHeight="31.0" prefWidth="366.0" />
-            <Label layoutX="225.0" layoutY="411.0" text="Register" textFill="#6eb6ff" underline="true" />
-            <Button fx:id="registerButton" layoutX="225.0" layoutY="406.0" mnemonicParsing="false" onAction="#Register" opacity="0.0" prefHeight="31.0" prefWidth="54.0" />
+            <Label layoutX="223.0" layoutY="393.0" text="Register" textFill="#6eb6ff" underline="true" />
+            <Button fx:id="registerButton" layoutX="223.0" layoutY="388.0" mnemonicParsing="false" onAction="#Register" opacity="0.0" prefHeight="14.0" prefWidth="54.0" />
       </children>
     </AnchorPane>
   </children>

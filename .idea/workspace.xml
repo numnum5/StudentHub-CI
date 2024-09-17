@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a870cc7c-1721-49a2-9ce7-6ee918315918" name="Changes" comment="" />
+    <list default="true" id="a870cc7c-1721-49a2-9ce7-6ee918315918" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/FinanceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/FinanceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/MockFinanceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/MockFinanceDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/finance.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/finance.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/login-ui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/login-ui.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/register-ui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/register-ui.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +20,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -207,7 +214,10 @@
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/FinanceController.java" line="73">
+      <configuration name="Application">
+        <watch expression="entry.getValue()" />
+      </configuration>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/FinanceController.java" line="60">
         <watch expression="budget" />
       </inline-watch>
     </watches-manager>

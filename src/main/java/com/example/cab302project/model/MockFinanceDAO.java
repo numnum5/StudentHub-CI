@@ -2,17 +2,17 @@ package com.example.cab302project.model;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+// Class to act as a mock data base
 public class MockFinanceDAO {
 
     private final float budget;
     public static final ArrayList<HashMap<String, Float>> mockData = new ArrayList<>();
 
-    public MockFinanceDAO(Float budget, HashMap<String, Float> userData)
+    public MockFinanceDAO(float budget, HashMap<String, Float> userData)
     {
         this.budget = budget;
-        // Stored in
-        userData.put("budget", budget);
-        mockData.add(userData);
+        userData.put("budget", budget); // Stored in the HashMap
+        mockData.add(userData); // Stores the HashMap to the ArrayList
 
     }
 

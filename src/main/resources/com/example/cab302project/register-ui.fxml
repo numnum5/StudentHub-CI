@@ -13,7 +13,7 @@
    <center>
           <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #2c2c2c;" BorderPane.alignment="CENTER">
               <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#111111" height="488.0" layoutX="62.0" layoutY="56.0" stroke="BLACK" strokeType="INSIDE" width="681.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="488.0" layoutX="62.0" layoutY="56.0" stroke="BLACK" strokeType="INSIDE" width="681.0" />
                   <Text fx:id="registerTitle" fill="WHITE" layoutX="345.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register">
                       <font>
                           <Font name="Times New Roman Bold" size="33.0" />
