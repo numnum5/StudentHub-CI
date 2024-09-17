@@ -1,7 +1,9 @@
 package com.example.cab302project.controller;
 
 import com.example.cab302project.Application;
+import com.example.cab302project.model.JournalDAO;
 import com.example.cab302project.model.MockSubjectDAO;
+import com.example.cab302project.model.SqliteUserDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -13,6 +15,8 @@ import java.io.IOException;
 
 public class JournalController implements IController
 {
+    private JournalDAO Connection = new JournalDAO();
+
     @FXML
     private Button viewAssignments;
 
@@ -42,7 +46,8 @@ public class JournalController implements IController
     public void Submit()
     {
         String MoodString = MoodText.getText();
-        String JournalString = JournalText.getText();
+        String EntryString = JournalText.getText();
 
+        Connection.addEntry(EntryString, MoodString);
     }
 }
