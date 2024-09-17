@@ -40,9 +40,12 @@ public class MainController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/cab302project/" + fxmlFile));
             Parent page = loader.load();
-            IController controller = loader.getController();
-            if(controller != null){
-                controller.setMainController(this);
+
+            if(loader.getController() instanceof IController){
+                IController controller = loader.getController();
+                if(controller != null){
+                    controller.setMainController(this);
+                }
             }
             mainPane.setCenter(page);
         } catch (IOException e) {

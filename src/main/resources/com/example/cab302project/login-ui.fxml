@@ -10,31 +10,35 @@
 <?import javafx.scene.text.Text?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cab302project.controller.LoginController">
-  <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="471.0" prefWidth="717.0" VBox.vgrow="ALWAYS">
-      <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#282828" height="600.0" layoutX="-3.0" stroke="#4f4f4f" strokeType="INSIDE" width="807.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="488.0" layoutX="60.0" layoutY="56.0" stroke="BLACK" strokeType="INSIDE" width="681.0" />
-            <Text fx:id="registerTitle" fill="WHITE" layoutX="356.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
-               <font>
-                  <Font name="Times New Roman Bold" size="33.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="223.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="225.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Button fx:id="submitButton" layoutX="522.0" layoutY="406.0" mnemonicParsing="false" onAction="#Submit" prefHeight="27.0" prefWidth="67.0" text="Submit" />
-            <PasswordField fx:id="passwordField" layoutX="223.0" layoutY="349.0" prefHeight="31.0" prefWidth="366.0" />
-            <TextField fx:id="usernameField" layoutX="223.0" layoutY="253.0" prefHeight="31.0" prefWidth="366.0" />
-            <Button fx:id="registerButton" layoutX="233.0" layoutY="403.0" mnemonicParsing="false" onAction="#Register" prefHeight="27.0" prefWidth="67.0" text="Register" />
-      </children>
-    </AnchorPane>
-  </children>
+    <children>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="471.0" prefWidth="717.0" VBox.vgrow="ALWAYS">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#282828" height="600.0" layoutX="-3.0" stroke="#4f4f4f" strokeType="INSIDE" width="807.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" height="488.0" layoutX="60.0" layoutY="56.0" stroke="BLACK" strokeType="INSIDE" width="681.0" />
+                <Text fx:id="registerTitle" fill="WHITE" layoutX="356.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+                    <font>
+                        <Font name="Times New Roman Bold" size="33.0" />
+                    </font>
+                </Text>
+                <Text fill="WHITE" layoutX="223.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Text>
+                <Text fill="WHITE" layoutX="225.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Text>
+                <Button fx:id="submitButton" layoutX="522.0" layoutY="406.0" mnemonicParsing="false" onAction="#Submit" prefHeight="27.0" prefWidth="67.0" text="Submit" />
+                <PasswordField fx:id="passwordField" layoutX="223.0" layoutY="349.0" prefHeight="31.0" prefWidth="366.0" />
+                <TextField fx:id="usernameField" layoutX="223.0" layoutY="253.0" prefHeight="31.0" prefWidth="366.0" />
+                <Text fx:id="warningLabel" fill="WHITE" layoutX="69.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="670.9115600585938">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Text>
+            </children>
+        </AnchorPane>
+    </children>
 </VBox>
