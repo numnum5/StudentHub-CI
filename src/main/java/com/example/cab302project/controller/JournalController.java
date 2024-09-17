@@ -18,18 +18,9 @@ public class JournalController implements IController
     private JournalDAO Connection = new JournalDAO();
 
     @FXML
-    private Button viewAssignments;
-
-    private MockSubjectDAO connection;
-
+    private Button viewEntry;
 
     private MainController mainController;
-    private void switchScene() throws IOException {
-        Stage stage = (Stage) viewAssignments.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("project-list.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), Application.WIDTH, Application.HEIGHT);
-        stage.setScene(scene);
-    }
 
     @Override
     public void setMainController(MainController mainController) {
@@ -49,5 +40,10 @@ public class JournalController implements IController
         String EntryString = JournalText.getText();
 
         Connection.addEntry(EntryString, MoodString);
+    }
+
+    public void viewEntry()
+    {
+        System.out.println("xte");
     }
 }
