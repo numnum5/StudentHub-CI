@@ -18,6 +18,12 @@ import java.io.IOException;
 public class LoginController {
     private SqliteUserDAO Connection = new SqliteUserDAO();
 
+    public static String currentUsername;
+
+    private static void setCurrentUsername(String username){
+        LoginController.currentUsername = username;
+    }
+
     @FXML
     private TextField usernameField;
 
@@ -67,6 +73,7 @@ public class LoginController {
                     MainController controller = fxmlLoader.getController();
 
                     controller.setUsername(userName);
+                    setCurrentUsername(userName);
                     controller.setNavBar();
                     controller.loadPage("home.fxml");
 

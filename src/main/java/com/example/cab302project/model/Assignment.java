@@ -2,6 +2,8 @@ package com.example.cab302project.model;
 
 import java.time.LocalDate;
 
+
+
 public class Assignment {
     private int id;
     private String name;
@@ -9,16 +11,30 @@ public class Assignment {
     private float grade = 0;
     private String username;
     private Subject subject;
-    private LocalDate dueDate;
+    private String dueDate;
+    private AssignmentStatus status;
+
+
+
 
     // Constructor
-    public Assignment(int id, String name, String description, String username, Subject subject, LocalDate dueDate) {
-        this.id = id;
+    public Assignment(String name, String description, String username, Subject subject, String dueDate) {
         this.name = name;
         this.description = description;
         this.username = username;
         this.subject = subject;
         this.dueDate = dueDate;
+    }
+
+
+    // Getter for status
+    public AssignmentStatus getStatus() {
+        return this.status;
+    }
+
+    // Setter for status (optional)
+    public void setStatus(AssignmentStatus status) {
+        this.status = status;
     }
 
     // Getters and Setters
@@ -70,13 +86,14 @@ public class Assignment {
         this.subject = subject;
     }
 
-    public LocalDate getDueDate() {
+    public String getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(LocalDate dueDate) {
+    public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
+
 
     @Override
     public String toString() {

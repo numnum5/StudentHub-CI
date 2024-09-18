@@ -93,7 +93,7 @@ public class NavBarController {
 
     @FXML
     protected void onProjectsButtonClick() throws IOException {
-        handleButtonClick(projectsButton, "projects.fxml");
+        handleButtonClick(projectsButton, "project-list.fxml");
     }
 
     @FXML

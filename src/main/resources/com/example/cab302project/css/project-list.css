@@ -84,3 +84,18 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0.2, 1, 1); /* Slight shadow */
     -fx-margin-top: 10px;            /* Margin at the top of the button */
 }
+
+.project-button {
+    -fx-text-fill: black;
+    -fx-background-color: lightgray;
+    -fx-font-size: 14px;
+    -fx-padding: 5 15;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 5px;
+}
+/* Hover effect for buttons */
+.project-button:hover {
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}

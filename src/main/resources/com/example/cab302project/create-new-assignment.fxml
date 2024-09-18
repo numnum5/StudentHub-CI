@@ -25,15 +25,11 @@
 
             <Label text="Description:" styleClass="label"/>
             <TextArea fx:id="descriptionArea" styleClass="text-area"/>
-
             <Label text="Subject:" styleClass="label"/>
             <ComboBox fx:id="subjectComboBox" styleClass="combo-box"/>
-            <Button text="Create New Subject" styleClass="button"/>
-
             <Label text="Due Date:" styleClass="label"/>
             <DatePicker fx:id="dueDatePicker"/>
-
-            <Button text="Submit" styleClass="button"/>
+            <Button text="Submit" styleClass="button" onAction="#onSubmit"/>
         </VBox>
     </ScrollPane>
 </center>
