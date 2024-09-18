@@ -98,7 +98,7 @@ public class CreateAssignmentController {
 
 //        LocalDate a = dueDatePicker.getValue();
 
-            Assignment newAssignment = new Assignment(assignmentName, assignmentDescription, LoginController.currentUsername,testSubject, dueDate);
+            Assignment newAssignment = new Assignment(assignmentName, assignmentDescription, LoginController.username,testSubject, dueDate);
             newAssignment.setStatus(AssignmentStatus.URGENT);
             parentController.addNewAssignment(newAssignment);
         }catch(Exception error){
