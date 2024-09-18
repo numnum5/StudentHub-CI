@@ -1,31 +1,23 @@
 package com.example.cab302project.controller;
 
-import com.example.cab302project.Application;
-import com.example.cab302project.model.MockSubjectDAO;
+
+import com.example.cab302project.model.JournalDAO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class JournalController implements IController
 {
+    private JournalDAO connection = new JournalDAO();
+
     @FXML
-    private Button viewAssignments;
-
-    private MockSubjectDAO connection;
-
+    private Button viewEntry;
 
     private MainController mainController;
-    private void switchScene() throws IOException {
-        Stage stage = (Stage) viewAssignments.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("project-list.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), Application.WIDTH, Application.HEIGHT);
-        stage.setScene(scene);
-    }
 
     @Override
     public void setMainController(MainController mainController) {
@@ -39,10 +31,23 @@ public class JournalController implements IController
     @FXML
     public TextArea JournalText;
 
-    public void Submit()
-    {
-        String MoodString = MoodText.getText();
-        String JournalString = JournalText.getText();
+    @FXML
+    private ListView<String> entriesListView;
 
+
+    public void Submit() {
+        String moodString = MoodText.getText();
+        String entryString = JournalText.getText();
+        String userName = mainController.getUsername();
+
+        connection.addEntry(entryString, moodString,userName);
+    }
+
+    @FXML
+    public void viewEntry() {
+        String userName = mainController.getUsername();
+
+        ObservableList<String> entries = FXCollections.observableArrayList(connection.getAllEntries(userName));
+        entriesListView.setItems(entries);
     }
 }

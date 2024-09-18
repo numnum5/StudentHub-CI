@@ -10,6 +10,7 @@ import java.util.List;
 public class SqliteUserDAO implements IUserDAO {
     private Connection connection;
     public boolean userUnique;
+    public String userName;
 
     public SqliteUserDAO() {
         this.connection = SqliteConnection.getInstance();
