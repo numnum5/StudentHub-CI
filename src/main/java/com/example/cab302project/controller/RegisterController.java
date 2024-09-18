@@ -49,18 +49,24 @@ public class RegisterController {
         String userName = usernameField.getText();
         String password = passwordField.getText();
 
-
-        User user = new User(firstName, lastName, userName, password);
-
-        Connection.addUser(user);
-
-        if(Connection.userUnique)
+        if(firstName.isEmpty() || lastName.isEmpty() || userName.isEmpty() || password.isEmpty())
         {
-            warningLabel.setText("Successfully Registered.");
+            warningLabel.setText("All field must be filled.");
         }
         else
         {
-            warningLabel.setText("User already exists.");
+            User user = new User(firstName, lastName, userName, password);
+
+            Connection.addUser(user);
+
+            if(Connection.userUnique)
+            {
+                warningLabel.setText("Successfully Registered.");
+            }
+            else
+            {
+                warningLabel.setText("User already exists.");
+            }
         }
     }
     @FXML
