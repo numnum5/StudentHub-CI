@@ -13,37 +13,37 @@
    <children>
       <VBox layoutX="700.0" prefHeight="600.0" prefWidth="100.0">
          <children>
-            <TextField prefHeight="30.0" prefWidth="60.0" text="0">
+            <TextField prefHeight="30.0" prefWidth="60.0" text="0" fx:id="totalUnitsField">
                <VBox.margin>
                   <Insets right="20.0" top="30.0" />
                </VBox.margin>
             </TextField>
-            <TextField layoutX="10.0" layoutY="40.0" prefHeight="30.0" prefWidth="60.0" text="0">
+            <TextField layoutX="10.0" layoutY="40.0" prefHeight="30.0" prefWidth="60.0" text="0" fx:id="highDistinctionUnitsField">
                <VBox.margin>
                   <Insets right="20.0" top="30.0" />
                </VBox.margin>
             </TextField>
-            <TextField layoutX="10.0" layoutY="71.0" prefHeight="30.0" prefWidth="60.0" text="0">
+            <TextField layoutX="10.0" layoutY="71.0" prefHeight="30.0" prefWidth="60.0" text="0" fx:id="distinctionUnitsField">
                <VBox.margin>
                   <Insets right="20.0" top="30.0" />
                </VBox.margin>
             </TextField>
-            <TextField layoutX="10.0" layoutY="101.0" prefHeight="30.0" prefWidth="60.0" text="0">
+            <TextField layoutX="10.0" layoutY="101.0" prefHeight="30.0" prefWidth="60.0" text="0" fx:id="creditUnitsField">
                <VBox.margin>
                   <Insets right="20.0" top="30.0" />
                </VBox.margin>
             </TextField>
-            <TextField layoutX="10.0" layoutY="132.0" prefHeight="30.0" prefWidth="60.0" text="0">
+            <TextField layoutX="10.0" layoutY="132.0" prefHeight="30.0" prefWidth="60.0" text="0" fx:id="passUnitsField">
                <VBox.margin>
                   <Insets right="20.0" top="30.0" />
                </VBox.margin>
             </TextField>
-            <TextField layoutX="10.0" layoutY="162.0" prefHeight="30.0" prefWidth="60.0" text="0">
+            <TextField layoutX="10.0" layoutY="162.0" prefHeight="30.0" prefWidth="60.0" text="0" fx:id="failUnitsField">
                <VBox.margin>
                   <Insets right="20.0" top="30.0" />
                </VBox.margin>
             </TextField>
-            <TextField layoutX="10.0" layoutY="192.0" prefHeight="30.0" prefWidth="60.0" text="0">
+            <TextField layoutX="10.0" layoutY="192.0" prefHeight="30.0" prefWidth="60.0" text="0" fx:id="GPAField">
                <VBox.margin>
                   <Insets right="20.0" top="60.0" />
                </VBox.margin>
@@ -85,7 +85,7 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <Button layoutX="269.0" layoutY="486.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="130.0" text="Calculate GPA" />
-      <Button layoutX="441.0" layoutY="486.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="130.0" text="Reset" />
+      <Button layoutX="269.0" layoutY="486.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="130.0" text="Calculate GPA" onAction="#handleCalculateGPA" />
+      <Button layoutX="441.0" layoutY="486.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="130.0" text="Reset" onAction="#handleReset"/>
    </children>
 </AnchorPane>
