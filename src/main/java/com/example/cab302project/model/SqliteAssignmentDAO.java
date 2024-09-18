@@ -7,12 +7,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SqliteUserDAO implements IUserDAO {
+public class SqliteAssignmentDAO {
     private Connection connection;
     public boolean userUnique;
-    public String userName;
 
-    public SqliteUserDAO() {
+    public SqliteAssignmentDAO() {
         this.connection = SqliteConnection.getInstance();
         createTable();
     }
@@ -20,37 +19,38 @@ public class SqliteUserDAO implements IUserDAO {
     private void createTable() {
         try {
             Statement statement = connection.createStatement();
-            String query = "CREATE TABLE IF NOT EXISTS users ("
-                    + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + "username VARCHAR NOT NULL UNIQUE,"
-                    + "password VARCHAR NOT NULL,"
-                    + "firstName VARCHAR NOT NULL,"
-                    + "lastName VARCHAR NOT NULL"
-//                    + "school VARCHAR NULL,"
-//                    + "email VARCHAR NULL,"
-//                    + "phone VARCHAR NULL,"
-//                    + "address VARCHAR NULL"
-                    + ")";
+            String query =  "CREATE TABLE IF NOT EXISTS Assignment (" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT, " +          // Unique identifier
+                    "name TEXT NOT NULL, " +                            // Name of the assignment
+                    "description TEXT, " +                              // Description of the assignment
+                    "grade REAL DEFAULT 0, " +                          // Grade (float in Java corresponds to REAL in SQLite)
+                    "username TEXT NOT NULL, " +                        // Username associated with the assignment
+                    "subjectId INTEGER NOT NULL, " +                    // Foreign key to the Subject table
+                    "dueDate VARCHAR NOT NULL, " +                         // Due date as a string
+                    "status VARCHAR NOT NULL" +                            // Assignment status
+                    ");";
             statement.execute(query);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    @Override
-    public void addUser(User user) {
+    public void addAssignment(Assignment assignment) {
         try {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO users (firstName, lastName, username, password) VALUES (?, ?, ?, ?)");
-            statement.setString(1, user.getFirstName());
-            statement.setString(2, user.getLastName());
-            statement.setString(3, user.getUsername().toLowerCase());
-            statement.setString(4, user.getPassword());
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO Assignment (name, description, grade, username, subjectId, dueDate, status) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            statement.setString(1, assignment.getName());
+            statement.setString(2, assignment.getDescription());
+            statement.setFloat(3, assignment.getGrade());
+            statement.setString(4, assignment.getUsername());
+            statement.setInt(5, assignment.getSubject().getId());
+            statement.setString(6, assignment.getDueDate());
+            statement.setString(7, assignment.getStatus().name());
             statement.executeUpdate();
             // Set the id of the new contact
             ResultSet generatedKeys = statement.getGeneratedKeys();
             userUnique = true;
             if (generatedKeys.next()) {
-                user.setId(generatedKeys.getInt(1));
+                assignment.setId(generatedKeys.getInt(1));
             }
         }
 
@@ -63,7 +63,6 @@ public class SqliteUserDAO implements IUserDAO {
         }
     }
 
-    @Override
     public void updateUser(User user) {
         try {
             PreparedStatement statement = connection.prepareStatement("UPDATE users SET firstName = ?, lastName = ?, school = ?, email = ?, phone = ?, address = ? WHERE id = ?");
@@ -82,7 +81,7 @@ public class SqliteUserDAO implements IUserDAO {
         }
     }
 
-    @Override
+
     public void deleteUser(User user) {
         try {
             PreparedStatement statement = connection.prepareStatement("DELETE FROM users WHERE id = ?");
@@ -93,22 +92,22 @@ public class SqliteUserDAO implements IUserDAO {
         }
     }
 
-    @Override
+
     public int searchUser(String username, String password) {
         return 0;
     }
 
-    @Override
+
     public boolean checkPassword(String userPassword, String password) {
         return false;
     }
 
-    @Override
+
     public boolean checkUsername(String userUsername, String username) {
         return false;
     }
 
-    @Override
+
     public User getUser(int id) {
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE id = ?");
@@ -133,7 +132,7 @@ public class SqliteUserDAO implements IUserDAO {
         return null;
     }
 
-    @Override
+
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
         try {

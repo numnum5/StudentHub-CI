@@ -5,15 +5,17 @@ public class Subject {
     private String unitCode;
     private String name;
     private String description;
-
+    private int semester;
     // Constructor
-    public Subject(int id, String unitCode, String name, String description) {
-        this.id = id;
+    public Subject(int semester, String unitCode, String name, String description) {
+        this.semester = semester;
         this.unitCode = unitCode;
         this.name = name;
         this.description = description;
     }
 
+    public int getSemester() {return semester;};
+    public void setSemester(int semester) { this.semester = semester;}
     // Getters and Setters
     public int getId() {
         return id;
