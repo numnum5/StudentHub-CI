@@ -11,7 +11,21 @@
     -fx-alignment: center-left;
 }
 
+/* styles.css */
+.search-field {
+    -fx-pref-width: 300px;  /* Set the preferred width */
+    -fx-padding: 5px;  /* Add padding inside the TextField */
+    -fx-border-color: #cccccc;  /* Light grey border */
+    -fx-border-radius: 10px;  /* Rounded corners */
+    -fx-background-color: #2c2c2c;  /* Light grey background */
+    -fx-font-size: 14px;  /* Adjust font size */
+    -fx-text-fill: white;  /* Text color */
+    -fx-prompt-text-fill: #white;  /* Color of the prompt text */
+}
 
+.search-field:focused {
+    -fx-border-color: white;  /* Blue border when focused */
+}
 /* Title, subtitle, assignment, and due date styles */
 .card-title {
     -fx-font-size: 18px;

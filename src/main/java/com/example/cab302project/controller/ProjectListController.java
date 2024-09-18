@@ -1,6 +1,7 @@
 package com.example.cab302project.controller;
 
 import com.example.cab302project.model.Assignment;
+import com.example.cab302project.model.AssignmentStatus;
 import com.example.cab302project.model.MockAssignmentDAO;
 import com.example.cab302project.model.Subject;
 import javafx.fxml.FXML;
@@ -37,93 +38,83 @@ public class ProjectListController{
     private VBox taskListContainer;
 
     private MockAssignmentDAO assignmentDAO;
-    /**
-     * Synchronizes the contacts list view with the contacts in the database.
-     */
-//    @FXML
-//    private void onAdd() {
-//        // Default values for a new contact
-//        final String DEFAULT_FIRST_NAME = "New";
-//        final String DEFAULT_LAST_NAME = "Contact";
-//        final String DEFAULT_EMAIL = "";
-//        final String DEFAULT_PHONE = "";
-////        Assignment newAssignment = new Assignment();
-//        // Add the new contact to the database
-//        assignmentDAO.addUser(newAssignment);
-//        syncContacts();
-//        // Select the new contact in the list view
-//        // and focus the first name text field
-//        selectContact(newContact);
-////        firstNameTextField.requestFocus();
-//    }
 
-    private void syncProjects() {
-        List<Assignment> projects = assignmentDAO.getAllUsers();
-        renderCards(projects); // Render the projects into the UI
-    }
     private void renderCards(List<Assignment> projects) {
-        cardContainer.getChildren().clear(); // Clear the existing cards
-
+        if(assignmentListView != null) {
+            assignmentListView.getItems().clear();
+        }
+        cardContainer.getChildren().clear();
         for (Assignment project : projects) {
-            VBox card = new VBox();
-            Label title = new Label(project.getName());
-            Label dueDate = new Label("Due: " + project.getDueDate());
-            Label description = new Label(project.getDescription());
-            card.getChildren().addAll(title, dueDate, description);
-
-//            card.setOnMouseClicked(event -> selectProject(project));
-            cardContainer.getChildren().add(card);
+            addNewAssignment(project);
         }
     }
 
-    public void addNewAssignment(Assignment assignment) {
+    // Initalisation method
+    @FXML
+    private void initialize() {
+        assignmentDAO.populateData();
+        renderCards(assignmentDAO.getAllAssignments());
+    }
 
-        System.out.println(assignment.toString());
-        // Create a new VBox for the card and add a style class
+
+    @FXML
+    private void onSearch() throws IOException {
+        List<Assignment> result = assignmentDAO.searchAssignments(searchField.getText());
+
+        System.out.println(result.size());
+        for(Assignment assignment : result) {
+            System.out.println(assignment.toString());
+        }
+        renderCards(result);
+    }
+
+    public void addNewAssignment(Assignment assignment) {
         VBox newCard = new VBox();
         newCard.getStyleClass().add("card");
         Label titleLabel = new Label(assignment.getSubject().getUnitCode() + assignment.getSubject().getName());
         titleLabel.getStyleClass().add("card-title");
-
         Label semesterLabel = new Label("Semester " + assignment.getSubject().getSemester());
         semesterLabel.getStyleClass().add("card-subtitle");
         Label assignmentLabel = new Label(assignment.getName());
         assignmentLabel.getStyleClass().add("card-assignment");
         Label descriptionLabel = new Label(assignment.getDescription());
         descriptionLabel.getStyleClass().add("card-content");
-
         Label dueDateLabel = new Label("Due: " + assignment.getDueDate());
         dueDateLabel.getStyleClass().add("card-due-date");
 
-        Label statusLabel = new Label(assignment.getStatus().toString());
-// Dynamically change the style based on the assignment status
-        switch (assignment.getStatus()) {
-            case URGENT:
-                statusLabel.setStyle("-fx-background-color: #ff5252; -fx-text-fill: white; " +
-                        "-fx-font-size: 12px; -fx-font-weight: bold; " +
-                        "-fx-padding: 5px 10px; -fx-background-radius: 10px;");
-                break;
-            case PENDING:
-                statusLabel.setStyle("-fx-background-color: #ffa500; -fx-text-fill: white; " +
-                        "-fx-font-size: 12px; -fx-font-weight: bold; " +
-                        "-fx-padding: 5px 10px; -fx-background-radius: 10px;");
-                break;
-            case COMPLETED:
-                statusLabel.setStyle("-fx-background-color: #4caf50; -fx-text-fill: white; " +
-                        "-fx-font-size: 12px; -fx-font-weight: bold; " +
-                        "-fx-padding: 5px 10px; -fx-background-radius: 10px;");
-                break;
-            default:
-                statusLabel.setStyle("-fx-background-color: #cccccc; -fx-text-fill: black; " +
-                        "-fx-font-size: 12px; -fx-font-weight: bold; " +
-                        "-fx-padding: 5px 10px; -fx-background-radius: 10px;");
-                break;
-        }
-        newCard.getChildren().addAll(titleLabel, semesterLabel, assignmentLabel, descriptionLabel, dueDateLabel, statusLabel);
-
+//        // Dynamically change the style based on the assignment status
+//        switch (assignment.getStatus()) {
+//            case URGENT:
+//                statusLabel.setStyle("-fx-background-color: #ff5252; -fx-text-fill: white; " +
+//                        "-fx-font-size: 12px; -fx-font-weight: bold; " +
+//                        "-fx-padding: 5px 10px; -fx-background-radius: 10px;");
+//                break;
+//            case PENDING:
+//                statusLabel.setStyle("-fx-background-color: #ffa500; -fx-text-fill: white; " +
+//                        "-fx-font-size: 12px; -fx-font-weight: bold; " +
+//                        "-fx-padding: 5px 10px; -fx-background-radius: 10px;");
+//                break;
+//            case COMPLETED:
+//                statusLabel.setStyle("-fx-background-color: #4caf50; -fx-text-fill: white; " +
+//                        "-fx-font-size: 12px; -fx-font-weight: bold; " +
+//                        "-fx-padding: 5px 10px; -fx-background-radius: 10px;");
+//                break;
+//            default:
+//                statusLabel.setStyle("-fx-background-color: #cccccc; -fx-text-fill: black; " +
+//                        "-fx-font-size: 12px; -fx-font-weight: bold; " +
+//                        "-fx-padding: 5px 10px; -fx-background-radius: 10px;");
+//                break;
+//        }
+        newCard.getChildren().addAll(
+                titleLabel,
+                semesterLabel,
+                assignmentLabel,
+                descriptionLabel,
+                dueDateLabel
+                );
         // Finally, add the new card to the cardContainer
         cardContainer.getChildren().add(newCard);
-        assignmentDAO.addUser(assignment);
+        assignmentDAO.addAssignment(assignment);
     }
 
     @FXML
@@ -141,9 +132,6 @@ public class ProjectListController{
         // Show the new Stage
         newStage.show();
     }
-
-
-
 
 
 

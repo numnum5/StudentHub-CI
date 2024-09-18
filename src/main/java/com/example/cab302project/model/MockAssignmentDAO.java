@@ -1,5 +1,7 @@
 package com.example.cab302project.model;
 
+import com.example.cab302project.controller.LoginController;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,18 +10,34 @@ public class MockAssignmentDAO {
     public static final ArrayList<Assignment> subjects = new ArrayList<>();
     private static int autoIncrementedId = 0;
 
-    // Method for adding a user
 
-    public Assignment searchAssignment(String name){
+    public void populateData(){
+        Subject testSubject = new Subject(1, "CAB502", "Advanced Quantum Computing", "Idk");
+        Subject testSubject2 = new Subject(1, "CAB503", "Advanced Operating Systems", "Idk");
+        Assignment assg1 = new Assignment("Assignment 1", "Develop AGI and solve Pnp problem", LoginController.currentUsername, testSubject, "24/11/2026");
+        Assignment assg2 = new Assignment("Assignment 2", "Create next generation super computer", LoginController.currentUsername, testSubject, "25/11/2026");
+        Assignment assg3 = new Assignment("Assignment 3", "Create next Windows 12", LoginController.currentUsername, testSubject2, "25/11/2026");
+        addAssignment(assg1);
+        addAssignment(assg2);
+        addAssignment(assg3);
         for(Assignment assignment : subjects){
-            if(assignment.getName().contains(name)){
-                return assignment;
+            System.out.println("R");
+            System.out.println(assignment.toString());
+        }
+    }
+    public List<Assignment> searchAssignments(String keyword) {
+        List<Assignment> matchingAssignments = new ArrayList<>();  // Create a list to store matching assignments
+
+        for (Assignment assignment : getAllAssignments()) {
+            System.out.println(assignment.toString());
+            if (assignment.getName().toLowerCase().contains(keyword.toLowerCase())) {
+                matchingAssignments.add(assignment);  // Add matching assignment to the list
             }
         }
-        return null;
+        return matchingAssignments;  // Return the list of matching assignments
     }
 
-    public void addUser(Assignment subject) {
+    public void addAssignment(Assignment subject) {
         subject.setId(autoIncrementedId);
         autoIncrementedId++;
         subjects.add(subject);
@@ -51,7 +69,7 @@ public class MockAssignmentDAO {
     }
 
 
-    public List<Assignment> getAllUsers() {
+    public List<Assignment> getAllAssignments() {
         return new ArrayList<>(subjects);
     }
 }

@@ -66,6 +66,7 @@ public class Assignment {
         return grade;
     }
 
+
     public void setGrade(float grade) {
         this.grade = grade;
     }
@@ -105,6 +106,7 @@ public class Assignment {
                 ", username='" + username + '\'' +
                 ", subject=" + subject +
                 ", dueDate=" + dueDate +
+                ", status=" +
                 '}';
     }
 }

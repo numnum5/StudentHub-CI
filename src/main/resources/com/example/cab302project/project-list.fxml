@@ -13,9 +13,9 @@
                 <HBox alignment="center" spacing="10" style="-fx-padding: 10;">
                         <!-- Search TextField -->
 
-                        <TextField fx:id="searchField" promptText="Search..." style="-fx-pref-width: 300px;"/>
+                        <TextField fx:id="searchField" promptText="Search..." styleClass="search-field"/>
                         <!-- Search Button -->
-                        <Button text="Search" styleClass="project-button"/>
+                        <Button text="Search" styleClass="project-button" onAction="#onSearch"/>
                         <Button
                                 styleClass="project-button"
                                  text="New Assignment" fx:id="newAssignment" onAction="#onNewAssignmentClick"/>

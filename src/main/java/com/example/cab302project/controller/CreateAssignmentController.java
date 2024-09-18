@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CreateAssignmentController {
@@ -31,7 +32,10 @@ public class CreateAssignmentController {
     private TextArea descriptionArea;
 
     @FXML
-    private ComboBox<Subject> subjectComboBox;
+    private ComboBox<String> subjectComboBox;
+
+    @FXML
+    private ComboBox<String> statusComboBox;
 
     @FXML
     private DatePicker dueDatePicker;
@@ -40,20 +44,41 @@ public class CreateAssignmentController {
     private void initialize() {
         // Dynamically load subjects
         loadSubjects();
+        loadAssignmentStatuses();
     }
 
     public CreateAssignmentController(){
         this.subjectDAO = new MockSubjectDAO();
     }
     private void loadSubjects() {
-        List<Subject> subjects = subjectDAO.getAllUsers();
-        subjectComboBox.setItems(FXCollections.observableArrayList(subjects));
+        List<Subject> subjects = new ArrayList<>();
+        Subject mock1 = new Subject(1, "CAB502", "Advanced Quantum Computing", "Idk");
+        Subject mock2 = new Subject(1, "CAB503", "Advanced Discrete Mathematics", "Idk");
+        subjects.add(mock1);
+        subjects.add(mock2);
+        List<String> subjectNames = new ArrayList<>();
+        subjectNames.add(mock1.getName());
+        subjectNames.add(mock2.getName());
+        subjectComboBox.setItems(FXCollections.observableArrayList(subjectNames));
     }
+
+    private void loadAssignmentStatuses() {
+
+        List<String> subjectNames = new ArrayList<>();
+        subjectNames.add("Urgent");
+        subjectNames.add("In progress");
+        subjectNames.add("Completed");
+        subjectNames.add("Over due");
+        statusComboBox.setItems(FXCollections.observableArrayList(subjectNames));
+    }
+
 
     // Method to set the parent controller
     public void setParentController(ProjectListController parentController) {
         this.parentController = parentController;
     }
+
+
 
 
     @FXML
