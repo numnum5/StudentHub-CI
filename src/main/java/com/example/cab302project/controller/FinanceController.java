@@ -18,7 +18,7 @@ public class FinanceController {
     @FXML
     private Label budgetLeft;
     @FXML
-    private Label errorMessage;
+    public Label overBudgetText;
 
     // Text fields for user to write their daily spending
     @FXML
@@ -35,6 +35,7 @@ public class FinanceController {
     private TextField saturdayText;
     @FXML
     private TextField sundayText;
+
 
     MockFinanceDAO mockFinanceDAO;
 
@@ -57,10 +58,13 @@ public class FinanceController {
         budgetLeft.setText(Float.toString(leftOver));
 
         if (leftOver > 0) {
+            overBudgetText.setOpacity(0);
             budgetLeft.setTextFill(Color.GREEN);
         } else if (leftOver == 0) {
+            overBudgetText.setOpacity(0);
             budgetLeft.setTextFill(Color.YELLOW);
         } else {
+            overBudgetText.setOpacity(1);
             budgetLeft.setTextFill(Color.RED);
         }
 
@@ -75,10 +79,8 @@ public class FinanceController {
             float budget = floatHandler(budgetField.getText());
             if (budget < 0)
             {
-                errorMessage.setOpacity(1);
                 return textFieldMap;
             }
-            errorMessage.setOpacity(0);
 
             textFieldMap.put("amountSpentMon", floatHandler(mondayText.getText()));
             textFieldMap.put("amountSpentTue", floatHandler(tuesdayText.getText()));
@@ -93,7 +95,6 @@ public class FinanceController {
         }
         catch (NumberFormatException e)
         {
-            errorMessage.setOpacity(1);
             return null;
         }
     }
@@ -123,6 +124,7 @@ public class FinanceController {
         fridayText.clear();
         saturdayText.clear();
         sundayText.clear();
+        overBudgetText.setOpacity(0);
         budgetLeft.setText("0");
         budgetLeft.setTextFill(Color.YELLOW);
     }
