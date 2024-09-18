@@ -12,13 +12,14 @@ public class Application extends javafx.application.Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlRegistration = new FXMLLoader(Application.class.getResource("register-ui.fxml"));
+        FXMLLoader fxmlRegistration = new FXMLLoader(Application.class.getResource("login-ui.fxml"));
         Scene scene = new Scene(fxmlRegistration.load(), WIDTH, HEIGHT);
         stage.setTitle("StudentHub");
         stage.setScene(scene);
         stage.show();
 
     }
+
 
     public static void main(String[] args) {
         launch();

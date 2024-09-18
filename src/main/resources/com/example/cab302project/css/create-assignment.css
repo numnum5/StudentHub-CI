@@ -3,8 +3,8 @@
 /* General VBox styling */
 .vbox {
     -fx-background-color: #2c2c2c; /* Dark grey background */
-    -fx-padding: 20px; /* Add padding */
-    -fx-spacing: 15px; /* Add spacing between elements */
+    -fx-padding: 10px; /* Add padding */
+    -fx-spacing: 5px; /* Add spacing between elements */
 }
 
 /* Label styling */
@@ -45,23 +45,38 @@
     -fx-text-fill: #ffffff; /* White text */
 }
 
-/* Button styling */
+.combo-box-popup .list-view {
+    -fx-background-color: #333333; /* Background color of the dropdown */
+    -fx-text-fill: #ffffff; /* Text color of the items */
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-background-color: #333333; /* Background color for each item */
+    -fx-text-fill: #ffffff; /* Text color for each item */
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected {
+    -fx-background-color: #666666; /* Background color for selected item */
+    -fx-text-fill: #ffffff;
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover {
+    -fx-background-color: #555555; /* Background color for hovered item */
+}
+
 .button {
-    -fx-background-color: #007bff; /* Blue background */
-    -fx-text-fill: #ffffff; /* White text */
-    -fx-border-radius: 10px;
-    -fx-padding: 10px 20px;
-    -fx-font-weight: bold;
+    -fx-text-fill: black;
+    -fx-background-color: lightgray;
     -fx-font-size: 14px;
-    -fx-cursor: hand; /* Cursor pointer on hover */
+    -fx-padding: 5 15;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 5px;
 }
-
+/* Hover effect for buttons */
 .button:hover {
-    -fx-background-color: #0056b3; /* Darker blue on hover */
-}
-
-.button:pressed {
-    -fx-background-color: #004494; /* Even darker blue when pressed */
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
 }
 
 /* DatePicker styling */

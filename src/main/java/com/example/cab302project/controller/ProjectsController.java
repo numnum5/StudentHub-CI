@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -42,5 +42,16 @@ public class ProjectsController implements IController{
     public void setMainController(MainController mainController) {
         this.mainController =  mainController;
         System.out.println(this.mainController);
+    }
+
+    public static class JournalController
+    {
+        @FXML
+        public TextArea MoodText;
+
+        public void Submit()
+        {
+            System.out.println(MoodText.getText());
+        }
     }
 }
