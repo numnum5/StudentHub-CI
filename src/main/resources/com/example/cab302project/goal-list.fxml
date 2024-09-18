@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.cab302project.controller.GoalListController"
-            prefHeight="400.0" prefWidth="600.0">
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cab302project.controller.GoalListController" style="-fx-background-color: #2c2c2c;">
+    <top>
+        <HBox alignment="center" spacing="10" style="-fx-padding: 10;">
+            <!-- Search TextField -->
 
-</AnchorPane>
+            <TextField fx:id="searchGoal" promptText="Search..." style="-fx-pref-width: 300px; -fx-text-fill: white; -fx-prompt-text-fill: lightgray; -fx-background-color: #333;" />
+            <!-- Search Button -->
+            <Button fx:id="searchButton" text="Search" styleClass="project-button"/>
+            <Button fx:id="addGoals" onAction="#onAddGoalsButtonClick" text="Add New Goals" style="-fx-text-fill: black;" />
+        </HBox>
+    </top>
+    <bottom>
+        <HBox alignment="CENTER" spacing="20" style="-fx-background-color: #1f1f1f; -fx-padding: 10; -fx-pref-width: 100%;">
+            <Label text="© 2024 CaffeinatedProgrammers"
+                   style="-fx-text-fill: #888888; -fx-font-size: 14px;" />
+            <Region fx:id="spacer" HBox.hgrow="ALWAYS" />
+            <Label text="Privacy Policy" style="-fx-text-fill: #4CAF50;" />
+            <Label text="Terms of Service" style="-fx-text-fill: #4CAF50;" />
+        </HBox>
+    </bottom>
+</BorderPane>
