@@ -53,38 +53,45 @@ public class LoginController {
         String userName = usernameField.getText();
         String password = passwordField.getText();
 
-        boolean userExists = Connection.userExists(userName.toLowerCase());
 
-        if(userExists)
+        if(userName.isEmpty() || password.isEmpty())
         {
-            boolean passwordCorrect = Connection.passwordCorrect(userName, password);
-            if(passwordCorrect)
+            warningLabel.setText("All fields must be filled.");
+        }
+        else
+        {
+            boolean userExists = Connection.userExists(userName.toLowerCase());
+            if(userExists)
             {
-                try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("main-view.fxml"));
-                    Scene newScene = new Scene(fxmlLoader.load(), 800, 600);
-                    Stage currentStage = (Stage) submitButton.getScene().getWindow();
-                    MainController controller = fxmlLoader.getController();
+                boolean passwordCorrect = Connection.passwordCorrect(userName, password);
+                if(passwordCorrect)
+                {
+                    try {
+                        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("main-view.fxml"));
+                        Scene newScene = new Scene(fxmlLoader.load(), 800, 600);
+                        Stage currentStage = (Stage) submitButton.getScene().getWindow();
+                        MainController controller = fxmlLoader.getController();
 
-                    controller.setUsername(userName);
-                    controller.setNavBar();
-                    controller.loadPage("home.fxml");
+                        controller.setUsername(userName);
+                        controller.setNavBar();
+                        controller.loadPage("home.fxml");
 
-                    currentStage.setScene(newScene);
-                    currentStage.show();
+                        currentStage.setScene(newScene);
+                        currentStage.show();
 
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else
+                {
+                    warningLabel.setText("The password you have entered is wrong.");
                 }
             }
             else
             {
-                warningLabel.setText("The password you have entered is wrong.");
+                warningLabel.setText("user " + userName + " does not exist.");
             }
-        }
-        else
-        {
-            warningLabel.setText("user " + userName + " does not exist.");
         }
     }
 
