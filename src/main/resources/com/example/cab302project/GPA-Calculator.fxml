@@ -1,91 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cab302project.controller.GPACalcController">
-   <children>
-      <VBox layoutX="700.0" prefHeight="600.0" prefWidth="100.0">
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cab302project.controller.GPACalcController">
+   <center>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #2c2c2c;">
          <children>
-            <TextField prefHeight="30.0" prefWidth="60.0" text="0" fx:id="totalUnitsField">
-               <VBox.margin>
-                  <Insets right="20.0" top="30.0" />
-               </VBox.margin>
-            </TextField>
-            <TextField layoutX="10.0" layoutY="40.0" prefHeight="30.0" prefWidth="60.0" text="0" fx:id="highDistinctionUnitsField">
-               <VBox.margin>
-                  <Insets right="20.0" top="30.0" />
-               </VBox.margin>
-            </TextField>
-            <TextField layoutX="10.0" layoutY="71.0" prefHeight="30.0" prefWidth="60.0" text="0" fx:id="distinctionUnitsField">
-               <VBox.margin>
-                  <Insets right="20.0" top="30.0" />
-               </VBox.margin>
-            </TextField>
-            <TextField layoutX="10.0" layoutY="101.0" prefHeight="30.0" prefWidth="60.0" text="0" fx:id="creditUnitsField">
-               <VBox.margin>
-                  <Insets right="20.0" top="30.0" />
-               </VBox.margin>
-            </TextField>
-            <TextField layoutX="10.0" layoutY="132.0" prefHeight="30.0" prefWidth="60.0" text="0" fx:id="passUnitsField">
-               <VBox.margin>
-                  <Insets right="20.0" top="30.0" />
-               </VBox.margin>
-            </TextField>
-            <TextField layoutX="10.0" layoutY="162.0" prefHeight="30.0" prefWidth="60.0" text="0" fx:id="failUnitsField">
-               <VBox.margin>
-                  <Insets right="20.0" top="30.0" />
-               </VBox.margin>
-            </TextField>
-            <TextField layoutX="10.0" layoutY="192.0" prefHeight="30.0" prefWidth="60.0" text="0" fx:id="GPAField">
-               <VBox.margin>
-                  <Insets right="20.0" top="60.0" />
-               </VBox.margin>
-            </TextField>
+            <Label layoutX="278.0" layoutY="10.0" text="Calculate your GPA">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endY="1.0">
+                     <stops>
+                        <Stop color="#2562f7" />
+                        <Stop color="#a429ff" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="157.0" layoutY="72.0" text="Total number of units studied" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="180.0" layoutY="124.0" text="High Distinction units" textFill="#a953ff">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="202.0" layoutY="182.0" text="Distinction units" textFill="#a954ff">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="219.0" layoutY="237.0" text="Credit units" textFill="#9233ff">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="225.0" layoutY="297.0" text="Pass units" textFill="#7b4fff">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="228.0" layoutY="353.0" text="Fail units" textFill="#3340ff">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="122.0" layoutY="406.0" text="Your Grade Point Average (GPA)" textFill="WHITE">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Button layoutX="499.0" layoutY="406.0" mnemonicParsing="false" onAction="#handleCalculateGPA" prefHeight="27.0" prefWidth="92.0" text="Calculate" />
+            <Button layoutX="645.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleReset" prefHeight="31.0" prefWidth="80.0" text="Reset" />
+            <Label fx:id="GPAField" layoutX="260.0" layoutY="438.0" text="0" textAlignment="CENTER" textFill="#4757ff">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="totalUnitsField" layoutX="515.0" layoutY="72.0" prefHeight="31.0" prefWidth="60.0" text="0" />
+            <TextField fx:id="highDistinctionUnitsField" layoutX="515.0" layoutY="126.0" prefHeight="30.0" prefWidth="60.0" text="0" />
+            <TextField fx:id="distinctionUnitsField" layoutX="515.0" layoutY="183.0" prefHeight="30.0" prefWidth="60.0" text="0" />
+            <TextField fx:id="creditUnitsField" layoutX="515.0" layoutY="239.0" prefHeight="30.0" prefWidth="60.0" text="0" />
+            <TextField fx:id="passUnitsField" layoutX="515.0" layoutY="294.0" prefHeight="30.0" prefWidth="60.0" text="0" />
+            <TextField fx:id="failUnitsField" layoutX="515.0" layoutY="351.0" prefHeight="30.0" prefWidth="60.0" text="0" />
          </children>
-      </VBox>
-      <Label layoutX="204.0" layoutY="21.0" text="Total number of units studied">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="257.0" layoutY="86.0" text="High Distinction units">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="292.0" layoutY="146.0" text="Distinction units">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="324.0" layoutY="207.0" text="Credit units">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="334.0" layoutY="268.0" text="Pass units">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="342.0" layoutY="326.0" text="Fail units">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="186.0" layoutY="416.0" text="Your Grade Point Average (GPA)">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <Button layoutX="269.0" layoutY="486.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="130.0" text="Calculate GPA" onAction="#handleCalculateGPA" />
-      <Button layoutX="441.0" layoutY="486.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="130.0" text="Reset" onAction="#handleReset"/>
-   </children>
-</AnchorPane>
+      </AnchorPane>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" spacing="20" style="-fx-background-color: #1f1f1f; -fx-padding: 10; -fx-pref-width: 100%;">
+         <Label style="-fx-text-fill: #888888; -fx-font-size: 14px;" text="© 2024 CaffinatedProgrammers" />
+         <Region fx:id="spacer" HBox.hgrow="ALWAYS" />
+         <Label style="-fx-text-fill: #4CAF50;" text="Privacy Policy" />
+         <Label style="-fx-text-fill: #4CAF50;" text="Terms of Service" />
+      </HBox>
+   </bottom>
+</BorderPane>

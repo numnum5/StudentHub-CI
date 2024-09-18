@@ -26,7 +26,7 @@ public class GPACalcController {
     private TextField failUnitsField;
 
     @FXML
-    private TextField GPAField;
+    private Label GPAField;
 
     @FXML
     private Button calculateButton;
