@@ -83,7 +83,7 @@ public class NavBarController {
 
     @FXML
     protected void onGpaButtonClick() throws IOException {
-        handleButtonClick(gpaButton, "gpa.fxml");
+        handleButtonClick(gpaButton, "GPA-Calculator.fxml");
     }
 
     @FXML
@@ -100,6 +100,8 @@ public class NavBarController {
     protected void onFinanceButtonClick() throws IOException {
         handleButtonClick(financeButton, "finance.fxml");
     }
+
+
 
 
     // Handle logging out
