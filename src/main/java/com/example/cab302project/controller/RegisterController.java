@@ -48,7 +48,10 @@ public class RegisterController {
         String lastName = lastNameField.getText();
         String userName = usernameField.getText();
         String password = passwordField.getText();
+
+
         User user = new User(firstName, lastName, userName, password);
+
         Connection.addUser(user);
 
         if(Connection.userUnique)

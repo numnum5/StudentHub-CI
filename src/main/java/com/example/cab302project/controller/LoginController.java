@@ -30,7 +30,6 @@ public class LoginController {
     @FXML
     private Button registerButton;
 
-
     @FXML
     private Text warningLabel;
 
@@ -65,9 +64,15 @@ public class LoginController {
                     FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("main-view.fxml"));
                     Scene newScene = new Scene(fxmlLoader.load(), 800, 600);
                     Stage currentStage = (Stage) submitButton.getScene().getWindow();
+                    MainController controller = fxmlLoader.getController();
+
+                    controller.setUsername(userName);
+                    controller.setNavBar();
+                    controller.loadPage("home.fxml");
 
                     currentStage.setScene(newScene);
                     currentStage.show();
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
