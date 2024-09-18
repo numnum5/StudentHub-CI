@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cab302project.controller.GoalListController" style="-fx-background-color: #2c2c2c;">
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cab302project.controller.GoalListController" style="-fx-background-color: #2c2c2c;" stylesheets="@css/goals.css">
     <top>
         <HBox alignment="center" spacing="10" style="-fx-padding: 10;">
             <!-- Search TextField -->
