@@ -14,9 +14,9 @@ public class MockAssignmentDAO {
     public void populateData(){
         Subject testSubject = new Subject(1, "CAB502", "Advanced Quantum Computing", "Idk");
         Subject testSubject2 = new Subject(1, "CAB503", "Advanced Operating Systems", "Idk");
-        Assignment assg1 = new Assignment("Assignment 1", "Develop AGI and solve Pnp problem", LoginController.currentUsername, testSubject, "24/11/2026");
-        Assignment assg2 = new Assignment("Assignment 2", "Create next generation super computer", LoginController.currentUsername, testSubject, "25/11/2026");
-        Assignment assg3 = new Assignment("Assignment 3", "Create next Windows 12", LoginController.currentUsername, testSubject2, "25/11/2026");
+        Assignment assg1 = new Assignment("Assignment 1", "Develop AGI and solve Pnp problem", LoginController.username, testSubject, "24/11/2026");
+        Assignment assg2 = new Assignment("Assignment 2", "Create next generation super computer", LoginController.username, testSubject, "25/11/2026");
+        Assignment assg3 = new Assignment("Assignment 3", "Create next Windows 12", LoginController.username, testSubject2, "25/11/2026");
         addAssignment(assg1);
         addAssignment(assg2);
         addAssignment(assg3);
