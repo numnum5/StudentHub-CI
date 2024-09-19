@@ -47,7 +47,7 @@ public class GPACalcController {
             // Check if the total units match the sum of the individual units
             int sumOfUnits = hdUnits + distUnits + creditUnits + passUnits + failUnits;
             if (sumOfUnits != totalUnits) {
-                GPAField.setText("Error: Total units must match the sum of the individual units.");
+                GPAField.setText("Error");
                 return; // Exit the method early if there's an error
             }
 
