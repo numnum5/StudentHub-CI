@@ -56,6 +56,8 @@ public class GPACalcController {
         }
     }
 
+    // Add calculation error checking
+
     // Method to calculate GPA (example formula)
     private double calculateGPA(int totalUnits, int hdUnits, int distUnits, int creditUnits, int passUnits, int failUnits) {
         // Implement your specific GPA calculation formula here
