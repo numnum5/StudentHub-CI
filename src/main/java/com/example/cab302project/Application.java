@@ -17,7 +17,6 @@ public class Application extends javafx.application.Application {
         stage.setTitle("StudentHub");
         stage.setScene(scene);
         stage.show();
-
     }
 
 

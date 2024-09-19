@@ -41,15 +41,14 @@ public class FinanceController {
 
     // Calculate button controller and it calculates the budget of daily spending
     @FXML
-    private void calculateButtonPressed()
-    {
+    private void calculateButtonPressed() {
+
         HashMap <String, Float> textFieldMap = sendInfo();
 
         float budget = mockFinanceDAO.getBudget();
         float sum = 0;
 
-        for (Map.Entry<String, Float> entry : textFieldMap.entrySet())
-        {
+        for (Map.Entry<String, Float> entry : textFieldMap.entrySet()) {
             if (!entry.getKey().equals("budget"))
                 sum += entry.getValue();
         }
@@ -71,8 +70,8 @@ public class FinanceController {
     }       
 
     // Function to send and return data
-    private HashMap<String, Float> sendInfo()
-    {
+    private HashMap<String, Float> sendInfo() {
+
         HashMap<String, Float> textFieldMap = new HashMap<>();
         try
         {
@@ -100,8 +99,8 @@ public class FinanceController {
     }
 
     // Acts as exception handling to manage non float texts
-    private float floatHandler(String textValue)
-    {
+    private float floatHandler(String textValue) {
+
         try
         {
             return Float.parseFloat(textValue);
