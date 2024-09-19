@@ -7,34 +7,30 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.cab302project.controller.CreateAssignmentController"
+            fx:controller="com.example.cab302project.controller.AddSubjectController"
             stylesheets="@css/create-assignment.css"
             style="-fx-background-color: #2c2c2c; -fx-padding: 10; -fx-spacing: 5;">
     <top>
         <HBox alignment="CENTER">
-            <Label text="Create a new assignment"/>
+            <Label text="Add New Subject"/>
         </HBox>
     </top>
     <center>
         <ScrollPane fitToWidth="true">
-            <VBox
+            <VBox styleClass="vbox">
+                <Label text="Unit Code:" styleClass="label"/>
+                <TextField fx:id="unitCode" styleClass="text-field"/>
 
-                    styleClass="vbox">
                 <Label text="Name:" styleClass="label"/>
                 <TextField fx:id="nameField" styleClass="text-field"/>
 
                 <Label text="Description:" styleClass="label"/>
                 <TextArea fx:id="descriptionArea" styleClass="text-area"/>
 
-                <Label text="Subject:" styleClass="label"/>
-                <ComboBox fx:id="subjectComboBox" styleClass="combo-box"/>
-                <Button text="Create New Subject" styleClass="button"/>
+                <Label text="Semester:" styleClass="label"/>
+                <ComboBox fx:id="semesterComboBox" styleClass="combo-box"/>
 
-                <Label text="Due Date:" styleClass="label"/>
-                <DatePicker fx:id="dueDatePicker"/>
-
-
-                <Button text="Submit" styleClass="button"/>
+                <Button text="Add" styleClass="button"/>
             </VBox>
         </ScrollPane>
     </center>

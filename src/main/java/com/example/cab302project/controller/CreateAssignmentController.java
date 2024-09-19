@@ -1,9 +1,6 @@
 package com.example.cab302project.controller;
 
-import com.example.cab302project.model.Assignment;
-import com.example.cab302project.model.AssignmentStatus;
-import com.example.cab302project.model.MockSubjectDAO;
-import com.example.cab302project.model.Subject;
+import com.example.cab302project.model.*;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +19,7 @@ import java.util.List;
 
 public class CreateAssignmentController {
 
-    private MockSubjectDAO subjectDAO;
+    private SubjectManager subjectDAO;
 
     private ProjectListController parentController;
     @FXML
@@ -48,17 +45,14 @@ public class CreateAssignmentController {
     }
 
     public CreateAssignmentController(){
-        this.subjectDAO = new MockSubjectDAO();
+        this.subjectDAO = new SubjectManager(new SqliteSubjectDAO());
     }
+
     private void loadSubjects() {
-        List<Subject> subjects = new ArrayList<>();
-        Subject mock1 = new Subject(1, "CAB502", "Advanced Quantum Computing", "Idk");
-        Subject mock2 = new Subject(1, "CAB503", "Advanced Discrete Mathematics", "Idk");
-        subjects.add(mock1);
-        subjects.add(mock2);
-        List<String> subjectNames = new ArrayList<>();
-        subjectNames.add(mock1.getName());
-        subjectNames.add(mock2.getName());
+        List<Subject> subjects = subjectDAO.getAllSubjects(); // Get subjects from the DAO
+        List<String> subjectNames = subjects.stream()
+                .map(Subject::getName) // Extract subject names
+                .toList(); // Collect names into a list
         subjectComboBox.setItems(FXCollections.observableArrayList(subjectNames));
     }
 
@@ -72,38 +66,47 @@ public class CreateAssignmentController {
         statusComboBox.setItems(FXCollections.observableArrayList(subjectNames));
     }
 
-
     // Method to set the parent controller
     public void setParentController(ProjectListController parentController) {
         this.parentController = parentController;
     }
 
-
-
-
     @FXML
     private void onSubmit() {
-
-        try{
-            // Collect all the input values
+        try {
             String assignmentName = nameField.getText();
             String assignmentDescription = descriptionArea.getText();
-//        Subject selectedSubject = subjectComboBox.getValue();
-            Subject testSubject = new Subject(1, "CAB502", "Advanced Quantum Computing", "Idk");
             String dueDate = dueDatePicker.getValue().toString();
+            String subjectName = subjectComboBox.getValue();
+            String status = statusComboBox.getValue();
 
-            if(assignmentName.isEmpty() || assignmentDescription.isEmpty() || dueDate.isEmpty()){
+            if (assignmentName.isEmpty() || assignmentDescription.isEmpty() || dueDate.isEmpty() || subjectName == null || status == null) {
                 throw new Exception("Please fill all the input fields");
             }
 
-//        LocalDate a = dueDatePicker.getValue();
+            Subject selectedSubject = subjectDAO.getAllSubjects().stream()
+                    .filter(subject -> subject.getName().equals(subjectName))
+                    .findFirst()
+                    .orElse(null);
 
-            Assignment newAssignment = new Assignment(assignmentName, assignmentDescription, LoginController.username,testSubject, dueDate);
-            newAssignment.setStatus(AssignmentStatus.URGENT);
+            System.out.println(selectedSubject.toString());
+            if (selectedSubject == null) {
+                throw new Exception("Selected subject not found");
+            }
+
+            Assignment newAssignment = new Assignment(assignmentName, assignmentDescription, LoginController.username, selectedSubject, dueDate);
+
+            // Set the status based on the selection
+            newAssignment.setStatus(AssignmentStatus.valueOf(status.toUpperCase().replace(" ", "_")));
+
             parentController.addNewAssignment(newAssignment);
-        }catch(Exception error){
 
+            // Close the current window
+            Stage stage = (Stage) nameField.getScene().getWindow();
+            stage.close();
+        } catch (Exception error) {
+            // Optionally show an error message to the user
+            error.printStackTrace(); // For debugging
         }
-
     }
 }

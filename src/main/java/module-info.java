@@ -6,7 +6,6 @@ module com.example.cab302project {
     requires java.sql;
     requires java.desktop;
     requires org.xerial.sqlitejdbc;
-    requires org.junit.jupiter.api;
 
     opens com.example.cab302project to javafx.fxml;
     exports com.example.cab302project;

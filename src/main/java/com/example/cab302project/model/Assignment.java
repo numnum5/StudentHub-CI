@@ -2,8 +2,9 @@ package com.example.cab302project.model;
 
 import java.time.LocalDate;
 
-
-
+/**
+ * Class for modeling an assignment item with necessary fields.
+ */
 public class Assignment {
     private int id;
     private String name;
@@ -13,9 +14,6 @@ public class Assignment {
     private Subject subject;
     private String dueDate;
     private AssignmentStatus status;
-
-
-
 
     // Constructor
     public Assignment(String name, String description, String username, Subject subject, String dueDate) {
@@ -27,6 +25,7 @@ public class Assignment {
     }
 
 
+    // Setters and getters for different fields
     // Getter for status
     public AssignmentStatus getStatus() {
         return this.status;
@@ -65,7 +64,6 @@ public class Assignment {
     public float getGrade() {
         return grade;
     }
-
 
     public void setGrade(float grade) {
         this.grade = grade;
