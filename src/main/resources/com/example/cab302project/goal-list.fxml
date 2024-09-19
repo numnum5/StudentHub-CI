@@ -15,6 +15,10 @@
             <Button fx:id="addGoals" onAction="#onAddGoalsButtonClick" text="Add New Goals" style="-fx-text-fill: black;" />
         </HBox>
     </top>
+    <center>
+        <!-- Container to display goal items -->
+        <VBox fx:id="goalContainer" spacing="10" style="-fx-padding: 10;"></VBox>
+    </center>
     <bottom>
         <HBox alignment="CENTER" spacing="20" style="-fx-background-color: #1f1f1f; -fx-padding: 10; -fx-pref-width: 100%;">
             <Label text="© 2024 CaffeinatedProgrammers"

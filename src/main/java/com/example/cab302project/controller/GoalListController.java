@@ -25,6 +25,8 @@ public class GoalListController implements IController
         stage.setScene(scene);
     }
 
+    
+
     @FXML
     private void onAddGoalsButtonClick() throws IOException {
         mainController.loadPage("goals.fxml");
