@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a870cc7c-1721-49a2-9ce7-6ee918315918" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/GPACalcController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/GPACalcController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/GPA-Calculator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/GPA-Calculator.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/finance.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/finance.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/journal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/journal.fxml" afterDir="false" />
