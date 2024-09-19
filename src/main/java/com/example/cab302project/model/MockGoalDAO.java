@@ -2,7 +2,10 @@ package com.example.cab302project.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MockGoalDAO {
     private Connection connection;
@@ -37,5 +40,22 @@ public class MockGoalDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public List<String[]> getAllGoals() {
+        List<String[]> goals = new ArrayList<>();
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT goalTitle, goalDetails FROM goals");
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                String title = rs.getString("goalTitle");
+                String details = rs.getString("goalDetails");
+                goals.add(new String[]{title, details}); // Add the goal as an array
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return goals;
     }
 }
