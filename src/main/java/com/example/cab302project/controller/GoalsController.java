@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class GoalsController implements IController
@@ -51,7 +50,7 @@ public class GoalsController implements IController
     }
 
     @FXML
-    private void onSaveButtonClick() throws IOException {
+    private void onSubmitButtonClick() throws IOException {
         // Get the values from the input fields
         String title = goalTitle.getText();
         String details = goalDetails.getText();
