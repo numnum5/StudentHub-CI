@@ -44,6 +44,13 @@ public class GPACalcController {
             int passUnits = Integer.parseInt(passUnitsField.getText());
             int failUnits = Integer.parseInt(failUnitsField.getText());
 
+            // Check if the total units match the sum of the individual units
+            int sumOfUnits = hdUnits + distUnits + creditUnits + passUnits + failUnits;
+            if (sumOfUnits != totalUnits) {
+                GPAField.setText("Error");
+                return; // Exit the method early if there's an error
+            }
+
             // Calculate GPA (implement your GPA formula here)
             double gpa = calculateGPA(totalUnits, hdUnits, distUnits, creditUnits, passUnits, failUnits);
 
@@ -55,6 +62,8 @@ public class GPACalcController {
             GPAField.setText("Invalid input. Please enter numeric values.");
         }
     }
+
+    // Add calculation error checking
 
     // Method to calculate GPA (example formula)
     private double calculateGPA(int totalUnits, int hdUnits, int distUnits, int creditUnits, int passUnits, int failUnits) {
