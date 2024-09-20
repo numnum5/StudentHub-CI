@@ -1,5 +1,7 @@
 package com.example.cab302project.controller;
 
+import com.example.cab302project.model.GPA;
+import com.example.cab302project.model.SqliteGPADAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
@@ -34,6 +36,12 @@ public class GPACalcController {
     @FXML
     private Button resetButton;
 
+    private SqliteGPADAO gpaDao;
+
+    public GPACalcController() {
+        gpaDao = new SqliteGPADAO();  // Initialize GPADao
+    }
+
     @FXML
     private void handleCalculateGPA() {
         try {
@@ -56,6 +64,8 @@ public class GPACalcController {
 
             // Display the calculated GPA
             GPAField.setText(String.format("%.2f", gpa));
+            GPA newGPA = new GPA(LoginController.username, gpa);
+            gpaDao.saveGPA(newGPA);
 
         } catch (NumberFormatException e) {
             // Handle invalid input, e.g. show an error or reset fields
@@ -81,6 +91,16 @@ public class GPACalcController {
         passUnitsField.setText("0");
         failUnitsField.setText("0");
         GPAField.setText("");
+    }
+
+    @FXML
+    private void loadGPA() {
+        double gpa = gpaDao.getGPA(LoginController.username);
+        if (gpa != -1) {
+            GPAField.setText(String.format("%.2f", gpa));
+        } else {
+            GPAField.setText("No GPA saved.");
+        }
     }
 
 }
