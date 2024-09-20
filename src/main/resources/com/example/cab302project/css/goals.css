@@ -11,3 +11,121 @@
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
 }
+
+
+
+/* Card styling */
+.card {
+    -fx-background-color: #3c3c3c;
+    -fx-padding: 15;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: #505050;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0.2, 2, 2);
+    -fx-margin: 10;
+    -fx-pref-width: 100%;
+    -fx-alignment: center-left;
+}
+
+/* styles.css */
+.search-field {
+    -fx-pref-width: 300px;
+    -fx-padding: 5px;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 10px;
+    -fx-background-color: #2c2c2c;
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #white;
+}
+
+.search-field:focused {
+    -fx-border-color: white;
+}
+/* Title, subtitle, assignment, and due date styles */
+.card-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+.card-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: lightgray;
+    -fx-font-style: italic;
+}
+.card-assignment {
+    -fx-font-size: 14px;
+    -fx-text-fill: #76ff03;
+    -fx-font-weight: bold;
+}
+.card-due-date {
+    -fx-font-size: 14px;
+    -fx-text-fill: #ffeb3b;  /* Yellow color for due date */
+    -fx-font-weight: bold;
+}
+.card-task-list {
+    -fx-padding: 5px;
+}
+
+.card-task-item {
+    -fx-padding: 2px;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333; /* Adjust color as needed */
+}
+
+/* Task list styling */
+.card-task-header {
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.card-task-list {
+    -fx-background-color: #3c3c3c;
+    -fx-border-color: #3c3c3c;
+    -fx-padding: 10;
+    -fx-control-inner-background: #505050;
+    -fx-text-fill: white;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-max-height: 150px;  /* Limit the height of the task list */
+}
+
+/* Status label (badge) styling */
+.card-status {
+    -fx-background-color: #ff5252;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 5px 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0.2, 1, 1);
+    -fx-margin: 10px;
+}
+
+/* Edit Button styling */
+.edit-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0.2, 1, 1);
+    -fx-margin-top: 10px;
+}
+
+.project-button {
+    -fx-text-fill: black;
+    -fx-background-color: lightgray;
+    -fx-font-size: 14px;
+    -fx-padding: 5 15;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 5px;
+}
+/* Hover effect for buttons */
+.project-button:hover {
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}

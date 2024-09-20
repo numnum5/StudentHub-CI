@@ -71,8 +71,9 @@ public class AssignmentManagerTest {
 
     @Test
     public void testSearchAssignments() {
-        Assignment assignment1 = new Assignment("AT1", "Description 1", "john_doe", null, "30/6/2025");
-        Assignment assignment2 = new Assignment("Project 1", "Description 2", "john_doe", null, "30/6/2025");
+        Subject subject = new Subject(1, "CS101", "Computer Science", "Introduction to Computer Science");
+        Assignment assignment1 = new Assignment("AT1", "Description 1", "john_doe", subject, "30/6/2025");
+        Assignment assignment2 = new Assignment("Project 1", "Description 2", "john_doe", subject, "30/6/2025");
         assignmentManager.addAssignment(assignment1);
         assignmentManager.addAssignment(assignment2);
         List<Assignment> searchResults = assignmentManager.searchAssignments("AT1");

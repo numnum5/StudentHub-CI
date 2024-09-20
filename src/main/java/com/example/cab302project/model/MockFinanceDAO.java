@@ -15,6 +15,5 @@ public class MockFinanceDAO {
         mockData.add(userData); // Stores the HashMap to the ArrayList
 
     }
-
     public float getBudget() {return budget;}
 }
