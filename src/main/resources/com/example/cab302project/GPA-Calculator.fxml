@@ -64,7 +64,15 @@
                </font>
             </Label>
             <Button layoutX="499.0" layoutY="406.0" mnemonicParsing="false" onAction="#handleCalculateGPA" prefHeight="27.0" prefWidth="92.0" text="Calculate" />
+            <Button layoutX="499.0" layoutY="446.0" mnemonicParsing="false" onAction="#handleSaveGPA" prefHeight="27.0" prefWidth="92.0" text="Save" />
+
             <Button layoutX="645.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleReset" prefHeight="31.0" prefWidth="80.0" text="Reset" />
+            <Button layoutX="625.0" layoutY="260.0" mnemonicParsing="false" onAction="#handleViewGPA" prefHeight="31.0" prefWidth="120" text="View Current GPA" />
+            <Label fx:id="currentGPA" layoutX="625.0" layoutY="296" text="GPA: " textFill="#9233ff">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
             <Label fx:id="GPAField" layoutX="260.0" layoutY="438.0" text="0" textAlignment="CENTER" textFill="#4757ff">
                <font>
                   <Font size="24.0" />
@@ -81,7 +89,7 @@
    </center>
    <bottom>
       <HBox alignment="CENTER" spacing="20" style="-fx-background-color: #1f1f1f; -fx-padding: 10; -fx-pref-width: 100%;">
-         <Label style="-fx-text-fill: #888888; -fx-font-size: 14px;" text="© 2024 CaffeinatedProgrammers" />
+         <Label style="-fx-text-fill: #888888; -fx-font-size: 14px;" text="Â© 2024 CaffeinatedProgrammers" />
          <Region fx:id="spacer" HBox.hgrow="ALWAYS" />
          <Label style="-fx-text-fill: #4CAF50;" text="Privacy Policy" />
          <Label style="-fx-text-fill: #4CAF50;" text="Terms of Service" />
