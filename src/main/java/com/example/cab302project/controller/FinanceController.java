@@ -1,6 +1,7 @@
 package com.example.cab302project.controller;
 
 import com.example.cab302project.model.MockFinanceDAO;
+import com.example.cab302project.model.SqliteFinanceDAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -42,7 +43,6 @@ public class FinanceController {
     // Calculate button controller and it calculates the budget of daily spending
     @FXML
     private void calculateButtonPressed() {
-
         HashMap <String, Float> textFieldMap = sendInfo();
 
         float budget = mockFinanceDAO.getBudget();
@@ -73,18 +73,18 @@ public class FinanceController {
     private HashMap<String, Float> sendInfo() {
         HashMap<String, Float> textFieldMap = new HashMap<>();
         try {
-            float budget = floatHandler(budgetField.getText());
+            float budget = floatHandler(budgetField.getText(), budgetField);
             if (budget < 0) {
                 return textFieldMap;
             }
 
-            textFieldMap.put("amountSpentMon", floatHandler(mondayText.getText()));
-            textFieldMap.put("amountSpentTue", floatHandler(tuesdayText.getText()));
-            textFieldMap.put("amountSpentWed", floatHandler(wednesdayText.getText()));
-            textFieldMap.put("amountSpentThu", floatHandler(thursdayText.getText()));
-            textFieldMap.put("amountSpentFri", floatHandler(fridayText.getText()));
-            textFieldMap.put("amountSpentSat", floatHandler(saturdayText.getText()));
-            textFieldMap.put("amountSpentSun", floatHandler(sundayText.getText()));
+            textFieldMap.put("amountSpentMon", floatHandler(mondayText.getText(), mondayText));
+            textFieldMap.put("amountSpentTue", floatHandler(tuesdayText.getText(), tuesdayText));
+            textFieldMap.put("amountSpentWed", floatHandler(wednesdayText.getText(), wednesdayText));
+            textFieldMap.put("amountSpentThu", floatHandler(thursdayText.getText(), thursdayText));
+            textFieldMap.put("amountSpentFri", floatHandler(fridayText.getText(), fridayText));
+            textFieldMap.put("amountSpentSat", floatHandler(saturdayText.getText(), saturdayText));
+            textFieldMap.put("amountSpentSun", floatHandler(sundayText.getText(), sundayText));
 
             mockFinanceDAO = new MockFinanceDAO(budget, textFieldMap);
             return textFieldMap;
@@ -95,11 +95,13 @@ public class FinanceController {
     }
 
     // Acts as exception handling to manage non float texts
-    private float floatHandler(String textValue) {
+    private float floatHandler(String textValue, TextField c) {
         try {
             return Float.parseFloat(textValue);
         }
         catch (NumberFormatException e) {
+            c.setText("0");
+            // FIX
             return 0;
         }
     }
