@@ -2,7 +2,6 @@ package com.example.cab302project.model;
 
 import java.util.List;
 
-
 // Class for managing subject data access object.
 public class SubjectManager {
     private ISubjectDAO subjectDAO;

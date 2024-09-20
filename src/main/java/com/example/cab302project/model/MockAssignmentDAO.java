@@ -7,8 +7,7 @@ import java.util.List;
 
 /**
  * MockAssignmentDAO simulates a data access object for managing Assignment entities.
- * It provides methods for adding, updating, deleting, and searching assignments
- * in a mock data structure (ArrayList).
+ * Provides methods for adding, updating, deleting, and searching assignments
  */
 public class MockAssignmentDAO implements IAssignmentDAO{
 
@@ -30,7 +29,7 @@ public class MockAssignmentDAO implements IAssignmentDAO{
         for (Assignment assignment : getAllAssignments(LoginController.username)) {
             System.out.println(assignment.toString());
             if (assignment.getName().toLowerCase().contains(keyword.toLowerCase())) {
-                matchingAssignments.add(assignment); // Add matching assignment to the list
+                matchingAssignments.add(assignment);
             }
         }
         return matchingAssignments;

@@ -1,5 +1,6 @@
 package com.example.cab302project.controller;
 
+import com.example.cab302project.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,7 +29,7 @@ public class MainController {
     public void setNavBar() {
         try {
             // Load the navigation bar FXML file
-            FXMLLoader navBarLoader = new FXMLLoader(getClass().getResource("/com/example/cab302project/nav-bar.fxml"));
+            FXMLLoader navBarLoader = new FXMLLoader(Application.class.getResource("nav-bar.fxml"));
             Parent navBar = navBarLoader.load();
             NavBarController controller = navBarLoader.getController(); // Get the controller for the nav bar
             controller.setUsername(this.username); // Set the username in the nav bar controller
@@ -43,7 +44,7 @@ public class MainController {
     public void loadPage(String fxmlFile) {
         try {
             // Load the specified FXML file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/cab302project/" + fxmlFile));
+            FXMLLoader loader = new FXMLLoader(Application.class.getResource(fxmlFile));
             Parent page = loader.load(); // Load the page
 
             // Check if the controller implements IController

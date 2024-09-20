@@ -13,18 +13,18 @@
 
 /* styles.css */
 .search-field {
-    -fx-pref-width: 300px;  /* Set the preferred width */
-    -fx-padding: 5px;  /* Add padding inside the TextField */
-    -fx-border-color: #cccccc;  /* Light grey border */
-    -fx-border-radius: 10px;  /* Rounded corners */
-    -fx-background-color: #2c2c2c;  /* Light grey background */
-    -fx-font-size: 14px;  /* Adjust font size */
-    -fx-text-fill: white;  /* Text color */
-    -fx-prompt-text-fill: #white;  /* Color of the prompt text */
+    -fx-pref-width: 300px;
+    -fx-padding: 5px;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 10px;
+    -fx-background-color: #2c2c2c;
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #white;
 }
 
 .search-field:focused {
-    -fx-border-color: white;  /* Blue border when focused */
+    -fx-border-color: white;
 }
 /* Title, subtitle, assignment, and due date styles */
 .card-title {
@@ -76,27 +76,27 @@
 
 /* Status label (badge) styling */
 .card-status {
-    -fx-background-color: #ff5252;   /* Red background for urgent status */
-    -fx-text-fill: white;            /* White text */
-    -fx-font-size: 12px;             /* Smaller font for badge */
-    -fx-font-weight: bold;           /* Bold text for badge */
-    -fx-padding: 5px 10px;           /* Padding around the status */
-    -fx-background-radius: 10px;     /* Rounded corners for badge */
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0.2, 1, 1); /* Slight shadow */
-    -fx-margin: 10px;                /* Added margin */
+    -fx-background-color: #ff5252;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 5px 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0.2, 1, 1);
+    -fx-margin: 10px;
 }
 
 /* Edit Button styling */
 .edit-button {
-    -fx-background-color: #4CAF50;   /* Green background for the button */
-    -fx-text-fill: white;            /* White text */
-    -fx-font-weight: bold;           /* Bold text for the button */
-    -fx-padding: 10px 20px;          /* Padding inside the button */
-    -fx-background-radius: 8px;      /* Rounded corners */
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 8px;
     -fx-border-radius: 8px;
-    -fx-alignment: center;           /* Center the button */
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0.2, 1, 1); /* Slight shadow */
-    -fx-margin-top: 10px;            /* Margin at the top of the button */
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0.2, 1, 1);
+    -fx-margin-top: 10px;
 }
 
 .project-button {

@@ -10,10 +10,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 // Controller for the navigation bar of the application.
-// This class handles the navigation between different pages and manages user actions on the navigation buttons.
-public class NavBarController {
+// handles the navigation between different pages and manages user actions on the navigation buttons.
+public class NavBarController implements IController{
 
-    // FXML components for the navigation buttons
     @FXML
     private ToggleButton homeButton;
 
@@ -59,6 +58,7 @@ public class NavBarController {
     private MainController mainController; // Reference to the main controller
 
     // Setter for the main controller
+    @Override
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
@@ -120,7 +120,8 @@ public class NavBarController {
 
     // Handles button click events and switches scenes accordingly
     private void handleButtonClick(ToggleButton activeButton, String fxmlFile) throws IOException {
-        resetButtons(); // Unselect all buttons
+        // Unselect all buttons
+        resetButtons();
         activeButton.setSelected(true); // Select the active button
         mainController.loadPage(fxmlFile); // Load the corresponding page
     }

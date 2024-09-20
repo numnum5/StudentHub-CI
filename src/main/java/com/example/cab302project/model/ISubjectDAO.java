@@ -3,8 +3,8 @@ package com.example.cab302project.model;
 import java.util.List;
 
 /**
- * ISubjectDAO defines the methods for managing subjects in MockSubjectDAO.
- * This interface provides a contract for adding, updating, deleting, and retrieving subjects.
+ * ISubjectDAO defines the methods for managing subjects for subject DAO.
+ * Provides a contract for adding, updating, deleting, and retrieving subjects.
  */
 public interface ISubjectDAO {
 
@@ -44,5 +44,10 @@ public interface ISubjectDAO {
      */
     List<Subject> getAllSubjects();
 
+    /**
+     * Searches subjects with the given query.
+     * @param query The search query in string.
+     * @return A list of subjects that contain the query keyword.
+     */
     List<Subject> searchSubjects(String query);
 }

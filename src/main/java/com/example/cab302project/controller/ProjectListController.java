@@ -11,7 +11,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
-// Controller for handling project list page
+// Controller for handling project list page,
+// Handles displaying assignment items, creating new assignment and adding new subjects
 public class ProjectListController {
 
     private SubjectManager subjectDAO;

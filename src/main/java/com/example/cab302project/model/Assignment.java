@@ -2,9 +2,7 @@ package com.example.cab302project.model;
 
 import java.time.LocalDate;
 
-/**
- * Class for modeling an assignment item with necessary fields.
- */
+// Class for modeling an assignment item with necessary fields.
 public class Assignment {
     private int id;
     private String name;
@@ -92,7 +90,6 @@ public class Assignment {
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
-
 
     @Override
     public String toString() {

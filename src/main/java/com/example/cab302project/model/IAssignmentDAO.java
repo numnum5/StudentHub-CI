@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * IAssignmentDAO for managing assignments in a data access object (DAO) or MockAssignmentDAO.
- * The interface provides a contract for adding, updating, deleting, and retrieving assignments.
+ * Provides a contract for adding, updating, deleting, and retrieving assignments.
  */
 public interface IAssignmentDAO {
 

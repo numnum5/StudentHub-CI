@@ -1,11 +1,11 @@
-import com.example.cab302project.model.Assignment;
 import com.example.cab302project.model.Subject;
-import com.example.cab302project.model.AssignmentStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+// Class for testing Subject class
 public class SubjectTest {
 
     private Subject subject;

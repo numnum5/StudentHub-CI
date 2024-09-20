@@ -17,7 +17,6 @@ public class User {
         this.username = username;
     }
 
-
     // Getters and setters for private fields
     public String getUsername(){
         return username;

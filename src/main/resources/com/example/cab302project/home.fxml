@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <BorderPane xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: #2c2c2c;">
 
-    <!-- Center: HBox with text on the left and image on the right -->
     <center>
         <HBox spacing="20" alignment="CENTER" style="-fx-padding: 20;">
-
-            <!-- Text content on the left -->
             <VBox alignment="CENTER_LEFT" spacing="15" style="-fx-padding: 10;">
                 <Label text="Welcome to StudentHub!"
                        style="-fx-font-size: 24px; -fx-text-fill: #FFFFFF; -fx-font-weight: bold;" />
@@ -22,15 +16,12 @@
                        style="-fx-font-size: 16px; -fx-text-fill: #AAAAAA;" wrapText="true" maxWidth="300"/>
 
             </VBox>
-
-            <!-- Image on the right -->
             <ImageView fx:id="studentImage" fitWidth="250" fitHeight="250" preserveRatio="true">
                 <Image url="@images/homepage.jpg" />
             </ImageView>
         </HBox>
     </center>
 
-    <!-- Footer -->
     <bottom>
         <HBox alignment="CENTER" spacing="20" style="-fx-background-color: #1f1f1f; -fx-padding: 10; -fx-pref-width: 100%;">
             <Label text="© 2024 CaffeinatedProgrammers"

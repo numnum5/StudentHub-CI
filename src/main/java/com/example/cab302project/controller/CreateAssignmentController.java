@@ -1,16 +1,25 @@
 package com.example.cab302project.controller;
 
+import com.example.cab302project.Application;
 import com.example.cab302project.model.*;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
+// Controller for managing creating a new Assignment, handles CRUD actions for assignments table
 public class CreateAssignmentController {
 
     private SubjectManager subjectDAO;
@@ -38,7 +47,7 @@ public class CreateAssignmentController {
         loadAssignmentStatuses();
     }
 
-
+    // Constructor for initialising a SubjectManger
     public CreateAssignmentController(){
         this.subjectDAO = new SubjectManager(new SqliteSubjectDAO());
     }
@@ -53,6 +62,7 @@ public class CreateAssignmentController {
         subjectComboBox.setItems(FXCollections.observableArrayList(subjectNames));
     }
 
+    // Loads assignment statues to the combobox
     private void loadAssignmentStatuses() {
 
         List<String> subjectNames = new ArrayList<>();
@@ -68,6 +78,7 @@ public class CreateAssignmentController {
         this.parentController = parentController;
     }
 
+    // Method for handling information when user submits
     @FXML
     private void onSubmit() {
         try {
@@ -76,6 +87,7 @@ public class CreateAssignmentController {
             String dueDate = dueDatePicker.getValue().toString();
             String subjectName = subjectComboBox.getValue();
             String status = statusComboBox.getValue();
+
             if (assignmentName.isEmpty() || assignmentDescription.isEmpty() || dueDate.isEmpty() || subjectName == null || status == null) {
                 throw new Exception("Please fill all the input fields");
             }
@@ -100,7 +112,26 @@ public class CreateAssignmentController {
             Stage stage = (Stage) nameField.getScene().getWindow();
             stage.close();
         } catch (Exception error) {
-            error.printStackTrace(); // For debugging
+            error.printStackTrace();
+            showErrorPopup(error.getMessage());
+        }
+    }
+
+    private void showErrorPopup(String message) {
+        try {
+            FXMLLoader loader = new FXMLLoader(Application.class.getResource("error.fxml"));
+            Parent root = loader.load();
+            ErrorController controller = loader.getController();
+            controller.setErrorMessage(message);
+
+            Stage stage = new Stage();
+            // Set modality to application modal to block any inputs
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Error");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

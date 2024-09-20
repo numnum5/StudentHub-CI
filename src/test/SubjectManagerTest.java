@@ -3,8 +3,13 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 
+
+// Class for testing subject manager
 public class SubjectManagerTest {
+
     private SubjectManager subjectManager;
+
+    // Initialise with mock data
     private Subject[] subjects = {
             new Subject(1, "CS101", "Computer Science", "Introduction to Computer Science"),
             new Subject(1, "CS102", "Mathematics", "Introduction to Mathematics"),
@@ -13,6 +18,7 @@ public class SubjectManagerTest {
             new Subject(1, "CS301", "Operating Systems", "Introduction to Operating Systems")
     };
 
+    // Initialise a SubjectManager object
     @BeforeEach
     public void setUp() {
         subjectManager = new SubjectManager(new MockSubjectDAO());

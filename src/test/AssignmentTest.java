@@ -6,10 +6,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+// Class for testing Assignment object
 public class AssignmentTest {
     private Assignment assignment;
     private Subject subject;
 
+    // Initialise a Subject object and Assignment object for subsequent testing
     @BeforeEach
     public void setUp() {
         subject = new Subject(1, "CAB501", "Intro to Programming", "Learn basic programming concepts");

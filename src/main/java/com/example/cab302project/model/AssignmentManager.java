@@ -4,7 +4,6 @@ import java.util.List;
 
 /**
  * AssignmentManager for managing functionalities in IAssignmentDAO
- * utilizing the MockAssignmentDAO for data access.
  */
 public class AssignmentManager {
     private final IAssignmentDAO assignmentDAO;

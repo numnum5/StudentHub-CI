@@ -9,9 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Class for testing AssignmentMananger with assignment data access object.
- */
+// Class for testing AssignmentMananger with assignment data access object.
 public class AssignmentManagerTest {
     private AssignmentManager assignmentManager;
     private MockAssignmentDAO mockAssignmentDAO;
