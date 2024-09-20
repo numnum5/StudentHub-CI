@@ -3,17 +3,11 @@ package com.example.cab302project.controller;
 import com.example.cab302project.model.*;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,15 +38,18 @@ public class CreateAssignmentController {
         loadAssignmentStatuses();
     }
 
+
     public CreateAssignmentController(){
         this.subjectDAO = new SubjectManager(new SqliteSubjectDAO());
     }
 
+
+    // Method for loading a list of subjects
     private void loadSubjects() {
-        List<Subject> subjects = subjectDAO.getAllSubjects(); // Get subjects from the DAO
+        List<Subject> subjects = subjectDAO.getAllSubjects();
         List<String> subjectNames = subjects.stream()
-                .map(Subject::getName) // Extract subject names
-                .toList(); // Collect names into a list
+                .map(Subject::getName)
+                .toList();
         subjectComboBox.setItems(FXCollections.observableArrayList(subjectNames));
     }
 
@@ -79,11 +76,9 @@ public class CreateAssignmentController {
             String dueDate = dueDatePicker.getValue().toString();
             String subjectName = subjectComboBox.getValue();
             String status = statusComboBox.getValue();
-
             if (assignmentName.isEmpty() || assignmentDescription.isEmpty() || dueDate.isEmpty() || subjectName == null || status == null) {
                 throw new Exception("Please fill all the input fields");
             }
-
             Subject selectedSubject = subjectDAO.getAllSubjects().stream()
                     .filter(subject -> subject.getName().equals(subjectName))
                     .findFirst()
@@ -105,7 +100,6 @@ public class CreateAssignmentController {
             Stage stage = (Stage) nameField.getScene().getWindow();
             stage.close();
         } catch (Exception error) {
-            // Optionally show an error message to the user
             error.printStackTrace(); // For debugging
         }
     }

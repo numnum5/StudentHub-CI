@@ -4,14 +4,13 @@ import com.example.cab302project.model.*;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.util.ArrayList;
 import java.util.List;
 
+// Controller for handling adding a new subject to the database and UI for add subject fxml page
 public class AddSubjectController {
 
     private SubjectManager manager;
@@ -28,7 +27,6 @@ public class AddSubjectController {
     @FXML
     private ComboBox<String> semesterComboBox;
 
-
     @FXML
     private void initialize() {
         loadSemesters();
@@ -37,7 +35,6 @@ public class AddSubjectController {
     public AddSubjectController(){
         this.manager = new SubjectManager(new SqliteSubjectDAO());
     }
-
 
     private void loadSemesters() {
 
@@ -56,8 +53,6 @@ public class AddSubjectController {
             String subjectDescription = descriptionArea.getText();
             String semester = semesterComboBox.getValue();
             String unitCodeString = unitCode.getText();
-
-
             if (subjectName.isEmpty() || subjectDescription.isEmpty() || semester == null) {
                 throw new Exception("Please fill all the input fields");
             }
@@ -75,8 +70,7 @@ public class AddSubjectController {
             Stage stage = (Stage) nameField.getScene().getWindow();
             stage.close();
         } catch (Exception error) {
-            // Optionally show an error message to the user
-            error.printStackTrace(); // For debugging
+            error.printStackTrace();
         }
     }
 }

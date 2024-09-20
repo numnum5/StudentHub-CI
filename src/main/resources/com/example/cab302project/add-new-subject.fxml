@@ -30,7 +30,7 @@
                 <Label text="Semester:" styleClass="label"/>
                 <ComboBox fx:id="semesterComboBox" styleClass="combo-box"/>
 
-                <Button text="Add" styleClass="button"/>
+                <Button text="Add" styleClass="button" onAction="#onSubmit"/>
             </VBox>
         </ScrollPane>
     </center>

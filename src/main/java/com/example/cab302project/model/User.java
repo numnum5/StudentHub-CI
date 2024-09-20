@@ -1,5 +1,7 @@
 package com.example.cab302project.model;
 
+
+// Class for modeling a user
 public class User {
     private int id;
     private String firstName;
@@ -17,7 +19,6 @@ public class User {
 
 
     // Getters and setters for private fields
-
     public String getUsername(){
         return username;
     }

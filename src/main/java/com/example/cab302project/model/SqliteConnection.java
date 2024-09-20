@@ -15,8 +15,7 @@ public class SqliteConnection {
             System.err.println(sqlEx);
         }
     }
-
-
+    
     public static Connection getInstance() {
         if (instance == null) {
             new SqliteConnection();

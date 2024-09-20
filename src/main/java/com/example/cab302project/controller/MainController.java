@@ -29,7 +29,7 @@ public class MainController {
         try {
             // Load the navigation bar FXML file
             FXMLLoader navBarLoader = new FXMLLoader(getClass().getResource("/com/example/cab302project/nav-bar.fxml"));
-            Parent navBar = navBarLoader.load(); // Load the navigation bar
+            Parent navBar = navBarLoader.load();
             NavBarController controller = navBarLoader.getController(); // Get the controller for the nav bar
             controller.setUsername(this.username); // Set the username in the nav bar controller
             controller.setMainController(this); // Link the nav bar controller to the main controller
