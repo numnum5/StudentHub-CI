@@ -1,10 +1,8 @@
 package com.example.cab302project.model;
 
-
 import java.util.List;
-
 /**
- * Interface for the Contact Data Access Object that handles
+ * Interface for the User Data Access Object that handles
  * the CRUD operations for the User class with the database.
  */
 public interface IUserDAO {
@@ -24,28 +22,20 @@ public interface IUserDAO {
      * @param user The user to delete.
      */
     public void deleteUser(User user);
-    /**
-     * Retrieves a contact from the database.
-     * @param id The id of the user to retrieve.
-     * @return The user with the given id, or null if not found.
-     */
+
     public int searchUser(String username, String password);
-
-
     // Checks for password
     public boolean checkPassword(String userPassword, String password);
-
     // Checks for username
     public boolean checkUsername(String userUsername, String username);
-
     /**
-     * Retrieves a contact from the database.
+     * Retrieves a user from the database.
      * @param id The id of the user to retrieve.
      * @return The user with the given id, or null if not found.
      */
     public User getUser(int id);
     /**
-     * Retrieves all contacts from the database.
+     * Retrieves all users from the database.
      * @return A list of all users in the database.
      */
     public List<User> getAllUsers();

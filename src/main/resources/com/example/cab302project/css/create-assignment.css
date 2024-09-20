@@ -1,10 +1,8 @@
 /* create-assignment.css */
-
-/* General VBox styling */
 .vbox {
-    -fx-background-color: #2c2c2c; /* Dark grey background */
-    -fx-padding: 10px; /* Add padding */
-    -fx-spacing: 5px; /* Add spacing between elements */
+    -fx-background-color: #2c2c2c;
+    -fx-padding: 10px;
+    -fx-spacing: 5px;
 }
 
 /* Label styling */
@@ -16,10 +14,10 @@
 
 /* TextField styling */
 .text-field {
-    -fx-background-color: #444444; /* Darker grey background */
-    -fx-border-color: #666666; /* Light grey border */
+    -fx-background-color: #444444;
+    -fx-border-color: #666666;
     -fx-border-radius: 5px;
-    -fx-text-fill: #ffffff; /* White text */
+    -fx-text-fill: #ffffff;
     -fx-padding: 5px;
 }
 .scroll-pane {
@@ -28,40 +26,41 @@
 }
 /* TextArea styling */
 .text-area {
-    -fx-background-color: #444444; /* Darker grey background */
-    -fx-border-color: #666666; /* Light grey border */
+    -fx-background-color: #444444;
+    -fx-border-color: #666666;
     -fx-border-radius: 5px;
-    -fx-text-fill: #ffffff; /* White text */
+    -fx-text-fill: #ffffff;
     -fx-padding: 5px;
 }
+
 .text-area .content {
--fx-background-color: #444444;
+    -fx-background-color: #444444;
 }
 /* ComboBox styling */
 .combo-box {
-    -fx-background-color: #444444; /* Darker grey background */
-    -fx-border-color: #666666; /* Light grey border */
+    -fx-background-color: #444444;
+    -fx-border-color: #666666;
     -fx-border-radius: 5px;
-    -fx-text-fill: #ffffff; /* White text */
+    -fx-text-fill: #ffffff;
 }
 
 .combo-box-popup .list-view {
-    -fx-background-color: #333333; /* Background color of the dropdown */
-    -fx-text-fill: #ffffff; /* Text color of the items */
+    -fx-background-color: #333333;
+    -fx-text-fill: #ffffff;
 }
 
 .combo-box-popup .list-view .list-cell {
-    -fx-background-color: #333333; /* Background color for each item */
-    -fx-text-fill: #ffffff; /* Text color for each item */
+    -fx-background-color: #333333;
+    -fx-text-fill: #ffffff;
 }
 
 .combo-box-popup .list-view .list-cell:filled:selected {
-    -fx-background-color: #666666; /* Background color for selected item */
+    -fx-background-color: #666666;
     -fx-text-fill: #ffffff;
 }
 
 .combo-box-popup .list-view .list-cell:filled:hover {
-    -fx-background-color: #555555; /* Background color for hovered item */
+    -fx-background-color: #555555;
 }
 
 .button {
@@ -81,8 +80,8 @@
 
 /* DatePicker styling */
 .date-picker {
-    -fx-background-color: #444444; /* Darker grey background */
-    -fx-border-color: #666666; /* Light grey border */
+    -fx-background-color: #444444;
+    -fx-border-color: #666666;
     -fx-border-radius: 5px;
-    -fx-text-fill: #ffffff; /* White text */
+    -fx-text-fill: #ffffff;
 }

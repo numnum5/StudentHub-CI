@@ -3,6 +3,10 @@ package com.example.cab302project.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class for simulating access to database for user table
+ */
+
 public class MockUserDAO implements IUserDAO {
     public static final ArrayList<User> users = new ArrayList<>();
     private static int autoIncrementedId = 0;

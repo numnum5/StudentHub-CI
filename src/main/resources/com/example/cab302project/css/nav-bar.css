@@ -1,11 +1,8 @@
-/* Set the background color and padding for the navigation bar */
 .nav-bar {
     -fx-background-color: #000000;
     -fx-padding: 10px;
 }
 
-
-/* Style for the selected (active) button */
 .nav-button:selected {
     -fx-background-color: transparent;
     -fx-text-fill: grey;
@@ -15,7 +12,7 @@
     -fx-background-radius: 5px;
     -fx-border-color: transparent;
 }
-/* Style for the navigation buttons */
+
 .nav-button {
     -fx-background-color: transparent;
     -fx-text-fill: white;
@@ -25,8 +22,6 @@
     -fx-background-radius: 5px;
     -fx-border-color: transparent;
 }
-
-/* Hover effect for buttons */
 .nav-button:hover {
     -fx-background-color: gray;
     -fx-text-fill: white;
@@ -68,8 +63,6 @@
     -fx-background-color: gray;
 }
 
-
-
 .menu-item {
     -fx-background-color: transparent;
     -fx-text-fill: white;
@@ -77,7 +70,6 @@
     -fx-font-size: 16px;
     -fx-border-radius: 5px;
 }
-
 
 /* Hover effect for MenuItems */
 .menu-item:hover {
