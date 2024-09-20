@@ -1,5 +1,8 @@
 package com.example.cab302project.model;
 
+import com.example.cab302project.controller.LoginController;
+
+import java.util.ArrayList;
 import java.util.List;
 
 // Class for managing subject data access object.
@@ -30,10 +33,20 @@ public class SubjectManager {
         return subjectDAO.getAllSubjects();
     }
 
-    public List<Subject> searchSubjects(String query) {
-        if (query == null || query.trim().isEmpty()) {
-            return getAllSubjects();
+    // Search for subjects with given keyword
+    public List<Subject> searchSubjects(String keyword) {
+        List<Subject> matchingSubjects = new ArrayList<>();
+        // Return an empty list if the keyword is null or empty
+        if (keyword == null || keyword.trim().isEmpty()) {
+            return subjectDAO.getAllSubjects();
         }
-        return subjectDAO.searchSubjects(query);
+        // Iterate through all assignments and check for the keyword
+        for (Subject subject : subjectDAO.getAllSubjects()) {
+            if (subject.getName().toLowerCase().contains(keyword.toLowerCase())
+                    || subject.getUnitCode().toLowerCase().contains(keyword.toLowerCase())) {
+                matchingSubjects.add(subject);
+            }
+        }
+        return matchingSubjects;
     }
 }

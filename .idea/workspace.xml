@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a870cc7c-1721-49a2-9ce7-6ee918315918" name="Changes" comment="">
-<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/ErrorController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/css/error.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/error.fxml" afterDir="false" />
@@ -38,10 +37,6 @@
       <change beforePath="$PROJECT_DIR$/src/test/AssignmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/AssignmentTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/SubjectManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/SubjectManagerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/SubjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/SubjectTest.java" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/GPACalcController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/GPACalcController.java" afterDir="false" />
->>>>>>> 21913205e2fb6dad84e1596c40629e46bf1f39c8
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

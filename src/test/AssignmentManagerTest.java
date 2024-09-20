@@ -79,4 +79,11 @@ public class AssignmentManagerTest {
         assertEquals(1, searchResults.size());
         assertEquals(assignment1, searchResults.get(0));
     }
+
+    @Test
+    public void testSearchInOneAssignment() {
+        List<Assignment> results = assignmentManager.searchAssignments("Assignment 1");
+        assertEquals(1, results.size());
+        assertEquals("Math Homework", results.get(0).getName());
+    }
 }

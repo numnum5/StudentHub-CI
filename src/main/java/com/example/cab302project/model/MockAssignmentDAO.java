@@ -24,10 +24,13 @@ public class MockAssignmentDAO implements IAssignmentDAO{
     @Override
     public List<Assignment> searchAssignments(String keyword) {
         List<Assignment> matchingAssignments = new ArrayList<>();
+        // Return an empty list if the keyword is null or empty
+        if (keyword == null || keyword.trim().isEmpty()) {
+            return matchingAssignments;
+        }
 
         // Iterate through all assignments and check for the keyword
         for (Assignment assignment : getAllAssignments(LoginController.username)) {
-            System.out.println(assignment.toString());
             if (assignment.getName().toLowerCase().contains(keyword.toLowerCase())) {
                 matchingAssignments.add(assignment);
             }
