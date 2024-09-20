@@ -28,7 +28,10 @@ public class GPACalcController {
     private TextField failUnitsField;
 
     @FXML
-    private TextField GPAField;
+    private Label GPAField;
+
+    @FXML
+    private Label currentGPA;
 
     @FXML
     private Button calculateButton;
@@ -36,9 +39,9 @@ public class GPACalcController {
     @FXML
     private Button resetButton;
 
-    private SqliteGPADAO gpaDao;
+    private double currentGPAValue;
 
-    private Double calculatedGPA;
+    private SqliteGPADAO gpaDao;
 
     public GPACalcController() {
         gpaDao = new SqliteGPADAO();  // Initialize GPADao
@@ -63,10 +66,9 @@ public class GPACalcController {
 
             // Calculate GPA (implement your GPA formula here)
             double gpa = calculateGPA(totalUnits, hdUnits, distUnits, creditUnits, passUnits, failUnits);
+            this.currentGPAValue = gpa;
+            // Display the calculated GPA
             GPAField.setText(String.format("%.2f", gpa));
-            // Store the calculated GPA in a class variable for later use
-            this.calculatedGPA = gpa;
-
 
         } catch (NumberFormatException e) {
             // Handle invalid input, e.g. show an error or reset fields
@@ -75,16 +77,32 @@ public class GPACalcController {
     }
 
     @FXML
-    private void saveGPAToDatabase(){
-        if (calculatedGPA != null){
-            GPA newGPA = new GPA(LoginController.username, calculatedGPA);
-            gpaDao.saveGPA(newGPA);
-            GPAField.setText("GPA saved to database.");
-        }
-        else {
-            GPAField.setText("Calculate GPA first.");
+    private void handleViewGPA() {
+        try {
+            double value = gpaDao.getGPA(LoginController.username);
+            if(value == -1.00){
+                throw new Exception("Please save your GPA first to view.");
+            }
+            String currentGpa = String.format("%.2f", value);
+            currentGPA.setText("GPA: " + currentGpa);
+        } catch (Exception e) {
+            // Handle invalid input, e.g. show an error or reset fields
+            currentGPA.setText("Please save your GPA first to view.");
         }
     }
+
+    @FXML
+    private void handleSaveGPA(){
+        try {
+            GPA newGpa = new GPA(LoginController.username, currentGPAValue);
+            gpaDao.saveGPA(newGpa);
+        } catch (Exception e) {
+            // Handle invalid input, e.g. show an error or reset fields
+            currentGPA.setText("Please save your GPA first to view.");
+        }
+    }
+
+    // Add calculation error checking
 
     // Method to calculate GPA (example formula)
     private double calculateGPA(int totalUnits, int hdUnits, int distUnits, int creditUnits, int passUnits, int failUnits) {
