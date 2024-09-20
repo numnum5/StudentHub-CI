@@ -71,13 +71,10 @@ public class FinanceController {
 
     // Function to send and return data
     private HashMap<String, Float> sendInfo() {
-
         HashMap<String, Float> textFieldMap = new HashMap<>();
-        try
-        {
+        try {
             float budget = floatHandler(budgetField.getText());
-            if (budget < 0)
-            {
+            if (budget < 0) {
                 return textFieldMap;
             }
 
@@ -92,29 +89,24 @@ public class FinanceController {
             mockFinanceDAO = new MockFinanceDAO(budget, textFieldMap);
             return textFieldMap;
         }
-        catch (NumberFormatException e)
-        {
+        catch (NumberFormatException e) {
             return null;
         }
     }
 
     // Acts as exception handling to manage non float texts
     private float floatHandler(String textValue) {
-
-        try
-        {
+        try {
             return Float.parseFloat(textValue);
         }
-        catch (NumberFormatException e)
-        {
+        catch (NumberFormatException e) {
             return 0;
         }
     }
 
     // Controller for the reset button to reset the budget, daily spending, and amount left
     @FXML
-    private void resetButton()
-    {
+    private void resetButton() {
         budgetField.clear();
         mondayText.clear();
         tuesdayText.clear();
