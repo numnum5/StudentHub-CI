@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a870cc7c-1721-49a2-9ce7-6ee918315918" name="Changes" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/ErrorController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/css/error.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/error.fxml" afterDir="false" />
@@ -37,6 +38,10 @@
       <change beforePath="$PROJECT_DIR$/src/test/AssignmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/AssignmentTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/SubjectManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/SubjectManagerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/SubjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/SubjectTest.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/GPACalcController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/GPACalcController.java" afterDir="false" />
+>>>>>>> 21913205e2fb6dad84e1596c40629e46bf1f39c8
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +74,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/numnum5/StudentHub.git&quot;,
-    &quot;accountId&quot;: &quot;0905cd7d-07c5-42f9-b4db-77c1a36d12bf&quot;
+    &quot;accountId&quot;: &quot;38ca1fcd-66a5-4a52-9dcf-171fa931bb84&quot;
   }
 }</component>
   <component name="MavenImportPreferences">
@@ -89,6 +94,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.Application.executor&quot;: &quot;Run&quot;,
@@ -112,6 +118,30 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.49080458&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Application.executor": "Run",
+    "Application.HelloApplication.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Merging main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Junseo Pyun/Downloads/StudentHubV3/StudentHub/src/main/resources/com/example/cab302project/Images",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.49080458",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "vue.rearranger.settings.migration": "true"
+>>>>>>> 21913205e2fb6dad84e1596c40629e46bf1f39c8
   }
 }</component>
   <component name="RecentsManager">

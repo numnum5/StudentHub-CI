@@ -1,0 +1,13 @@
+.text-input, .text-area {
+    -fx-background-color: #333;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: lightgray;
+    -fx-control-inner-background: #333;
+
+    /* Default white border */
+    -fx-border-color: white;
+
+    /* No highlight on focus */
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
