@@ -38,6 +38,8 @@ public class GPACalcController {
 
     private SqliteGPADAO gpaDao;
 
+    private Double calculatedGPA;
+
     public GPACalcController() {
         gpaDao = new SqliteGPADAO();  // Initialize GPADao
     }
@@ -61,11 +63,10 @@ public class GPACalcController {
 
             // Calculate GPA (implement your GPA formula here)
             double gpa = calculateGPA(totalUnits, hdUnits, distUnits, creditUnits, passUnits, failUnits);
-
-            // Display the calculated GPA
             GPAField.setText(String.format("%.2f", gpa));
-            GPA newGPA = new GPA(LoginController.username, gpa);
-            gpaDao.saveGPA(newGPA);
+            // Store the calculated GPA in a class variable for later use
+            this.calculatedGPA = gpa;
+
 
         } catch (NumberFormatException e) {
             // Handle invalid input, e.g. show an error or reset fields
@@ -73,7 +74,17 @@ public class GPACalcController {
         }
     }
 
-    // Add calculation error checking
+    @FXML
+    private void saveGPAToDatabase(){
+        if (calculatedGPA != null){
+            GPA newGPA = new GPA(LoginController.username, calculatedGPA);
+            gpaDao.saveGPA(newGPA);
+            GPAField.setText("GPA saved to database.");
+        }
+        else {
+            GPAField.setText("Calculate GPA first.");
+        }
+    }
 
     // Method to calculate GPA (example formula)
     private double calculateGPA(int totalUnits, int hdUnits, int distUnits, int creditUnits, int passUnits, int failUnits) {
