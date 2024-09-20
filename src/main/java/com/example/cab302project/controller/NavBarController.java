@@ -9,9 +9,9 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-
-// Controller for controlling navigation bar
-public class NavBarController {
+// Controller for the navigation bar of the application.
+// handles the navigation between different pages and manages user actions on the navigation buttons.
+public class NavBarController implements IController{
 
     @FXML
     private ToggleButton homeButton;
@@ -32,122 +32,113 @@ public class NavBarController {
     private ToggleButton financeButton;
 
     @FXML
-    private MenuButton userButton;
+    private MenuButton userButton; // Menu for user options
 
     @FXML
-    private MenuItem logout;
+    private MenuItem logout; // Logout menu item
 
     @FXML
-    private MenuItem profile;
+    private MenuItem profile; // Profile menu item
 
     @FXML
-    private MenuItem expertsContact;
+    private MenuItem expertsContact; // Experts contact menu item
 
+    private String username; // Stores the current user's username
 
-    private String username;
-
-    public void setUsername(String username){
+    // Setter for the username
+    public void setUsername(String username) {
         this.username = username;
     }
 
-    public String getUsername(){
+    // Getter for the username
+    public String getUsername() {
         return this.username;
     }
 
-    private MainController mainController;
+    private MainController mainController; // Reference to the main controller
 
+    // Setter for the main controller
+    @Override
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
 
-    // Initalisation method
+    // Initialization method to set the default selected button
     @FXML
     private void initialize() {
-        // Select home page as default
-        homeButton.setSelected(true);
+        homeButton.setSelected(true); // Set home page as default
     }
 
-
-
-    // Handlers for different buttons
+    // Handlers for button click events
     @FXML
     protected void onHomeButtonClick() throws IOException {
-        System.out.println(this.username);
-        handleButtonClick(homeButton, "home.fxml");
+        System.out.println(this.username); // Print username for debugging
+        handleButtonClick(homeButton, "home.fxml"); // Navigate to home
     }
 
     @FXML
     protected void onJournalButtonClick() throws IOException {
-        handleButtonClick(journalButton, "journal.fxml");
+        handleButtonClick(journalButton, "journal.fxml"); // Navigate to journal
     }
 
     @FXML
     protected void onGpaButtonClick() throws IOException {
-        handleButtonClick(gpaButton, "GPA-Calculator.fxml");
+        handleButtonClick(gpaButton, "GPA-Calculator.fxml"); // Navigate to GPA calculator
     }
 
     @FXML
     protected void onGoalButtonClick() throws IOException {
+<<<<<<< HEAD
+        handleButtonClick(goalButton, "goal.fxml"); // Navigate to goals page
+=======
         handleButtonClick(goalButton, "goal-list.fxml");
+>>>>>>> 21913205e2fb6dad84e1596c40629e46bf1f39c8
     }
 
     @FXML
     protected void onProjectsButtonClick() throws IOException {
-        handleButtonClick(projectsButton, "project-list.fxml");
+        handleButtonClick(projectsButton, "project-list.fxml"); // Navigate to project list
     }
 
     @FXML
     protected void onFinanceButtonClick() throws IOException {
-        handleButtonClick(financeButton, "finance.fxml");
+        handleButtonClick(financeButton, "finance.fxml"); // Navigate to finance page
     }
 
-
-
-
-    // Handle logging out
+    // Handles user logout
     @FXML
     private void onLogoutButtonClick() throws IOException {
-        setUsername(null);
-        switchScene(homeButton, "login-ui.fxml");
+        setUsername(null); // Clear the username
+        switchScene(homeButton, "login-ui.fxml"); // Switch to login page
     }
 
     @FXML
     private void onProfileButtonClick() throws IOException {
-        switchScene(homeButton, "profile.fxml");
+        switchScene(homeButton, "profile.fxml"); // Navigate to profile page
     }
 
     @FXML
     private void onExpertsContactsButtonClick() throws IOException {
-        switchScene(homeButton, "experts-contact.fxml");
+        switchScene(homeButton, "experts-contact.fxml"); // Navigate to experts contact page
     }
 
-
-    // Method to handle switching scenes and updating button state
+    // Handles button click events and switches scenes accordingly
     private void handleButtonClick(ToggleButton activeButton, String fxmlFile) throws IOException {
-        // Unselect all the buttons
+        // Unselect all buttons
         resetButtons();
-
-        // Check currently selected button to avoid reloading the same scene if the button is already active
-//        if (activeButton.isSelected()) {
-//            return;
-//        }
-        // Set the active button and switch the page
-        activeButton.setSelected(true);
-        // Switch page
-        mainController.loadPage(fxmlFile);
-//        switchScene(activeButton, fxmlFile);
+        activeButton.setSelected(true); // Select the active button
+        mainController.loadPage(fxmlFile); // Load the corresponding page
     }
 
-
-    // Method to switching pages
+    // Switches the scene to the specified FXML file
     private void switchScene(ToggleButton activeButton, String fxmlFile) throws IOException {
-        Stage stage = (Stage) activeButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(fxmlFile));
-        Scene scene = new Scene(fxmlLoader.load(), Application.WIDTH, Application.HEIGHT);
-        stage.setScene(scene);
+        Stage stage = (Stage) activeButton.getScene().getWindow(); // Get the current stage
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(fxmlFile)); // Load the new scene
+        Scene scene = new Scene(fxmlLoader.load(), Application.WIDTH, Application.HEIGHT); // Create a new scene
+        stage.setScene(scene); // Set the new scene to the stage
     }
 
-    // Method for unselecting all buttons
+    // Resets the selection state of all navigation buttons
     private void resetButtons() {
         homeButton.setSelected(false);
         journalButton.setSelected(false);
@@ -157,7 +148,4 @@ public class NavBarController {
         financeButton.setSelected(false);
     }
 
-    public void handleUserButtonClick(ActionEvent actionEvent) {
-
-    }
 }

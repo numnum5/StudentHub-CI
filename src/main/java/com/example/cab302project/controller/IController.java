@@ -1,5 +1,6 @@
 package com.example.cab302project.controller;
 
+// Used for controllers that need to inherit parent controller
 public interface IController {
-    public void setMainController(MainController mainController);
+    void setMainController(MainController mainController);
 }

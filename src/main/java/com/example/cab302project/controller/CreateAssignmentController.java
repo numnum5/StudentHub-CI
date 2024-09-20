@@ -1,9 +1,7 @@
 package com.example.cab302project.controller;
 
-import com.example.cab302project.model.Assignment;
-import com.example.cab302project.model.AssignmentStatus;
-import com.example.cab302project.model.MockSubjectDAO;
-import com.example.cab302project.model.Subject;
+import com.example.cab302project.Application;
+import com.example.cab302project.model.*;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,16 +11,18 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+
+// Controller for managing creating a new Assignment, handles CRUD actions for assignments table
 public class CreateAssignmentController {
 
-    private MockSubjectDAO subjectDAO;
+    private SubjectManager subjectDAO;
 
     private ProjectListController parentController;
     @FXML
@@ -47,21 +47,22 @@ public class CreateAssignmentController {
         loadAssignmentStatuses();
     }
 
+    // Constructor for initialising a SubjectManger
     public CreateAssignmentController(){
-        this.subjectDAO = new MockSubjectDAO();
+        this.subjectDAO = new SubjectManager(new SqliteSubjectDAO());
     }
+
+
+    // Method for loading a list of subjects
     private void loadSubjects() {
-        List<Subject> subjects = new ArrayList<>();
-        Subject mock1 = new Subject(1, "CAB502", "Advanced Quantum Computing", "Idk");
-        Subject mock2 = new Subject(1, "CAB503", "Advanced Discrete Mathematics", "Idk");
-        subjects.add(mock1);
-        subjects.add(mock2);
-        List<String> subjectNames = new ArrayList<>();
-        subjectNames.add(mock1.getName());
-        subjectNames.add(mock2.getName());
+        List<Subject> subjects = subjectDAO.getAllSubjects();
+        List<String> subjectNames = subjects.stream()
+                .map(Subject::getName)
+                .toList();
         subjectComboBox.setItems(FXCollections.observableArrayList(subjectNames));
     }
 
+    // Loads assignment statues to the combobox
     private void loadAssignmentStatuses() {
 
         List<String> subjectNames = new ArrayList<>();
@@ -72,38 +73,65 @@ public class CreateAssignmentController {
         statusComboBox.setItems(FXCollections.observableArrayList(subjectNames));
     }
 
-
     // Method to set the parent controller
     public void setParentController(ProjectListController parentController) {
         this.parentController = parentController;
     }
 
-
-
-
+    // Method for handling information when user submits
     @FXML
     private void onSubmit() {
-
-        try{
-            // Collect all the input values
+        try {
             String assignmentName = nameField.getText();
             String assignmentDescription = descriptionArea.getText();
-//        Subject selectedSubject = subjectComboBox.getValue();
-            Subject testSubject = new Subject(1, "CAB502", "Advanced Quantum Computing", "Idk");
             String dueDate = dueDatePicker.getValue().toString();
+            String subjectName = subjectComboBox.getValue();
+            String status = statusComboBox.getValue();
 
-            if(assignmentName.isEmpty() || assignmentDescription.isEmpty() || dueDate.isEmpty()){
+            if (assignmentName.isEmpty() || assignmentDescription.isEmpty() || dueDate.isEmpty() || subjectName == null || status == null) {
                 throw new Exception("Please fill all the input fields");
             }
+            Subject selectedSubject = subjectDAO.getAllSubjects().stream()
+                    .filter(subject -> subject.getName().equals(subjectName))
+                    .findFirst()
+                    .orElse(null);
 
-//        LocalDate a = dueDatePicker.getValue();
+            System.out.println(selectedSubject.toString());
+            if (selectedSubject == null) {
+                throw new Exception("Selected subject not found");
+            }
 
-            Assignment newAssignment = new Assignment(assignmentName, assignmentDescription, LoginController.username,testSubject, dueDate);
-            newAssignment.setStatus(AssignmentStatus.URGENT);
+            Assignment newAssignment = new Assignment(assignmentName, assignmentDescription, LoginController.username, selectedSubject, dueDate);
+
+            // Set the status based on the selection
+            newAssignment.setStatus(AssignmentStatus.valueOf(status.toUpperCase().replace(" ", "_")));
+
             parentController.addNewAssignment(newAssignment);
-        }catch(Exception error){
 
+            // Close the current window
+            Stage stage = (Stage) nameField.getScene().getWindow();
+            stage.close();
+        } catch (Exception error) {
+            error.printStackTrace();
+            showErrorPopup(error.getMessage());
         }
+    }
 
+    private void showErrorPopup(String message) {
+        try {
+            FXMLLoader loader = new FXMLLoader(Application.class.getResource("error.fxml"));
+            Parent root = loader.load();
+            ErrorController controller = loader.getController();
+            controller.setErrorMessage(message);
+
+            Stage stage = new Stage();
+            // Set modality to application modal to block any inputs
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Error");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
