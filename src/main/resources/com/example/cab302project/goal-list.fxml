@@ -11,14 +11,17 @@
 
             <TextField fx:id="searchGoal" promptText="Search..." style="-fx-pref-width: 300px; -fx-text-fill: white; -fx-prompt-text-fill: lightgray; -fx-background-color: #333;" />
             <!-- Search Button -->
-            <Button fx:id="searchButton" text="Search" styleClass="project-button"/>
-            <Button fx:id="addGoals" onAction="#onAddGoalsButtonClick" text="Add New Goals" style="-fx-text-fill: black;" />
+            <Button fx:id="searchButton" text="Search" onAction="#onSearchButtonClick" styleClass="project-button"/>
+            <Button fx:id="addGoals" text="Add New Goals" onAction="#onAddGoalsButtonClick" styleClass="project-button" />
+            <Button fx:id="deleteGoals" text="Delete Goals" onAction="#onDeleteGoalsButtonClick" styleClass="project-button" />
+<!--            <Button fx:id="editGoals" onAction="#onEditGoalsButtonClick" text="Edit Goals" styleClass="project-button" />-->
+
         </HBox>
     </top>
     <center>
         <ScrollPane fx:id="scrollPane" fitToWidth="true" style="-fx-padding: 10; -fx-background: #2c2c2c;">
             <!-- Container to display goal items -->
-            <VBox fx:id="goalContainer" spacing="10" style="-fx-padding: 10;"></VBox>
+            <VBox fx:id="goalContainer" spacing="10" style="-fx-padding: 10; -fx-background-color: #2c2c2c"></VBox>
         </ScrollPane>
     </center>
     <bottom>
