@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.text.Text?>
-<?import javafx.collections.FXCollections?>
 <BorderPane xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: #2c2c2c;" fx:controller="com.example.cab302project.controller.ProjectListController" stylesheets="@css/project-list.css">
         <top>
                 <HBox alignment="center" spacing="10" style="-fx-padding: 10;">
-                        <!-- Search TextField -->
+
 
                         <TextField fx:id="searchField" promptText="Search..." styleClass="search-field"/>
-                        <!-- Search Button -->
+
                         <Button text="Search" styleClass="project-button" onAction="#onSearch"/>
                         <Button
                                 styleClass="project-button"
@@ -27,27 +21,6 @@
                 <ScrollPane style="-fx-background: #2c2c2c; -fx-border-color: #2c2c2c;" fitToWidth="true">
 
 <VBox fx:id="cardContainer" spacing="10" minHeight="600" style="-fx-background-color: #2c2c2c; -fx-padding: 10;" >
-
-<!--        <VBox styleClass="card">-->
-<!--                <Label text="CAB502 Advanced Quantum Computing" styleClass="card-title"/>-->
-<!--                <Label text="Semester 2 2026" styleClass="card-subtitle"/>  &lt;!&ndash; Subtitle &ndash;&gt;-->
-<!--                <Label text="Assignment 1: Quantum Algorithms Due Date: 25/9/2026" styleClass="card-assignment"/> &lt;!&ndash; Assignment &ndash;&gt;-->
-<!--                <Label text="Create a quantuam computer and solve the Pnp problem" styleClass="card-content"/>-->
-<!--        </VBox>-->
-<!--                <VBox  styleClass="card">-->
-<!--                        <Label text="CAB502 Advanced Quantum Computing" styleClass="card-title"/>-->
-<!--                        <Label text="Fall Semester 2024" styleClass="card-subtitle"/>-->
-<!--                        <Label text="Assignment 1: Quantum Algorithms" styleClass="card-assignment"/>-->
-<!--                        <Label text="Due: October 15, 2024" styleClass="card-due-date"/>-->
-
-<!--&lt;!&ndash;                        &lt;!&ndash; Task list &ndash;&gt;&ndash;&gt;-->
-<!--                        <Label text="To Do:" styleClass="card-due-date"/>-->
-<!--                        <VBox fx:id="taskListContainer" styleClass="card-task-list"/>-->
-
-                        <!-- Edit Button -->
-<!--                        <Button text="Edit" styleClass="edit-button" />-->
-<!--                        <Label text="Urgent" styleClass="card-status" />-->
-<!--                </VBox>-->
                         </VBox>
                 </ScrollPane>
 

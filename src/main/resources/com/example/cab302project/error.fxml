@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" prefHeight="200.0" prefWidth="200.0"
+            fx:controller="com.example.cab302project.controller.ErrorController"
+            style="-fx-background-color: #f8d7da; -fx-padding: 10;"
+stylesheets="@css/error.css">
+    <children>
+        <Label fx:id="errorMessage" text="Error message here" wrapText="true"
+               style="-fx-text-fill: #721c24; -fx-font-size: 14px; -fx-font-weight: bold;
+                      -fx-max-width: 180;" />
+        <Button fx:id="okButton" text="OK" onAction="#handleClose" layoutX="30.0" layoutY="150.0"
+                styleClass="error-button" />
+    </children>
+</AnchorPane>

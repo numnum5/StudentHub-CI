@@ -1,0 +1,26 @@
+.error-popup {
+    -fx-background-color: #f8d7da;
+    -fx-padding: 10;
+}
+
+.error-label {
+    -fx-text-fill: #721c24;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.error-button {
+    -fx-background-color: #f5c6cb;
+    -fx-text-fill: #721c24;
+    -fx-font-weight: bold;
+    -fx-padding: 5 10;
+    -fx-font-size: 12px;
+    -fx-border-color: #721c24;
+    -fx-border-width: 2px;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.error-button:hover {
+    -fx-background-color: #e3b9b3;
+}
