@@ -8,9 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.IOException;
-
-// Controller for the navigation bar of the application.
-// handles the navigation between different pages and manages user actions on the navigation buttons.
+/**
+ * Controller for the navigation bar of the application.
+ * handles the navigation between different pages and manages user actions on the navigation buttons.
+ */
 public class NavBarController implements IController{
 
     @FXML
@@ -63,16 +64,14 @@ public class NavBarController implements IController{
         this.mainController = mainController;
     }
 
-    // Initialization method to set the default selected button
     @FXML
     private void initialize() {
-        homeButton.setSelected(true); // Set home page as default
+        homeButton.setSelected(true);
     }
 
     // Handlers for button click events
     @FXML
     protected void onHomeButtonClick() throws IOException {
-        System.out.println(this.username); // Print username for debugging
         handleButtonClick(homeButton, "home.fxml"); // Navigate to home
     }
 
@@ -124,7 +123,7 @@ public class NavBarController implements IController{
         // Unselect all buttons
         resetButtons();
         activeButton.setSelected(true); // Select the active button
-        mainController.loadPage(fxmlFile); // Load the corresponding page
+        mainController.loadPage(fxmlFile);
     }
 
     // Switches the scene to the specified FXML file

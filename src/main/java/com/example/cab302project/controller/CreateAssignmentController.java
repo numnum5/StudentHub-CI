@@ -13,13 +13,14 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 
-// Controller for managing creating a new Assignment, handles CRUD actions for assignments table
+/**
+ * Controller for managing creating a new Assignment, handles CRUD actions for assignments table
+ */
 public class CreateAssignmentController {
 
     private SubjectManager subjectDAO;
@@ -52,7 +53,6 @@ public class CreateAssignmentController {
         this.subjectDAO = new SubjectManager(new SqliteSubjectDAO());
     }
 
-
     // Method for loading a list of subjects
     private void loadSubjects() {
         List<Subject> subjects = subjectDAO.getAllSubjects();
@@ -64,7 +64,6 @@ public class CreateAssignmentController {
 
     // Loads assignment statues to the combobox
     private void loadAssignmentStatuses() {
-
         List<String> subjectNames = new ArrayList<>();
         subjectNames.add("Urgent");
         subjectNames.add("In progress");
@@ -95,14 +94,11 @@ public class CreateAssignmentController {
                     .filter(subject -> subject.getName().equals(subjectName))
                     .findFirst()
                     .orElse(null);
-
-            System.out.println(selectedSubject.toString());
             if (selectedSubject == null) {
                 throw new Exception("Selected subject not found");
             }
-
+            // Create a new assignment object based on the given information
             Assignment newAssignment = new Assignment(assignmentName, assignmentDescription, LoginController.username, selectedSubject, dueDate);
-
             // Set the status based on the selection
             newAssignment.setStatus(AssignmentStatus.valueOf(status.toUpperCase().replace(" ", "_")));
 
@@ -117,6 +113,7 @@ public class CreateAssignmentController {
         }
     }
 
+    // Method for displaying a pop up error message tab in case of any errors
     private void showErrorPopup(String message) {
         try {
             FXMLLoader loader = new FXMLLoader(Application.class.getResource("error.fxml"));

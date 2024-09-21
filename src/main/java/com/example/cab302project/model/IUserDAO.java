@@ -6,37 +6,45 @@ import java.util.List;
  * the CRUD operations for the User class with the database.
  */
 public interface IUserDAO {
-
     /**
      * Adds a new user to the database.
      * @param user The user to add.
      */
-    public void addUser(User user);
+    void addUser(User user);
     /**
      * Updates an existing user in the database.
      * @param user The user to update.
      */
-    public void updateUser(User user);
+    void updateUser(User user);
     /**
      * Deletes a user from the database.
      * @param user The user to delete.
      */
-    public void deleteUser(User user);
+    void deleteUser(User user);
 
-    public int searchUser(String username, String password);
-    // Checks for password
-    public boolean checkPassword(String userPassword, String password);
-    // Checks for username
-    public boolean checkUsername(String userUsername, String username);
+    /**
+     * Checks if a user exists in the database.
+     * @param userName The username of the user to delete.
+     */
+    boolean userExists(String userName);
+
+    /**
+     * checks if user's password is correct.
+     * @param userName The username of the user to delete.
+     * @param password The password of the user to delete.
+     */
+    boolean passwordCorrect(String userName, String password);
+
     /**
      * Retrieves a user from the database.
      * @param id The id of the user to retrieve.
      * @return The user with the given id, or null if not found.
      */
-    public User getUser(int id);
+
+    User getUser(int id);
     /**
      * Retrieves all users from the database.
      * @return A list of all users in the database.
      */
-    public List<User> getAllUsers();
+    List<User> getAllUsers();
 }

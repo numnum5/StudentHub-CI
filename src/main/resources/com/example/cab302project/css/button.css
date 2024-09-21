@@ -1,0 +1,14 @@
+.button {
+    -fx-text-fill: black;
+    -fx-background-color: lightgray;
+    -fx-font-size: 14px;
+    -fx-padding: 5 15;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 5px;
+}
+/* Hover effect for buttons */
+.button:hover {
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}

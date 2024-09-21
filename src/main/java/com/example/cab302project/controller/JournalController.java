@@ -1,18 +1,17 @@
 package com.example.cab302project.controller;
 
 
-import com.example.cab302project.model.JournalDAO;
+import com.example.cab302project.model.Journal;
+import com.example.cab302project.model.SqliteJournalDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 
-public class JournalController implements IController
-{
-    private JournalDAO connection = new JournalDAO();
+public class JournalController implements IController {
+    private SqliteJournalDAO connection = new SqliteJournalDAO();
 
     @FXML
     private Button viewEntry;
@@ -39,8 +38,8 @@ public class JournalController implements IController
         String moodString = MoodText.getText();
         String entryString = JournalText.getText();
         String userName = mainController.getUsername();
-
-        connection.addEntry(entryString, moodString,userName);
+        Journal newJournal = new Journal(entryString, moodString, userName);
+        connection.addEntry(newJournal);
     }
 
     @FXML

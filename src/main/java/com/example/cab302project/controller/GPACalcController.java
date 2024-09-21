@@ -1,5 +1,7 @@
 package com.example.cab302project.controller;
 
+import com.example.cab302project.model.GPA;
+import com.example.cab302project.model.SqliteGPADAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
@@ -26,13 +28,24 @@ public class GPACalcController {
     private TextField failUnitsField;
 
     @FXML
-    private TextField GPAField;
+    private Label GPAField;
+
+    @FXML
+    private Label currentGPA;
 
     @FXML
     private Button calculateButton;
 
     @FXML
     private Button resetButton;
+
+    private double currentGPAValue;
+
+    private SqliteGPADAO gpaDao;
+
+    public GPACalcController() {
+        gpaDao = new SqliteGPADAO();  // Initialize GPADao
+    }
 
     @FXML
     private void handleCalculateGPA() {
@@ -53,13 +66,39 @@ public class GPACalcController {
 
             // Calculate GPA (implement your GPA formula here)
             double gpa = calculateGPA(totalUnits, hdUnits, distUnits, creditUnits, passUnits, failUnits);
-
+            this.currentGPAValue = gpa;
             // Display the calculated GPA
             GPAField.setText(String.format("%.2f", gpa));
 
         } catch (NumberFormatException e) {
             // Handle invalid input, e.g. show an error or reset fields
             GPAField.setText("Invalid input. Please enter numeric values.");
+        }
+    }
+
+    @FXML
+    private void handleViewGPA() {
+        try {
+            double value = gpaDao.getGPA(LoginController.username);
+            if(value == -1.00){
+                throw new Exception("Please save your GPA first to view.");
+            }
+            String currentGpa = String.format("%.2f", value);
+            currentGPA.setText("GPA: " + currentGpa);
+        } catch (Exception e) {
+            // Handle invalid input, e.g. show an error or reset fields
+            currentGPA.setText("Please save your GPA first to view.");
+        }
+    }
+
+    @FXML
+    private void handleSaveGPA(){
+        try {
+            GPA newGpa = new GPA(LoginController.username, currentGPAValue);
+            gpaDao.saveGPA(newGpa);
+        } catch (Exception e) {
+            // Handle invalid input, e.g. show an error or reset fields
+            currentGPA.setText("Please save your GPA first to view.");
         }
     }
 
@@ -81,6 +120,16 @@ public class GPACalcController {
         passUnitsField.setText("0");
         failUnitsField.setText("0");
         GPAField.setText("");
+    }
+
+    @FXML
+    private void loadGPA() {
+        double gpa = gpaDao.getGPA(LoginController.username);
+        if (gpa != -1) {
+            GPAField.setText(String.format("%.2f", gpa));
+        } else {
+            GPAField.setText("No GPA saved.");
+        }
     }
 
 }

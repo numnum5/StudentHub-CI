@@ -1,6 +1,7 @@
 package com.example.cab302project.controller;
 
 import com.example.cab302project.model.MockFinanceDAO;
+import com.example.cab302project.model.SqliteFinanceDAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -41,15 +42,13 @@ public class FinanceController {
 
     // Calculate button controller and it calculates the budget of daily spending
     @FXML
-    private void calculateButtonPressed()
-    {
+    private void calculateButtonPressed() {
         HashMap <String, Float> textFieldMap = sendInfo();
 
         float budget = mockFinanceDAO.getBudget();
         float sum = 0;
 
-        for (Map.Entry<String, Float> entry : textFieldMap.entrySet())
-        {
+        for (Map.Entry<String, Float> entry : textFieldMap.entrySet()) {
             if (!entry.getKey().equals("budget"))
                 sum += entry.getValue();
         }
@@ -71,51 +70,45 @@ public class FinanceController {
     }       
 
     // Function to send and return data
-    private HashMap<String, Float> sendInfo()
-    {
+    private HashMap<String, Float> sendInfo() {
         HashMap<String, Float> textFieldMap = new HashMap<>();
-        try
-        {
-            float budget = floatHandler(budgetField.getText());
-            if (budget < 0)
-            {
+        try {
+            float budget = floatHandler(budgetField.getText(), budgetField);
+            if (budget < 0) {
                 return textFieldMap;
             }
 
-            textFieldMap.put("amountSpentMon", floatHandler(mondayText.getText()));
-            textFieldMap.put("amountSpentTue", floatHandler(tuesdayText.getText()));
-            textFieldMap.put("amountSpentWed", floatHandler(wednesdayText.getText()));
-            textFieldMap.put("amountSpentThu", floatHandler(thursdayText.getText()));
-            textFieldMap.put("amountSpentFri", floatHandler(fridayText.getText()));
-            textFieldMap.put("amountSpentSat", floatHandler(saturdayText.getText()));
-            textFieldMap.put("amountSpentSun", floatHandler(sundayText.getText()));
+            textFieldMap.put("amountSpentMon", floatHandler(mondayText.getText(), mondayText));
+            textFieldMap.put("amountSpentTue", floatHandler(tuesdayText.getText(), tuesdayText));
+            textFieldMap.put("amountSpentWed", floatHandler(wednesdayText.getText(), wednesdayText));
+            textFieldMap.put("amountSpentThu", floatHandler(thursdayText.getText(), thursdayText));
+            textFieldMap.put("amountSpentFri", floatHandler(fridayText.getText(), fridayText));
+            textFieldMap.put("amountSpentSat", floatHandler(saturdayText.getText(), saturdayText));
+            textFieldMap.put("amountSpentSun", floatHandler(sundayText.getText(), sundayText));
 
             mockFinanceDAO = new MockFinanceDAO(budget, textFieldMap);
             return textFieldMap;
         }
-        catch (NumberFormatException e)
-        {
+        catch (NumberFormatException e) {
             return null;
         }
     }
 
     // Acts as exception handling to manage non float texts
-    private float floatHandler(String textValue)
-    {
-        try
-        {
+    private float floatHandler(String textValue, TextField c) {
+        try {
             return Float.parseFloat(textValue);
         }
-        catch (NumberFormatException e)
-        {
+        catch (NumberFormatException e) {
+            c.setText("0");
+            // FIX
             return 0;
         }
     }
 
     // Controller for the reset button to reset the budget, daily spending, and amount left
     @FXML
-    private void resetButton()
-    {
+    private void resetButton() {
         budgetField.clear();
         mondayText.clear();
         tuesdayText.clear();
