@@ -30,45 +30,79 @@ public class GoalsController implements IController
 
     private MockGoalDAO connection;
 
-    private MainController mainController;
+    private String originalTitle; // To store the original title during editing
 
-    // Method to switching pages
-    private void switchScene() throws IOException {
-        Stage stage = (Stage) viewGoals.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("goal-list.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), Application.WIDTH, Application.HEIGHT);
-        stage.setScene(scene);
-    }
+    private MainController mainController;
 
     public GoalsController(){
         this.connection = new MockGoalDAO();
     }
 
+//    // Method to switching pages
+//    private void switchScene() throws IOException {
+//        Stage stage = (Stage) viewGoals.getScene().getWindow();
+//        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("goal-list.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load(), Application.WIDTH, Application.HEIGHT);
+//        stage.setScene(scene);
+//    }
+
+    // Method to load the selected goal for editing
+    public void loadGoalForEditing(String title, String details) {
+        originalTitle = title; // Store the original title for updating
+        goalTitle.setText(title);
+        goalDetails.setText(details);
+    }
+
+
     @FXML
     private void onViewGoalsButtonClick() throws IOException {
-        mainController.loadPage("goal-list.fxml");
+        // Directly switch back to the goal-list.fxml scene
+        Stage stage = (Stage) viewGoals.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(Application.class.getResource("goal-list.fxml"));
+        Scene scene = new Scene(loader.load(), Application.WIDTH, Application.HEIGHT);
+        stage.setScene(scene);
     }
 
     @FXML
     private void onSubmitButtonClick() throws IOException {
-        // Get the values from the input fields
         String title = goalTitle.getText();
         String details = goalDetails.getText();
 
-        // Validate the input (optional, you can add more checks)
         if (title.isEmpty() || details.isEmpty()) {
             System.out.println("Please fill in both fields.");
             return;
         }
 
-        // Save the goal to the database
-        connection.saveGoal(title, details);
+        // Check if it's an edit operation (when originalTitle is set)
+        if (originalTitle != null) {
+            connection.updateGoal(originalTitle, title, details); // Update the goal
+            originalTitle = null; // Reset after update
+        } else {
+            connection.saveGoal(title, details); // Save new goal
+        }
 
         // Clear the fields after saving
         goalTitle.clear();
         goalDetails.clear();
 
         System.out.println("Goal saved successfully!");
+
+        // After saving, switch back to the goal-list.fxml
+        switchScene(); // This will take you back to the goal list page
+    }
+
+    private void switchScene() throws IOException {
+        Stage stage = (Stage) goalTitle.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(Application.class.getResource("goal-list.fxml"));
+        Scene scene = new Scene(loader.load(), Application.WIDTH, Application.HEIGHT);
+        stage.setScene(scene);
+    }
+
+    public void resetForm() {
+        // Clear the form fields and reset editing state
+        goalTitle.clear();
+        goalDetails.clear();
+        originalTitle = null; // Ensure originalTitle is null, so it's not in edit mode
     }
 
     @Override

@@ -95,18 +95,19 @@ public class MockGoalDAO {
         }
         return goals;
     }
-//    // Update a goal's title and details by its old title
-//    public void updateGoal(String oldTitle, String newTitle, String newDetails) {
-//        try {
-//            PreparedStatement statement = connection.prepareStatement(
-//                    "UPDATE goals SET goalTitle = ?, goalDetails = ? WHERE goalTitle = ?"
-//            );
-//            statement.setString(1, newTitle);
-//            statement.setString(2, newDetails);
-//            statement.setString(3, oldTitle);
-//            statement.executeUpdate();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+
+    // Update a goal's title and details by its old title
+    public void updateGoal(String oldTitle, String newTitle, String newDetails) {
+        try {
+            PreparedStatement statement = connection.prepareStatement(
+                    "UPDATE goals SET goalTitle = ?, goalDetails = ? WHERE goalTitle = ?"
+            );
+            statement.setString(1, newTitle);
+            statement.setString(2, newDetails);
+            statement.setString(3, oldTitle);
+            statement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

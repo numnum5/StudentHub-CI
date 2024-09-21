@@ -33,6 +33,11 @@ public class GoalListController implements IController
     @FXML
     private Button searchButton;
 
+    @FXML
+    private Button editGoals;
+
+    private String selectedTitle = null; // Track selected goal's title for editing
+
     private MockGoalDAO connection = new MockGoalDAO(); // DAO to interact with the database
 
     @FXML
@@ -87,7 +92,14 @@ public class GoalListController implements IController
 
     @FXML
     private void onAddGoalsButtonClick() throws IOException {
-        mainController.loadPage("goals.fxml");
+        FXMLLoader loader = new FXMLLoader(Application.class.getResource("goals.fxml"));
+        Stage stage = (Stage) addGoals.getScene().getWindow();
+        Scene scene = new Scene(loader.load(), Application.WIDTH, Application.HEIGHT);
+        stage.setScene(scene);
+
+        // Get the controller and reset the form state
+        GoalsController goalsController = loader.getController();
+        goalsController.resetForm(); // Call the reset method to clear the fields
     }
 
     @FXML
@@ -146,6 +158,39 @@ public class GoalListController implements IController
 
             // Add the goalBox to the goalContainer (VBox)
             goalContainer.getChildren().add(goalBox);
+        }
+    }
+
+    @FXML
+    private void onEditGoalsButtonClick() throws IOException {
+        // Find the selected goal
+        for (int i = 0; i < goalContainer.getChildren().size(); i++) {
+            HBox goalBox = (HBox) goalContainer.getChildren().get(i);
+            CheckBox checkBox = (CheckBox) goalBox.getChildren().get(0);
+
+            if (checkBox.isSelected()) {
+                Label titleLabel = (Label) goalBox.getChildren().get(1);
+                selectedTitle = titleLabel.getText(); // Save the selected title
+
+                // Switch to the goals.fxml scene
+                FXMLLoader loader = new FXMLLoader(Application.class.getResource("goals.fxml"));
+                Stage stage = (Stage) editGoals.getScene().getWindow();
+                Scene scene = new Scene(loader.load(), Application.WIDTH, Application.HEIGHT);
+                stage.setScene(scene);
+
+                // Pass the selected goal to GoalsController
+                GoalsController goalsController = loader.getController();
+                String[] goalData = connection.getAllGoals()
+                        .stream()
+                        .filter(goal -> goal[0].equals(selectedTitle))
+                        .findFirst()
+                        .orElse(null);
+
+                if (goalData != null) {
+                    goalsController.loadGoalForEditing(goalData[0], goalData[1]); // Load the goal data for editing
+                }
+                break;
+            }
         }
     }
 

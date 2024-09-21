@@ -14,6 +14,7 @@
             <Button fx:id="searchButton" text="Search" onAction="#onSearchButtonClick" styleClass="project-button"/>
             <Button fx:id="addGoals" text="Add New Goals" onAction="#onAddGoalsButtonClick" styleClass="project-button" />
             <Button fx:id="deleteGoals" text="Delete Goals" onAction="#onDeleteGoalsButtonClick" styleClass="project-button" />
+            <Button fx:id="editGoals" text="Edit Goals" onAction="#onEditGoalsButtonClick" styleClass="project-button" />
 <!--            <Button fx:id="editGoals" onAction="#onEditGoalsButtonClick" text="Edit Goals" styleClass="project-button" />-->
 
         </HBox>

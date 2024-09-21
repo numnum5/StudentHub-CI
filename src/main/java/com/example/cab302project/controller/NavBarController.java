@@ -88,7 +88,6 @@ public class NavBarController implements IController{
     @FXML
     protected void onGoalButtonClick() throws IOException {
         handleButtonClick(goalButton, "goal-list.fxml");
-
     }
 
     @FXML
