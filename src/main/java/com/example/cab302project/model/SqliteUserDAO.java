@@ -94,21 +94,6 @@ public class SqliteUserDAO implements IUserDAO {
     }
 
     @Override
-    public int searchUser(String username, String password) {
-        return 0;
-    }
-
-    @Override
-    public boolean checkPassword(String userPassword, String password) {
-        return false;
-    }
-
-    @Override
-    public boolean checkUsername(String userUsername, String username) {
-        return false;
-    }
-
-    @Override
     public User getUser(int id) {
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE id = ?");
@@ -156,6 +141,7 @@ public class SqliteUserDAO implements IUserDAO {
         return users;
     }
 
+    @Override
     public boolean userExists(String userName) {
         try {
             String query = "SELECT * FROM users WHERE username = '" + userName + "'";
@@ -171,6 +157,7 @@ public class SqliteUserDAO implements IUserDAO {
         return false;
     }
 
+    @Override
     public boolean passwordCorrect(String userName, String password)
     {
         try {

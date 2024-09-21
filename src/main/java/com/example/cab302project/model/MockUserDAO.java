@@ -6,7 +6,6 @@ import java.util.List;
 /**
  * Class for simulating access to database for user table
  */
-
 public class MockUserDAO implements IUserDAO {
     public static final ArrayList<User> users = new ArrayList<>();
     private static int autoIncrementedId = 0;
@@ -36,28 +35,6 @@ public class MockUserDAO implements IUserDAO {
         users.remove(user);
     }
 
-    @Override
-    public int searchUser(String username, String password) {
-
-        for(User user : users){
-            if(checkPassword(user.getPassword(), password) && checkUsername(user.getUsername(), username)){
-                return user.getId();
-            }
-        }
-        return -1;
-    }
-
-    // A method for checking current user's password with the given password
-    @Override
-    public boolean checkPassword(String userPassword, String password) {
-        return userPassword != null && userPassword.equals(password);
-    }
-
-    // A method for checking current user's username with the given username
-    @Override
-    public boolean checkUsername(String userUsername, String username) {
-        return userUsername != null && userUsername.equals(username);
-    }
 
     // Method for getting all a user in the database given id
     @Override
@@ -71,6 +48,7 @@ public class MockUserDAO implements IUserDAO {
     }
 
     //Method to check if user exists.
+    @Override
     public boolean userExists(String userName)
     {
         for (User user : users) {
@@ -82,6 +60,7 @@ public class MockUserDAO implements IUserDAO {
     }
 
     // Method to check if user password is the same for a certain user.
+    @Override
     public boolean passwordCorrect(String userName, String password)
     {
         for (User user : users)

@@ -1,7 +1,9 @@
 package com.example.cab302project.model;
 
 
-// Class for modeling a user
+/**
+ * Class for modelling a user
+ */
 public class User {
     private int id;
     private String firstName;

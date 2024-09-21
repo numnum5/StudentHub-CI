@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import com.example.cab302project.model.User;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,9 +17,7 @@ import java.io.IOException;
 public class LoginController {
     private SqliteUserDAO Connection = new SqliteUserDAO();
 
-
     public static String username;
-
 
     @FXML
     private TextField usernameField;

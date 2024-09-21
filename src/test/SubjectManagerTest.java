@@ -2,9 +2,9 @@ import com.example.cab302project.model.*;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
-
-
-// Class for testing subject manager
+/**
+ * Class for testing SubjectManager and ISubjectDAO functionalities
+ */
 public class SubjectManagerTest {
 
     private SubjectManager subjectManager;

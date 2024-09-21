@@ -9,15 +9,15 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-// Class for testing AssignmentMananger with assignment data access object.
+/**
+ * Class for testing AssignmentManager which includes IAssignmentDAO functionalities
+ */
 public class AssignmentManagerTest {
     private AssignmentManager assignmentManager;
-    private MockAssignmentDAO mockAssignmentDAO;
 
     @BeforeEach
     public void setUp() {
-        mockAssignmentDAO = new MockAssignmentDAO();
-        assignmentManager = new AssignmentManager(mockAssignmentDAO);
+        assignmentManager = new AssignmentManager(new MockAssignmentDAO());
     }
 
     @Test
@@ -25,10 +25,10 @@ public class AssignmentManagerTest {
         Subject subject = new Subject(1, "CS101", "Computer Science", "Introduction to Computer Science");
         Assignment assignment = new Assignment("AT 1", "Description", "john_doe", subject, "30/6/2025");
         assignmentManager.addAssignment(assignment);
-        assertEquals(1, mockAssignmentDAO.subjects.size());
+        assertEquals(1, assignmentManager.getAllAssignments("john_doe").size());
 
         // Check if the get function with the first id matches the assignment object
-        assertEquals(assignment, mockAssignmentDAO.subjects.get(0));
+        assertEquals(assignment, assignmentManager.getAllAssignments("john_doe").get(0));
     }
 
     @Test
@@ -38,7 +38,7 @@ public class AssignmentManagerTest {
         assignmentManager.addAssignment(assignment);
         assignment.setDescription("Updated Description");
         assignmentManager.updateAssignment(assignment);
-        Assignment updatedAssignment = mockAssignmentDAO.getAssignment(0);
+        Assignment updatedAssignment = assignmentManager.getAssignment(0);
         assertEquals("Updated Description", updatedAssignment.getDescription());
     }
 
@@ -46,9 +46,9 @@ public class AssignmentManagerTest {
     public void testDeleteAssignment() {
         Assignment assignment = new Assignment("AT2", "Description", "Ryan Pam", null, "30/6/2025");
         assignmentManager.addAssignment(assignment);
-        assertEquals(1, mockAssignmentDAO.subjects.size());
+        assertEquals(1, assignmentManager.getAllAssignments("Ryan Pam").size());
         assignmentManager.deleteAssignment(assignment);
-        assertEquals(0, mockAssignmentDAO.subjects.size());
+        assertEquals(0,  assignmentManager.getAllAssignments("Ryan Pam").size());
     }
 
     @Test
@@ -80,11 +80,73 @@ public class AssignmentManagerTest {
         assertEquals(1, searchResults.size());
         assertEquals(assignment1, searchResults.get(0));
     }
+    @Test
+    public void testSearchAssignmentsEmptyQuery() {
+        Subject subject = new Subject(1, "CS101", "Computer Science", "Introduction to Computer Science");
+        Assignment assignment1 = new Assignment("AT1", "Description 1", "john_doe", subject, "30/6/2025");
+        Assignment assignment2 = new Assignment("Project 1", "Description 2", "john_doe", subject, "30/6/2025");
+        assignmentManager.addAssignment(assignment1);
+        assignmentManager.addAssignment(assignment2);
+        List<Assignment> searchResults = assignmentManager.searchAssignments("");
+        assertEquals(2, searchResults.size());
+    }
 
     @Test
-    public void testSearchInOneAssignment() {
-        List<Assignment> results = assignmentManager.searchAssignments("Assignment 1");
-        assertEquals(1, results.size());
-        assertEquals("Math Homework", results.get(0).getName());
+    public void testSearchAssignmentsCaseInsensitive() {
+        Subject subject = new Subject(1, "CS101", "Computer Science", "Introduction to Computer Science");
+        Assignment assignment1 = new Assignment("AT1", "Description 1", "john_doe", subject, "30/6/2025");
+        Assignment assignment2 = new Assignment("Project 1", "Description 2", "john_doe", subject, "30/6/2025");
+        assignmentManager.addAssignment(assignment1);
+        assignmentManager.addAssignment(assignment2);
+        List<Assignment> searchResults = assignmentManager.searchAssignments("at1");
+        assertEquals(1, searchResults.size());
+        assertEquals(assignment1, searchResults.get(0));
     }
+
+    @Test
+    public void testSearchAssignmentsPartialName() {
+        Subject subject = new Subject(1, "CS101", "Computer Science", "Introduction to Computer Science");
+        Assignment assignment1 = new Assignment("AT1", "Description 1", "john_doe", subject, "30/6/2025");
+        Assignment assignment2 = new Assignment("Project 1", "Description 2", "john_doe", subject, "30/6/2025");
+        assignmentManager.addAssignment(assignment1);
+        assignmentManager.addAssignment(assignment2);
+        List<Assignment> searchResults = assignmentManager.searchAssignments("Project");
+        assertEquals(1, searchResults.size());
+        assertEquals(assignment2, searchResults.get(0));
+    }
+
+    @Test
+    public void testSearchAssignmentsBySubject() {
+        Subject subject = new Subject(1, "CS101", "Computer Science", "Introduction to Computer Science");
+        Assignment assignment1 = new Assignment("AT1", "Description 1", "john_doe", subject, "30/6/2025");
+        Assignment assignment2 = new Assignment("Project 1", "Description 2", "john_doe", subject, "30/6/2025");
+        assignmentManager.addAssignment(assignment1);
+        assignmentManager.addAssignment(assignment2);
+        List<Assignment> searchResults = assignmentManager.searchAssignments("CS101");
+        assertEquals(2, searchResults.size());  // Both assignments should match the subject
+    }
+
+    @Test
+    public void testSearchAssignmentsNoResults() {
+        Subject subject = new Subject(1, "CS101", "Computer Science", "Introduction to Computer Science");
+        Assignment assignment1 = new Assignment("AT1", "Description 1", "john_doe", subject, "30/6/2025");
+        Assignment assignment2 = new Assignment("Project 1", "Description 2", "john_doe", subject, "30/6/2025");
+        assignmentManager.addAssignment(assignment1);
+        assignmentManager.addAssignment(assignment2);
+        List<Assignment> searchResults = assignmentManager.searchAssignments("Nonexistent");
+        assertEquals(0, searchResults.size());  // No assignments should match
+    }
+
+    @Test
+    public void testSearchAssignmentsByDescription() {
+        Subject subject = new Subject(1, "CS101", "Computer Science", "Introduction to Computer Science");
+        Assignment assignment1 = new Assignment("AT1", "First assignment", "john_doe", subject, "30/6/2025");
+        Assignment assignment2 = new Assignment("Project 1", "Final project", "john_doe", subject, "30/6/2025");
+        assignmentManager.addAssignment(assignment1);
+        assignmentManager.addAssignment(assignment2);
+        List<Assignment> searchResults = assignmentManager.searchAssignments("First assignment");
+        assertEquals(1, searchResults.size());
+        assertEquals(assignment1, searchResults.get(0));
+    }
+
 }
