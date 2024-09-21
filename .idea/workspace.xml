@@ -5,32 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a870cc7c-1721-49a2-9ce7-6ee918315918" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/GPAManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/SqliteFinanceDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/UserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/CreateAssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/CreateAssignmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/FinanceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/FinanceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/NavBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/NavBarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/ProjectListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/ProjectListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/IUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/IUserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/JournalManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/MockAssignmentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/MockAssignmentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/MockFinanceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/MockFinanceDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/MockUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/MockUserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/SqliteUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/SqliteUserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/finance.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/finance.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/journal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/journal.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/AssignmentManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/AssignmentManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/AssignmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/AssignmentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/GPATest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/GPATest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/JournalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/JournalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/SubjectManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/SubjectManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/SubjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/SubjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/GoalListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/GoalListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/GoalsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/GoalsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/MockGoalDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/MockGoalDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/goal-list.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cab302project/goal-list.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +74,7 @@
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging feature/projects",
+    "git-widget-placeholder": "feature/GoalPage",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Junseo Pyun/Downloads/StudentHubFinal",
     "node.js.detected.package.eslint": "true",

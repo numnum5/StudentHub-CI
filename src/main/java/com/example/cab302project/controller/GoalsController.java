@@ -30,15 +30,9 @@ public class GoalsController implements IController
 
     private MockGoalDAO connection;
 
-    private MainController mainController;
+    private String originalTitle; // To store the original title during editing
 
-    // Method to switching pages
-    private void switchScene() throws IOException {
-        Stage stage = (Stage) viewGoals.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("goal-list.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), Application.WIDTH, Application.HEIGHT);
-        stage.setScene(scene);
-    }
+    private MainController mainController;
 
     public GoalsController(){
         this.connection = new MockGoalDAO();
@@ -51,25 +45,20 @@ public class GoalsController implements IController
 
     @FXML
     private void onSubmitButtonClick() throws IOException {
-        // Get the values from the input fields
         String title = goalTitle.getText();
         String details = goalDetails.getText();
 
-        // Validate the input (optional, you can add more checks)
         if (title.isEmpty() || details.isEmpty()) {
             System.out.println("Please fill in both fields.");
             return;
         }
 
-        // Save the goal to the database
         connection.saveGoal(title, details);
-
-        // Clear the fields after saving
-        goalTitle.clear();
-        goalDetails.clear();
-
         System.out.println("Goal saved successfully!");
+
     }
+
+
 
     @Override
     public void setMainController(MainController mainController) {
