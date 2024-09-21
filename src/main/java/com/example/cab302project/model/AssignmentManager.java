@@ -1,5 +1,8 @@
 package com.example.cab302project.model;
 
+import com.example.cab302project.controller.LoginController;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -67,6 +70,20 @@ public class AssignmentManager {
      * @return A list of matching assignments.
      */
     public List<Assignment> searchAssignments(String keyword) {
-        return assignmentDAO.searchAssignments(keyword);
+        List<Assignment> matchingAssignments = new ArrayList<>();
+        // Return an empty list if the keyword is null or empty
+        if (keyword == null || keyword.trim().isEmpty()) {
+            return assignmentDAO.getAllAssignments(LoginController.username);
+        }
+        // Iterate through all assignments and check for the keyword
+        // Check if the keyword is in the description, name, subject etc...
+        for (Assignment assignment : getAllAssignments(LoginController.username)) {
+            if (assignment.getName().toLowerCase().contains(keyword.toLowerCase()) ||
+                    assignment.getDescription().toLowerCase().contains(keyword.toLowerCase())
+            || assignment.getSubject().toString().toLowerCase().contains(keyword.toLowerCase())) {
+                matchingAssignments.add(assignment);
+            }
+        }
+        return matchingAssignments;
     }
 }

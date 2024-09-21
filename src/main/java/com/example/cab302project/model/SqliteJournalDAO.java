@@ -7,10 +7,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JournalDAO {
+public class SqliteJournalDAO {
     private Connection connection;
 
-    public JournalDAO() {
+    public SqliteJournalDAO() {
         this.connection = SqliteConnection.getInstance();
         createTable();
     }
@@ -30,12 +30,12 @@ public class JournalDAO {
         }
     }
 
-    public void addEntry(String entry, String mood, String userName) {
+    public void addEntry(Journal journal) {
         try {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO journals (entry, mood, username) VALUES (?, ?, ?)");
-            statement.setString(1, entry);
-            statement.setString(2, mood);
-            statement.setString(3, userName);
+            statement.setString(1, journal.getEntry());
+            statement.setString(2, journal.getMood());
+            statement.setString(3, journal.getUsername());
             statement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

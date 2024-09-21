@@ -6,10 +6,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
-// Class for testing Assignment object
+/**
+ * Class for testing Assignment model
+ */
 public class AssignmentTest {
     private Assignment assignment;
+
+    // Assignment requires a subject during initialization
     private Subject subject;
 
     // Initialise a Subject object and Assignment object for subsequent testing

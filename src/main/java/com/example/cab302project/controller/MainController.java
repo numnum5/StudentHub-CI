@@ -7,7 +7,9 @@ import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import java.io.IOException;
 
-// Main controller for the application, responsible for managing the main layout and navigation.
+/**
+ * Main controller for the application, responsible for managing the main layout and navigation.
+ */
 public class MainController {
 
     @FXML
@@ -15,12 +17,10 @@ public class MainController {
 
     private String username; // Stores the current user's username
 
-    // Setter for the username
     public void setUsername(String username) {
         this.username = username;
     }
 
-    // Getter for the username
     public String getUsername() {
         return this.username;
     }
@@ -31,7 +31,8 @@ public class MainController {
             // Load the navigation bar FXML file
             FXMLLoader navBarLoader = new FXMLLoader(Application.class.getResource("nav-bar.fxml"));
             Parent navBar = navBarLoader.load();
-            NavBarController controller = navBarLoader.getController(); // Get the controller for the nav bar
+            // Get the controller for the nav bar
+            NavBarController controller = navBarLoader.getController();
             controller.setUsername(this.username); // Set the username in the nav bar controller
             controller.setMainController(this); // Link the nav bar controller to the main controller
             mainPane.setTop(navBar); // Set the loaded navigation bar at the top of the main pane

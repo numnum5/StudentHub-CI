@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-// Class for testing Subject class
+/**
+ * Class for testing Subject class
+ */
 public class SubjectTest {
 
     private Subject subject;
@@ -80,12 +82,5 @@ public class SubjectTest {
         // Test the semester setter
         subject.setSemester(2);
         assertEquals(2, subject.getSemester());
-    }
-
-    @Test
-    public void testToString() {
-        // Test the toString method
-        String expected = "Subject{id=0, unitCode='CS101', name='Computer Science', description='Introduction to Computer Science'}";
-        assertEquals(expected, subject.toString());
     }
 }

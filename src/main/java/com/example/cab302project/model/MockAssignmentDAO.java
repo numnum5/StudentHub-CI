@@ -12,7 +12,7 @@ import java.util.List;
 public class MockAssignmentDAO implements IAssignmentDAO{
 
     // Static list to hold mock Assignment data
-    public final ArrayList<Assignment> subjects = new ArrayList<>();
+    public final ArrayList<Assignment> assignments = new ArrayList<>();
     private int autoIncrementedId = 0; // ID counter for keeping and assigning new id to assignment object
 
     /**
@@ -24,10 +24,13 @@ public class MockAssignmentDAO implements IAssignmentDAO{
     @Override
     public List<Assignment> searchAssignments(String keyword) {
         List<Assignment> matchingAssignments = new ArrayList<>();
+        // Return an empty list if the keyword is null or empty
+        if (keyword == null || keyword.trim().isEmpty()) {
+            return matchingAssignments;
+        }
 
         // Iterate through all assignments and check for the keyword
         for (Assignment assignment : getAllAssignments(LoginController.username)) {
-            System.out.println(assignment.toString());
             if (assignment.getName().toLowerCase().contains(keyword.toLowerCase())) {
                 matchingAssignments.add(assignment);
             }
@@ -44,7 +47,7 @@ public class MockAssignmentDAO implements IAssignmentDAO{
     public void addAssignment(Assignment assignment) {
         assignment.setId(autoIncrementedId);
         autoIncrementedId++;
-        subjects.add(assignment);
+        assignments.add(assignment);
     }
 
     /**
@@ -55,9 +58,9 @@ public class MockAssignmentDAO implements IAssignmentDAO{
     @Override
     public void updateAssignment(Assignment assignment) {
         // Find the assignment by ID and update it
-        for (int i = 0; i < subjects.size(); i++) {
-            if (subjects.get(i).getId() == assignment.getId()) {
-                subjects.set(i, assignment);
+        for (int i = 0; i < assignments.size(); i++) {
+            if (assignments.get(i).getId() == assignment.getId()) {
+                assignments.set(i, assignment);
                 break;
             }
         }
@@ -70,7 +73,7 @@ public class MockAssignmentDAO implements IAssignmentDAO{
      */
     @Override
     public void deleteAssignment(Assignment assignment) {
-        subjects.remove(assignment); // Remove the assignment from the list
+        assignments.remove(assignment); // Remove the assignment from the list
     }
 
     /**
@@ -81,7 +84,7 @@ public class MockAssignmentDAO implements IAssignmentDAO{
      */
     @Override
     public Assignment getAssignment(int id) {
-        for (Assignment assignment : subjects) {
+        for (Assignment assignment : assignments) {
             if (assignment.getId() == id) {
                 return assignment;
             }
@@ -96,6 +99,6 @@ public class MockAssignmentDAO implements IAssignmentDAO{
      */
     @Override
     public List<Assignment> getAllAssignments(String username) {
-        return new ArrayList<>(subjects);
+        return new ArrayList<>(assignments);
     }
 }

@@ -11,8 +11,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
-// Controller for handling project list page,
-// Handles displaying assignment items, creating new assignment and adding new subjects
+/**
+ * Controller for handling project list page,
+ * Handles displaying assignment items, creating new assignment and adding new subjects
+ */
+
 public class ProjectListController {
 
     private SubjectManager subjectDAO;
@@ -118,14 +121,12 @@ public class ProjectListController {
                 break;
         }
     }
-
     // Adds a new assignment and renders it in the fxml page
     public void addNewAssignment(Assignment assignment) {
         VBox newCard = createCard(assignment);
         cardContainer.getChildren().add(newCard);
         assignmentDAO.addAssignment(assignment);
     }
-
     // Opens a new window for creating a new assignment
     @FXML
     private void onNewAssignmentClick() throws IOException {
