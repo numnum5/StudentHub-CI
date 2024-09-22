@@ -4,7 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-// Class for testing journal model
+/**
+ * Class for testing journal model
+ */
 class JournalTest {
     private Journal journal;
 

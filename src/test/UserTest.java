@@ -12,13 +12,11 @@ public class UserTest {
 
     @BeforeEach
     public void setUp() {
-        // Initialize a User object before each test
         user = new User("John", "Doe", "johndoe", "password123");
     }
 
     @Test
     public void testConstructor() {
-        // Test if the constructor correctly assigns values
         assertEquals("John", user.getFirstName());
         assertEquals("Doe", user.getLastName());
         assertEquals("johndoe", user.getUsername());

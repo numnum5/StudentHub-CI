@@ -16,8 +16,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-// Controller for handling adding a new subject to the database and UI for add subject fxml page
+/**
+ * Controller for handling adding a new subject to the
+ *  database and UI for add subject fxml page
+ */
 public class AddSubjectController {
 
     private SubjectManager manager;

@@ -6,12 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="a870cc7c-1721-49a2-9ce7-6ee918315918" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/MockAssignmentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/model/MockAssignmentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/AddSubjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/AddSubjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/IController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/IController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/JournalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cab302project/controller/JournalController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/AssignmentManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/AssignmentManagerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/JournalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/JournalTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/SubjectManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/SubjectManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/SubjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/SubjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/UserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

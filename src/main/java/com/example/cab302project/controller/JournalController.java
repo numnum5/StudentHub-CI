@@ -9,7 +9,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
-
+/**
+ * Controller for managing Journal page
+ */
 public class JournalController implements IController {
     private SqliteJournalDAO connection = new SqliteJournalDAO();
 

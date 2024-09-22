@@ -26,7 +26,6 @@ public class AssignmentManagerTest {
         Assignment assignment = new Assignment("AT 1", "Description", "john_doe", subject, "30/6/2025");
         assignmentManager.addAssignment(assignment);
         assertEquals(1, assignmentManager.getAllAssignments("john_doe").size());
-
         // Check if the get function with the first id matches the assignment object
         assertEquals(assignment, assignmentManager.getAllAssignments("john_doe").get(0));
     }
