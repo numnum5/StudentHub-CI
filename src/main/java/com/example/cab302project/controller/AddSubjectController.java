@@ -93,9 +93,8 @@ public class AddSubjectController {
             Parent root = loader.load();
             ErrorController controller = loader.getController();
             controller.setErrorMessage(message);
-
             Stage stage = new Stage();
-            // Set modality to application modal to block any inputs
+            // Set modality to application modal to block any inputs during error popup
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Error");
             stage.setScene(new Scene(root));

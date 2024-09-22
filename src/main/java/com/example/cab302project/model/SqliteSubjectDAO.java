@@ -12,7 +12,6 @@ import java.util.List;
  */
 public class SqliteSubjectDAO implements ISubjectDAO {
     private Connection connection;
-
     /**
      * Constructor that initializes the database connection,
      * creates the subjects table, and pre-fills it with data if empty.
@@ -22,7 +21,6 @@ public class SqliteSubjectDAO implements ISubjectDAO {
         createTable();
         prefillData();
     }
-
     /**
      * Creates the subjects table if it does not already exist.
      */
@@ -47,7 +45,6 @@ public class SqliteSubjectDAO implements ISubjectDAO {
      */
 
     private void prefillData() {
-        System.out.println("DADADDSDSD");
         if (getAllSubjects().isEmpty()) { // Check if the table is empty
             try {
                 addSubject(new Subject(1, "CAB502", "Advanced Quantum Computing", "Idk"));
@@ -74,16 +71,15 @@ public class SqliteSubjectDAO implements ISubjectDAO {
             statement.setString(1, subject.getUnitCode());
             statement.setString(2, subject.getName());
             statement.setString(3, subject.getDescription());
-            statement.setInt(4, subject.getSemester()); // Add semester
+            statement.setInt(4, subject.getSemester());
             statement.executeUpdate();
-
             // Set the ID of the new subject
             ResultSet generatedKeys = statement.getGeneratedKeys();
             if (generatedKeys.next()) {
-                subject.setId(generatedKeys.getInt(1)); // Retrieve generated ID
+                subject.setId(generatedKeys.getInt(1));
             }
         } catch (Exception e) {
-            e.printStackTrace(); // Log any exceptions
+            e.printStackTrace();
         }
     }
 
@@ -100,18 +96,18 @@ public class SqliteSubjectDAO implements ISubjectDAO {
             statement.setString(1, subject.getUnitCode());
             statement.setString(2, subject.getName());
             statement.setString(3, subject.getDescription());
-            statement.setInt(4, subject.getSemester()); // Include semester
+            statement.setInt(4, subject.getSemester());
             statement.setInt(5, subject.getId());
-            statement.executeUpdate(); // Execute the update
+            statement.executeUpdate();
         } catch (Exception e) {
-            e.printStackTrace(); // Log any exceptions
+            e.printStackTrace();
         }
     }
 
     /**
      * Deletes a subject from the database by its ID.
      *
-     * @param The object of the subject to be deleted.
+     * @param subject The object of the subject to be deleted.
      */
     @Override
     public void deleteSubject(Subject subject) {
@@ -191,11 +187,8 @@ public class SqliteSubjectDAO implements ISubjectDAO {
         try {
             PreparedStatement statement = connection.prepareStatement(
                     "SELECT * FROM subjects WHERE name LIKE ? OR code LIKE ?");
-
             // Use wildcards for search
-
             String searchPattern = "%" + keyword + "%";
-
             statement.setString(1, searchPattern);
             statement.setString(2, searchPattern);
             ResultSet resultSet = statement.executeQuery();
@@ -212,7 +205,6 @@ public class SqliteSubjectDAO implements ISubjectDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return matchingSubjects;
     }
 }

@@ -70,7 +70,7 @@ public class MockSubjectDAO implements ISubjectDAO {
      */
     @Override
     public List<Subject> getAllSubjects() {
-        return new ArrayList<>(subjects); // Return a new list containing all subjects
+        return new ArrayList<>(subjects);
     }
 
     /**
@@ -82,19 +82,15 @@ public class MockSubjectDAO implements ISubjectDAO {
     @Override
     public List<Subject> searchSubjects(String keyword) {
         List<Subject> matchingSubjects = new ArrayList<>();
-
         // Return an empty list if the keyword is null or empty
         if (keyword == null || keyword.trim().isEmpty()) {
             return matchingSubjects;
         }
-
         for (Subject subject : subjects) {
-            if (subject.getName().toLowerCase().contains(keyword.toLowerCase()) ||
-                    subject.getUnitCode().toLowerCase().contains(keyword.toLowerCase())) {
+            if (subject.getName().toLowerCase().contains(keyword.toLowerCase()) || subject.getUnitCode().toLowerCase().contains(keyword.toLowerCase())) {
                 matchingSubjects.add(subject);
             }
         }
-
         return matchingSubjects;
     }
 }

@@ -101,7 +101,6 @@ public class FinanceController {
         }
         catch (NumberFormatException e) {
             c.setText("0");
-            // FIX
             return 0;
         }
     }

@@ -28,8 +28,6 @@ public class MockAssignmentDAO implements IAssignmentDAO{
         if (keyword == null || keyword.trim().isEmpty()) {
             return matchingAssignments;
         }
-
-        // Iterate through all assignments and check for the keyword
         for (Assignment assignment : getAllAssignments(LoginController.username)) {
             if (assignment.getName().toLowerCase().contains(keyword.toLowerCase())) {
                 matchingAssignments.add(assignment);

@@ -50,6 +50,5 @@ public class GoalsController implements IController
     @Override
     public void setMainController(MainController mainController) {
         this.mainController =  mainController;
-        System.out.println(this.mainController);
     }
 }
