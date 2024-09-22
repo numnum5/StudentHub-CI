@@ -10,26 +10,27 @@
         style="-fx-background-color: #2c2c2c;"
         stylesheets="@css/goals.css">
 
+    <!-- Center section: VBox containing input fields for goal title and details -->
     <center>
-        <VBox alignment="TOP_LEFT" spacing="10"  style="-fx-background: #2c2c2c; -fx-border-color: #2c2c2c; -fx-padding: 10;">
-            <!-- Title Input -->
-            <Label text="Goal Title:" style="-fx-padding: 0; -fx-text-fill: white;" />
+        <VBox alignment="TOP_LEFT" spacing="10"  style="-fx-background: #2c2c2c; -fx-padding: 10;">
+            <!-- Title Input Field -->
+            <Label text="Goal Title:" style="-fx-text-fill: white;" />
             <TextField fx:id="goalTitle" promptText="Enter the title of your goal" style="-fx-pref-width: 300px; -fx-text-fill: white; -fx-prompt-text-fill: lightgray; -fx-background-color: #333;" />
 
-            <!-- Goal Details Input -->
-            <Label text="Goal Details:" style="-fx-padding: 0; -fx-text-fill: white;" />
-            <TextArea fx:id="goalDetails" promptText="Enter the details of your goal" style="-fx-pref-width: 300px; -fx-pref-height: 200px;"/>
+            <!-- Goal Details Input Field -->
+            <Label text="Goal Details:" style="-fx-text-fill: white;" />
+            <TextArea fx:id="goalDetails" promptText="Enter the details of your goal" style="-fx-pref-width: 300px; -fx-pref-height: 200px;" />
 
+            <!-- Submit and View Goals Buttons -->
             <Button fx:id="submitButton" onAction="#onSubmitButtonClick" text="Submit" styleClass="project-button"/>
-            <Button fx:id="viewGoals" text="View Goal List" onAction="#onViewGoalsButtonClick"  styleClass="project-button"/>
+            <Button fx:id="viewGoals" text="View Goal List" onAction="#onViewGoalsButtonClick" styleClass="project-button"/>
         </VBox>
     </center>
 
-    <!-- Copyright Bar -->
+    <!-- Bottom section: HBox with footer labels -->
     <bottom>
-        <HBox alignment="CENTER" spacing="20" style="-fx-background-color: #1f1f1f; -fx-padding: 10; -fx-pref-width: 100%;">
-            <Label text="© 2024 CaffeinatedProgrammers"
-                   style="-fx-text-fill: #888888; -fx-font-size: 14px;" />
+        <HBox alignment="CENTER" spacing="20" style="-fx-background-color: #1f1f1f; -fx-padding: 10;">
+            <Label text="© 2024 CaffeinatedProgrammers" style="-fx-text-fill: #888888; -fx-font-size: 14px;" />
             <Region fx:id="spacer" HBox.hgrow="ALWAYS" />
             <Label text="Privacy Policy" style="-fx-text-fill: #4CAF50;" />
             <Label text="Terms of Service" style="-fx-text-fill: #4CAF50;" />

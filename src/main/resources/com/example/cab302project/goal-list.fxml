@@ -4,32 +4,32 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cab302project.controller.GoalListController" style="-fx-background-color: #2c2c2c;" stylesheets="@css/goals.css">
+
+    <!-- Top section: HBox with search and action buttons -->
     <top>
         <HBox alignment="center" spacing="10" style="-fx-padding: 10;">
-            <!-- Search TextField -->
-
             <TextField fx:id="searchGoal" promptText="Search..." styleClass="search-field"/>
-            <!-- Search Button -->
             <Button fx:id="searchButton" text="Search" onAction="#onSearchButtonClick" styleClass="project-button"/>
-            <Button fx:id="addGoals" text="Add New Goals" onAction="#onAddGoalsButtonClick" styleClass="project-button" />
-            <Button fx:id="deleteGoals" text="Delete Goals" onAction="#onDeleteGoalsButtonClick" styleClass="project-button" />
-<!--            <Button fx:id="editGoals" text="Edit Goal" onAction="#onEditGoalsButtonClick" styleClass="project-button" />-->
-
+            <Button fx:id="addGoals" text="Add New Goals" onAction="#onAddGoalsButtonClick" styleClass="project-button"/>
+            <Button fx:id="deleteGoals" text="Delete Goals" onAction="#onDeleteGoalsButtonClick" styleClass="project-button"/>
         </HBox>
     </top>
+
+    <!-- Center section: Scrollable VBox to display the list of goals -->
     <center>
         <ScrollPane fx:id="scrollPane" fitToWidth="true" style="-fx-padding: 10; -fx-background: #2c2c2c; -fx-border-color: #2c2c2c;">
-            <!-- Container to display goal items -->
             <VBox fx:id="goalContainer" spacing="10" style="-fx-padding: 10; -fx-background-color: #2c2c2c"></VBox>
         </ScrollPane>
     </center>
+
+    <!-- Bottom section: HBox with footer labels -->
     <bottom>
-        <HBox alignment="CENTER" spacing="20" style="-fx-background-color: #1f1f1f; -fx-padding: 10; -fx-pref-width: 100%;">
-            <Label text="© 2024 CaffeinatedProgrammers"
-                   style="-fx-text-fill: #888888; -fx-font-size: 14px;" />
+        <HBox alignment="CENTER" spacing="20" style="-fx-background-color: #1f1f1f; -fx-padding: 10;">
+            <Label text="© 2024 CaffeinatedProgrammers" style="-fx-text-fill: #888888; -fx-font-size: 14px;" />
             <Region fx:id="spacer" HBox.hgrow="ALWAYS" />
             <Label text="Privacy Policy" style="-fx-text-fill: #4CAF50;" />
             <Label text="Terms of Service" style="-fx-text-fill: #4CAF50;" />
         </HBox>
     </bottom>
+
 </BorderPane>
