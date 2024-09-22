@@ -123,7 +123,7 @@ public class AssignmentManagerTest {
         assignmentManager.addAssignment(assignment1);
         assignmentManager.addAssignment(assignment2);
         List<Assignment> searchResults = assignmentManager.searchAssignments("CS101");
-        assertEquals(2, searchResults.size());  // Both assignments should match the subject
+        assertEquals(2, searchResults.size());
     }
 
     @Test
@@ -134,7 +134,7 @@ public class AssignmentManagerTest {
         assignmentManager.addAssignment(assignment1);
         assignmentManager.addAssignment(assignment2);
         List<Assignment> searchResults = assignmentManager.searchAssignments("Nonexistent");
-        assertEquals(0, searchResults.size());  // No assignments should match
+        assertEquals(0, searchResults.size());
     }
 
     @Test

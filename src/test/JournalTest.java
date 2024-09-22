@@ -18,7 +18,7 @@ class JournalTest {
         assertEquals("This is a test entry.", journal.getEntry());
         assertEquals("Happy", journal.getMood());
         assertEquals("testUser", journal.getUsername());
-        assertEquals(0, journal.getId()); // ID should default to 0
+        assertEquals(0, journal.getId());
     }
 
     @Test
@@ -36,6 +36,6 @@ class JournalTest {
 
     @Test
     void testDefaultId() {
-        assertEquals(0, journal.getId()); // Ensure ID is defaulted to 0
+        assertEquals(0, journal.getId());
     }
 }

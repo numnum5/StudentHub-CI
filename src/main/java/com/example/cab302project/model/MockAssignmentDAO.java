@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * MockAssignmentDAO simulates a data access object for managing Assignment entities.
+ * MockAssignmentDAO simulates a data access object for managing Assignment objects.
  * Provides methods for adding, updating, deleting, and searching assignments
  */
 public class MockAssignmentDAO implements IAssignmentDAO{
@@ -39,7 +39,7 @@ public class MockAssignmentDAO implements IAssignmentDAO{
     }
 
     /**
-     * Adds a new assignment to the mock data store and sets the id
+     * Adds a new assignment to the mock data and sets the id
      *
      * @param assignment The assignment to be added.
      */
