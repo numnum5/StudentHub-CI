@@ -1,5 +1,4 @@
-package com.example.cab302project.model;
-
+import com.example.cab302project.model.MockGoalDAO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
