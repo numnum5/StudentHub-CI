@@ -75,7 +75,6 @@ public class AssignmentManager {
         if (keyword == null || keyword.trim().isEmpty()) {
             return assignmentDAO.getAllAssignments(LoginController.username);
         }
-        // Iterate through all assignments and check for the keyword
         // Check if the keyword is in the description, name, subject etc...
         for (Assignment assignment : getAllAssignments(LoginController.username)) {
             if (assignment.getName().toLowerCase().contains(keyword.toLowerCase()) ||

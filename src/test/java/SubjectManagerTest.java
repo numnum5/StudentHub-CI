@@ -18,7 +18,6 @@ public class SubjectManagerTest {
             new Subject(1, "CS301", "Operating Systems", "Introduction to Operating Systems")
     };
 
-    // Initialise a SubjectManager object
     @BeforeEach
     public void setUp() {
         subjectManager = new SubjectManager(new MockSubjectDAO());

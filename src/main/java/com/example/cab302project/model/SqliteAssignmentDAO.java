@@ -107,7 +107,6 @@ public class SqliteAssignmentDAO implements IAssignmentDAO{
             // Add wildcard for more broad result
             statement.setString(1, "%" + keyword + "%");
             ResultSet resultSet = statement.executeQuery();
-
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
@@ -117,7 +116,6 @@ public class SqliteAssignmentDAO implements IAssignmentDAO{
                 int subjectId = resultSet.getInt("subjectId");
                 String dueDate = resultSet.getString("dueDate");
                 String status = resultSet.getString("status");
-
                 // Get subject details
                 String subjectCode = resultSet.getString("code");
                 String subjectName = resultSet.getString("name");
@@ -155,14 +153,12 @@ public class SqliteAssignmentDAO implements IAssignmentDAO{
             statement.setString(6, assignment.getDueDate());
             statement.setString(7, assignment.getStatus().name());
             statement.executeUpdate();
-
             // Set the ID of the new assignment
             ResultSet generatedKeys = statement.getGeneratedKeys();
             if (generatedKeys.next()) {
                 assignment.setId(generatedKeys.getInt(1));
             }
         } catch (org.sqlite.SQLiteException e) {
-            // Catch any sqlite specific expceptions
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
@@ -237,9 +233,9 @@ public class SqliteAssignmentDAO implements IAssignmentDAO{
     }
 
     /**
-     * Deletes an assignment from the database by its ID.
+     * Deletes an assignment from the database by its object.
      *
-     * @param The object of the assignment to be deleted.
+     * @param assignment The object of the assignment to be deleted.
      */
     @Override
     public void deleteAssignment(Assignment assignment) {

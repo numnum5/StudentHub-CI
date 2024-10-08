@@ -16,8 +16,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-// Controller for handling adding a new subject to the database and UI for add subject fxml page
+/**
+ * Controller for handling adding a new subject to the
+ *  database and UI for add subject fxml page
+ */
 public class AddSubjectController {
 
     private SubjectManager manager;
@@ -91,9 +93,8 @@ public class AddSubjectController {
             Parent root = loader.load();
             ErrorController controller = loader.getController();
             controller.setErrorMessage(message);
-
             Stage stage = new Stage();
-            // Set modality to application modal to block any inputs
+            // Set modality to application modal to block any inputs during error popup
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Error");
             stage.setScene(new Scene(root));
