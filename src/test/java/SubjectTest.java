@@ -31,7 +31,7 @@ public class SubjectTest {
 
     @Test
     public void testGetUnitCode() {
-        assertEquals("CAB101", subject.getUnitCode());
+        assertEquals("CS101", subject.getUnitCode());
     }
 
     @Test
