@@ -116,7 +116,7 @@ public class FinanceController {
     }
 
     /**
-        A function that acts as a controller for the reset button to reset the budget,
+        * A function that acts as a controller for the reset button to reset the budget,
         daily spending, and amount left.
      */
     @FXML
