@@ -9,6 +9,9 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Controller for handling the display and management of goals in the application.
+ */
 public class GoalListController implements IController {
 
     @FXML
@@ -23,13 +26,17 @@ public class GoalListController implements IController {
     private GoalDAO connection = new GoalDAO(); // Data access object for goals
     private MainController mainController;
 
-    // Initializes the view by loading all goals when the scene is displayed
+    /**
+     * Initializes the view by loading all goals when the scene is displayed.
+     */
     @FXML
     public void initialize() {
         loadGoals();
     }
 
-    // Loads all goals from the database and displays them in the VBox
+    /**
+     * Loads all goals from the database and displays them in the VBox.
+     */
     private void loadGoals() {
         List<String[]> goals = connection.getAllGoals();
         goalContainer.getChildren().clear();
@@ -40,7 +47,13 @@ public class GoalListController implements IController {
         }
     }
 
-    // Create an HBox layout for each goal (title, details, checkbox)
+    /**
+     * Creates an HBox layout for each goal, including the title, details, and checkbox.
+     *
+     * @param title   The title of the goal.
+     * @param details The details of the goal.
+     * @return A formatted HBox containing the goal data.
+     */
     private HBox createGoalBox(String title, String details) {
         HBox goalBox = new HBox(10); // HBox with spacing between elements
         goalBox.setStyle("-fx-background-color: #333; -fx-padding: 10; -fx-border-color: #4CAF50; -fx-border-radius: 5px; -fx-background-radius: 5px;");
@@ -59,13 +72,20 @@ public class GoalListController implements IController {
         return goalBox;
     }
 
-    // Switch scene to goals.fxml
+    /**
+     * Switches the scene to goals.fxml when the "Add Goals" button is clicked.
+     *
+     * @throws IOException If there is an error loading the FXML file.
+     */
     @FXML
     private void onAddGoalsButtonClick() throws IOException {
         mainController.loadPage("goals.fxml");
     }
 
-    // Deletes selected goals from both the UI and the database
+    /**
+     * Deletes the selected goals from both the UI and the database.
+     * This method iterates through the goal list and removes those with selected checkboxes.
+     */
     @FXML
     private void onDeleteGoalsButtonClick() {
         goalContainer.getChildren().removeIf(node -> {
@@ -81,7 +101,9 @@ public class GoalListController implements IController {
         });
     }
 
-    // Searches for goals by a keyword entered by the user and updates the goal list
+    /**
+     * Searches for goals by a keyword entered by the user and updates the goal list.
+     */
     @FXML
     private void onSearchButtonClick() {
         String keyword = searchGoal.getText();
@@ -94,6 +116,11 @@ public class GoalListController implements IController {
         }
     }
 
+    /**
+     * Sets the MainController reference to allow switching between views.
+     *
+     * @param mainController The main controller of the application.
+     */
     @Override
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
