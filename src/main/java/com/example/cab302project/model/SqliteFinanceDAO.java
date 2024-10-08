@@ -5,8 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.HashMap;
 
+/**
+ * A class for creating an SQL table and storing the data in it.
+ */
 public class SqliteFinanceDAO {
     private Connection connection;
+
 
     public SqliteFinanceDAO()
     {
@@ -14,6 +18,9 @@ public class SqliteFinanceDAO {
         createFinanceTable();
     }
 
+    /**
+     * A method that creates that SQL table.
+     */
     public void createFinanceTable() {
         try {
             Statement statement = connection.createStatement();
@@ -34,6 +41,10 @@ public class SqliteFinanceDAO {
         }
     }
 
+    /**
+     * A method that stores the user's information into the created SQL table.
+     * @param info The user's data received from the MockFinanceDAO class.
+     */
     public void addInfo(HashMap<String, Float> info){
         try {
             PreparedStatement statement = connection.prepareStatement(

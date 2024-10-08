@@ -10,8 +10,9 @@ import javafx.scene.control.TextField;
 
 import java.util.HashMap;
 import java.util.Map;
-
-// FinanceController is a class to manage all the controls from the finance fxml page
+/**
+    * A class to manage all the controls from the finance fxml page such as the text fields and labels.
+ */
 public class FinanceController {
 
     @FXML
@@ -40,14 +41,16 @@ public class FinanceController {
 
     MockFinanceDAO mockFinanceDAO;
 
-    // Calculate button controller and it calculates the budget of daily spending
+    /**
+        * A function for the Calculate button controller and it calculates the budget of daily spending.
+     */
     @FXML
     private void calculateButtonPressed() {
         HashMap <String, Float> textFieldMap = sendInfo();
 
         float budget = mockFinanceDAO.getBudget();
         float sum = 0;
-
+        // Gets elements that are stored in the hashmap and adds them together to give a total sum.
         for (Map.Entry<String, Float> entry : textFieldMap.entrySet()) {
             if (!entry.getKey().equals("budget"))
                 sum += entry.getValue();
@@ -69,9 +72,12 @@ public class FinanceController {
 
     }       
 
-    // Function to send and return data
+    /**
+        * A function to send and return data
+     */
     private HashMap<String, Float> sendInfo() {
         HashMap<String, Float> textFieldMap = new HashMap<>();
+        // Puts all the data into a hashmap where the data will stored and reused
         try {
             float budget = floatHandler(budgetField.getText(), budgetField);
             if (budget < 0) {
@@ -94,7 +100,11 @@ public class FinanceController {
         }
     }
 
-    // Acts as exception handling to manage non float texts
+    /**
+        * A function that acts as exception handling to manage non float texts.
+        * @param textValue The string value that will be turned into a float.
+        * @param c The Textfield that will be altered if there is a catch
+     */
     private float floatHandler(String textValue, TextField c) {
         try {
             return Float.parseFloat(textValue);
@@ -105,7 +115,10 @@ public class FinanceController {
         }
     }
 
-    // Controller for the reset button to reset the budget, daily spending, and amount left
+    /**
+        A function that acts as a controller for the reset button to reset the budget,
+        daily spending, and amount left.
+     */
     @FXML
     private void resetButton() {
         budgetField.clear();
