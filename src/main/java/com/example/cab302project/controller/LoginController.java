@@ -9,16 +9,23 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import com.example.cab302project.model.User;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 
 public class LoginController {
+    /**
+     * Establish a connection to the database.
+     */
     private SqliteUserDAO Connection = new SqliteUserDAO();
 
     public static String username;
 
+    /**
+     * Handles FXML objects.
+     */
     @FXML
     private TextField usernameField;
 
@@ -34,6 +41,9 @@ public class LoginController {
     @FXML
     private Text warningLabel;
 
+    /**
+     * Handles register button click to go to the register page by setting the scene.
+     */
     @FXML
     private void Register()
     {
@@ -48,6 +58,11 @@ public class LoginController {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Handles submission button click by querying the database, and going to the homepage
+     * if username and password combination is correct.
+     */
     @FXML
     private void Submit()
     {
