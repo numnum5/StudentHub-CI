@@ -14,15 +14,13 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 
 public class RegisterController {
-
+    /**
+     * Sets up connection with the database.
+     */
     private SqliteUserDAO Connection = new SqliteUserDAO();
-
-    @FXML
-    private Text registerTitle;
-
-    @FXML
-    private Button submitButton;
-
+    /**
+     * Handles FXML objects.
+     */
     @FXML
     private TextField usernameField;
 
@@ -40,7 +38,9 @@ public class RegisterController {
 
     @FXML
     private Text warningLabel;
-
+    /**
+     * Handles submit button click by extracting all fields.
+     */
     @FXML
     private void Submit()
     {
@@ -69,6 +69,9 @@ public class RegisterController {
             }
         }
     }
+    /**
+     * Handles login button click by going to login page.
+     */
     @FXML
     private void Login() {
         try {

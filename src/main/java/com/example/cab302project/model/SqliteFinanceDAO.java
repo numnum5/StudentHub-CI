@@ -63,7 +63,5 @@ public class SqliteFinanceDAO {
         catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 }
