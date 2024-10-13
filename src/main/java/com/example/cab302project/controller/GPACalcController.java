@@ -6,6 +6,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+/***
+ * The GPACalcController class handles the interactions between the GPA Calculator view and the
+ * logic for calculating and managing the GPA. It also interacts with a database through the
+ * SqliteGPADAO class to save and load GPA data.
+ */
 
 
 public class GPACalcController {
@@ -43,9 +48,20 @@ public class GPACalcController {
 
     private SqliteGPADAO gpaDao;
 
+    /***
+     * Constructor for the GPACalcController class.
+     * Initializes the GPADao to manage GPA data storage and retrieval from the database.
+     */
+
     public GPACalcController() {
         gpaDao = new SqliteGPADAO();  // Initialize GPADao
     }
+
+    /***
+     * Handles the calculation of GPA based on user input.
+     * Validates the input fields and performs the GPA calculation.
+     * Displays the calculated GPA or error message on the interface.
+     */
 
     @FXML
     private void handleCalculateGPA() {
@@ -76,6 +92,11 @@ public class GPACalcController {
         }
     }
 
+    /***
+     * Handles the event to view the currently saved GPA from the database.
+     * Displays the GPA if it exists or shows an error if not.
+     */
+
     @FXML
     private void handleViewGPA() {
         try {
@@ -91,6 +112,11 @@ public class GPACalcController {
         }
     }
 
+    /***
+     * Handles the event to save the currently calculated GPA to the database.
+     * Associates the GPA with the logged-in user's username.
+     */
+
     @FXML
     private void handleSaveGPA(){
         try {
@@ -102,6 +128,20 @@ public class GPACalcController {
         }
     }
 
+    /***
+     * Calculates the GPA based on the provided units and weighting.
+     * This examples formula gives weight to high distinction (7), distinction (6),
+     * credit (5), and pass (4) units. Fail units are not considered.
+     *
+     * @param totalUnits Total units the student has completed
+     * @param hdUnits High Distinction units
+     * @param distUnits Distinction units
+     * @param creditUnits Credit units
+     * @param passUnits Pass units
+     * @param failUnits Fail units
+     * @return Calculated GPA
+     */
+
     // Add calculation error checking
 
     // Method to calculate GPA (example formula)
@@ -110,6 +150,10 @@ public class GPACalcController {
         double gpa = (hdUnits * 7 + distUnits * 6 + creditUnits * 5 + passUnits * 4) / (double) totalUnits;
         return gpa;
     }
+
+    /***
+     * Resets all the input fields and GPA label to their default state.
+     */
 
     @FXML
     private void handleReset() {
@@ -121,6 +165,11 @@ public class GPACalcController {
         failUnitsField.setText("0");
         GPAField.setText("");
     }
+
+    /***
+     * Loads the GPA from the database and displays it on the screen.
+     * If no GPA is saved, a message will be shown instead.
+     */
 
     @FXML
     private void loadGPA() {
