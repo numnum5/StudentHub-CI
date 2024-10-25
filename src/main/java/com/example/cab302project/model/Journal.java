@@ -1,19 +1,28 @@
 package com.example.cab302project.model;
 
+/**
+ * Journal is for adding entries to journal entries
+ */
 public class Journal {
     private int id;          // Unique identifier for the journal entry
     private String entry;    // The text of the journal entry
     private String mood;     // The mood associated with the entry
     private String username;  // The username of the person making the entry
 
-    // Constructor
+    /**
+     *
+     * Constructor of journal
+     */
     public Journal(String entry, String mood, String username) {
         this.entry = entry;
         this.mood = mood;
         this.username = username;
     }
 
-    // Getters
+    /**
+     *
+     * Getters
+     */
     public int getId() {
         return id;
     }
@@ -30,7 +39,10 @@ public class Journal {
         return username;
     }
 
-    // Setters
+    /**
+     *
+     * Setters
+     */
     public void setId(int id) {
         this.id = id;
     }

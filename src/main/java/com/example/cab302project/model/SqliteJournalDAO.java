@@ -7,6 +7,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * SqliteJournaDAO provides data access methods for managing data related to Journals
+ */
+
 public class SqliteJournalDAO {
     private Connection connection;
 
@@ -15,6 +19,9 @@ public class SqliteJournalDAO {
         createTable();
     }
 
+    /**
+     * Create table if not yet exists.
+     */
     private void createTable() {
         try {
             Statement statement = connection.createStatement();
@@ -30,6 +37,11 @@ public class SqliteJournalDAO {
         }
     }
 
+    /**
+     *
+     * Add entry with username of the current logged in user as a unique
+     * identifier
+     */
     public void addEntry(Journal journal) {
         try {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO journals (entry, mood, username) VALUES (?, ?, ?)");
@@ -42,6 +54,17 @@ public class SqliteJournalDAO {
         }
     }
 
+    /**
+     *
+     * returns all entries for the logged in user
+     *
+     * @param userName
+     * current username of the logged in user
+     * @return
+     * returns a list of journal entries
+     *
+     *
+     */
     public List<String> getAllEntries(String userName) {
         List<String> entries = new ArrayList<>();
         String query = "SELECT entry, mood FROM journals WHERE username = ?";
