@@ -6,13 +6,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-/***
+/**
  * The GPACalcController class handles the interactions between the GPA Calculator view and the
  * logic for calculating and managing the GPA. It also interacts with a database through the
  * SqliteGPADAO class to save and load GPA data.
  */
-
-
 public class GPACalcController {
     @FXML
     private TextField totalUnitsField;
@@ -48,7 +46,7 @@ public class GPACalcController {
 
     private SqliteGPADAO gpaDao;
 
-    /***
+    /**
      * Constructor for the GPACalcController class.
      * Initializes the GPADao to manage GPA data storage and retrieval from the database.
      */
@@ -57,7 +55,7 @@ public class GPACalcController {
         gpaDao = new SqliteGPADAO();  // Initialize GPADao
     }
 
-    /***
+    /**
      * Handles the calculation of GPA based on user input.
      * Validates the input fields and performs the GPA calculation.
      * Displays the calculated GPA or error message on the interface.
@@ -92,7 +90,7 @@ public class GPACalcController {
         }
     }
 
-    /***
+    /**
      * Handles the event to view the currently saved GPA from the database.
      * Displays the GPA if it exists or shows an error if not.
      */
@@ -112,7 +110,7 @@ public class GPACalcController {
         }
     }
 
-    /***
+    /**
      * Handles the event to save the currently calculated GPA to the database.
      * Associates the GPA with the logged-in user's username.
      */
@@ -128,7 +126,7 @@ public class GPACalcController {
         }
     }
 
-    /***
+    /**
      * Calculates the GPA based on the provided units and weighting.
      * This examples formula gives weight to high distinction (7), distinction (6),
      * credit (5), and pass (4) units. Fail units are not considered.
@@ -151,7 +149,7 @@ public class GPACalcController {
         return gpa;
     }
 
-    /***
+    /**
      * Resets all the input fields and GPA label to their default state.
      */
 
@@ -166,7 +164,7 @@ public class GPACalcController {
         GPAField.setText("");
     }
 
-    /***
+    /**
      * Loads the GPA from the database and displays it on the screen.
      * If no GPA is saved, a message will be shown instead.
      */

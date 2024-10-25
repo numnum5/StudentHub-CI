@@ -12,17 +12,28 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
-// Controller for handling displaying of error messages
+/**
+ * Controller for handling the display of error messages in the application.
+ * This class is responsible for setting the error message and closing the error dialog.
+ */
 public class ErrorController {
+
+    /** Label to display the error message. */
     @FXML
     private Label errorMessage;
 
-    // Public method used by other controllers to set the error message
+    /**
+     * Public method used by other controllers to set the error message.
+     *
+     * @param message the error message to be displayed in the label
+     */
     public void setErrorMessage(String message) {
         errorMessage.setText(message);
     }
 
-    // Closes the window when user presses the close button
+    /**
+     * Closes the error message window when the user presses the close button.
+     */
     @FXML
     private void handleClose() {
         Stage stage = (Stage) errorMessage.getScene().getWindow();

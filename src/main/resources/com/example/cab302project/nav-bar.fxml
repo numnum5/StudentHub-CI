@@ -22,8 +22,7 @@
         <MenuButton styleClass="user-button">
             <items>
                 <MenuItem mnemonicParsing="false" styleClass="-fx-alignment: center;" text="Logout" onAction="#onLogoutButtonClick"/>
-                <MenuItem mnemonicParsing="false" styleClass="-fx-alignment: center;" text="Profile" onAction="#onProfileButtonClick"/>
-                <MenuItem mnemonicParsing="false" styleClass="-fx-alignment: center;" text="Expert Contacts" onAction="#onExpertsContactsButtonClick"/>
+
             </items>
         </MenuButton>
     </HBox>
