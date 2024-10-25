@@ -8,19 +8,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * SqliteJournaDAO provides data access methods for managing data related to Journals
+ * Manages database operations for journal entries using SQLite.
+ * Creates a table if it doesn't exist and provides methods to add and fetch entries.
  */
-
 public class SqliteJournalDAO {
     private Connection connection;
 
+    /**
+     * Initializes the database connection and sets up the journals table.
+     */
     public SqliteJournalDAO() {
         this.connection = SqliteConnection.getInstance();
         createTable();
     }
 
     /**
-     * Create table if not yet exists.
+     * Creates the 'journals' table if it doesn't exist already.
      */
     private void createTable() {
         try {
@@ -38,9 +41,9 @@ public class SqliteJournalDAO {
     }
 
     /**
+     * Adds a new journal entry to the database.
      *
-     * Add entry with username of the current logged in user as a unique
-     * identifier
+     *
      */
     public void addEntry(Journal journal) {
         try {
@@ -55,24 +58,17 @@ public class SqliteJournalDAO {
     }
 
     /**
+     * Fetches all entries for a given user.
      *
-     * returns all entries for the logged in user
-     *
-     * @param userName
-     * current username of the logged in user
-     * @return
-     * returns a list of journal entries
-     *
-     *
+     * @param userName The username to fetch entries for (current logged in user).
+     * @return A list of entries.
      */
     public List<String> getAllEntries(String userName) {
         List<String> entries = new ArrayList<>();
         String query = "SELECT entry, mood FROM journals WHERE username = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            // Set the parameter in the query
             statement.setString(1, userName);
-
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
@@ -85,5 +81,4 @@ public class SqliteJournalDAO {
         }
         return entries;
     }
-
 }

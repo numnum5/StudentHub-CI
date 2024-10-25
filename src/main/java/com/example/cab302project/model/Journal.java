@@ -1,30 +1,21 @@
 package com.example.cab302project.model;
-<<<<<<< HEAD
 
 /**
- * Journal is for adding entries to journal entries
-=======
-/**
- * Class representing a journal entry which models the structure of a journal entry
->>>>>>> 66b3a1046336f1e53b3e5c2e2e6d3199ecb68bf3
+ * Represents a journal entry with text, mood, and the user's username.
+ * Provides methods to get and set these properties.
  */
 public class Journal {
     private int id;          // Unique identifier for the journal entry
     private String entry;    // The text of the journal entry
     private String mood;     // The mood associated with the entry
-    private String username;  // The username of the person making the entry
+    private String username; // The username of the person making the entry
 
     /**
-<<<<<<< HEAD
+     * Initializes a new Journal entry with the given text, mood, and username.
      *
-     * Constructor of journal
-=======
-     * Constructor to initialize a journal entry.
-     *
-     * @param entry   The text of the journal entry.
-     * @param mood    The mood associated with the entry.
+     * @param entry    The text of the journal entry.
+     * @param mood     The mood associated with the entry.
      * @param username The username of the person making the entry.
->>>>>>> 66b3a1046336f1e53b3e5c2e2e6d3199ecb68bf3
      */
     public Journal(String entry, String mood, String username) {
         this.entry = entry;
@@ -32,15 +23,12 @@ public class Journal {
         this.username = username;
     }
 
+    // Getters
+
     /**
-<<<<<<< HEAD
+     * Gets the unique identifier of the journal entry.
      *
-     * Getters
-=======
-     * Gets the unique identifier for the journal entry.
-     *
-     * @return The unique identifier for the journal entry.
->>>>>>> 66b3a1046336f1e53b3e5c2e2e6d3199ecb68bf3
+     * @return The ID of the journal entry.
      */
     public int getId() {
         return id;
@@ -58,7 +46,7 @@ public class Journal {
     /**
      * Gets the mood associated with the journal entry.
      *
-     * @return The mood associated with the entry.
+     * @return The mood of the entry.
      */
     public String getMood() {
         return mood;
@@ -73,15 +61,12 @@ public class Journal {
         return username;
     }
 
+    // Setters
+
     /**
-<<<<<<< HEAD
+     * Sets the unique identifier of the journal entry.
      *
-     * Setters
-=======
-     * Sets the unique identifier for the journal entry.
-     *
-     * @param id The unique identifier for the journal entry.
->>>>>>> 66b3a1046336f1e53b3e5c2e2e6d3199ecb68bf3
+     * @param id The ID of the journal entry.
      */
     public void setId(int id) {
         this.id = id;
@@ -99,7 +84,7 @@ public class Journal {
     /**
      * Sets the mood associated with the journal entry.
      *
-     * @param mood The mood associated with the entry.
+     * @param mood The mood of the entry.
      */
     public void setMood(String mood) {
         this.mood = mood;
