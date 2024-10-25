@@ -4,7 +4,6 @@ import com.example.cab302project.controller.LoginController;
 
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  * MockAssignmentDAO simulates a data access object for managing Assignment objects.
  * Provides methods for adding, updating, deleting, and searching assignments

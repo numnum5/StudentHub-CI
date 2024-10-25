@@ -11,16 +11,31 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ProjectsController implements IController{
+/**
+ * Controller for managing the project view and navigation to the assignment list.
+ * This class implements the IController interface and facilitates page transitions.
+ */
+public class ProjectsController implements IController {
 
     @FXML
-    private Button viewAssignments;
+    private Button viewAssignments; // Button to view assignments
 
-    private MockSubjectDAO connection;
+    private MockSubjectDAO connection; // DAO for subject data management
 
+    private MainController mainController; // Reference to the main controller for page management
 
-    private MainController mainController;
-    // Method to switching pages
+    /**
+     * Constructor initializes the DAO instance for managing subjects.
+     */
+    public ProjectsController() {
+        this.connection = new MockSubjectDAO();
+    }
+
+    /**
+     * Switches the current scene to the project list page.
+     *
+     * @throws IOException If an error occurs while loading the project list FXML.
+     */
     private void switchScene() throws IOException {
         Stage stage = (Stage) viewAssignments.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("project-list.fxml"));
@@ -28,29 +43,41 @@ public class ProjectsController implements IController{
         stage.setScene(scene);
     }
 
-    public ProjectsController(){
-        this.connection = new MockSubjectDAO();
-    }
-
-
+    /**
+     * Handles the button click event to view assignments by loading the project list page.
+     *
+     * @throws IOException If an error occurs while loading the project list page.
+     */
     @FXML
     private void onViewAssignmentsButtonClick() throws IOException {
         mainController.loadPage("project-list.fxml");
     }
 
+    /**
+     * Sets the main controller for this controller, allowing access to shared functionality.
+     *
+     * @param mainController The main controller to be set.
+     */
     @Override
     public void setMainController(MainController mainController) {
-        this.mainController =  mainController;
+        this.mainController = mainController;
         System.out.println(this.mainController);
     }
 
-    public static class JournalController
-    {
-        @FXML
-        public TextArea MoodText;
+    /**
+     * Controller for the journal entry functionality.
+     * This inner class manages user mood submissions.
+     */
+    public static class JournalController {
 
-        public void Submit()
-        {
+        @FXML
+        public TextArea MoodText; // Text area for user to input their mood
+
+        /**
+         * Submits the mood text input by the user.
+         * Outputs the mood text to the console.
+         */
+        public void Submit() {
             System.out.println(MoodText.getText());
         }
     }

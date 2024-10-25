@@ -11,8 +11,6 @@ import javafx.scene.control.Label;
  * logic for calculating and managing the GPA. It also interacts with a database through the
  * SqliteGPADAO class to save and load GPA data.
  */
-
-
 public class GPACalcController {
     @FXML
     private TextField totalUnitsField;

@@ -17,15 +17,29 @@ public class MainController {
 
     private String username; // Stores the current user's username
 
+    /**
+     * Sets the username for the current session.
+     *
+     * @param username the username to be set
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     * Retrieves the username of the current session.
+     *
+     * @return the current user's username
+     */
     public String getUsername() {
         return this.username;
     }
 
-    // Sets the navigation bar in the main layout
+    /**
+     * Sets the navigation bar in the main layout.
+     * This method loads the navigation bar FXML file and links it to the main controller,
+     * allowing the navigation bar to have access to the current user's username.
+     */
     public void setNavBar() {
         try {
             // Load the navigation bar FXML file
@@ -41,7 +55,11 @@ public class MainController {
         }
     }
 
-    // Loads a specified FXML page into the center of the main-view fxml file
+    /**
+     * Loads a specified FXML page into the center of the main layout.
+     *
+     * @param fxmlFile the name of the FXML file to be loaded
+     */
     public void loadPage(String fxmlFile) {
         try {
             // Load the specified FXML file
@@ -55,7 +73,7 @@ public class MainController {
                     controller.setMainController(this); // Set the main controller reference
                 }
             }
-            mainPane.setCenter(page);
+            mainPane.setCenter(page); // Set the loaded page in the center of the main pane
         } catch (IOException e) {
             e.printStackTrace();
         }
