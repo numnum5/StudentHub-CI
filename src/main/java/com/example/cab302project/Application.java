@@ -5,7 +5,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
+/**
+ * Main entry point of the application
+ */
 public class Application extends javafx.application.Application {
     public static final int WIDTH = 800;
     public static final int HEIGHT = 600;

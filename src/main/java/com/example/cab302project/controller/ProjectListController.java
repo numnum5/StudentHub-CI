@@ -10,24 +10,25 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.List;
-
 /**
- * Controller for handling project list page,
- * Handles displaying assignment items, creating new assignment and adding new subjects
+ * Controller for handling the project list page.
+ * This class manages the display of assignment items, creation of new assignments, and addition of new subjects.
  */
-
 public class ProjectListController {
 
     private SubjectManager subjectDAO;
     private SqliteAssignmentDAO assignmentDAO;
 
-    // Constructor initializes the DAO instances
+    /**
+     * Constructor initializes the DAO instances for managing subjects and assignments.
+     */
     public ProjectListController() {
         subjectDAO = new SubjectManager(new SqliteSubjectDAO());
         assignmentDAO = new SqliteAssignmentDAO();
     }
 
     // FXML UI components
+
     @FXML
     private TextField searchField;
 
@@ -46,7 +47,11 @@ public class ProjectListController {
     @FXML
     private VBox taskListContainer;
 
-    // Renders assignment cards in the project list fxml file
+    /**
+     * Renders assignment cards in the project list.
+     *
+     * @param assignments List of assignments to display as cards.
+     */
     private void renderCards(List<Assignment> assignments) {
         cardContainer.getChildren().clear();
         for (Assignment assignment : assignments) {
@@ -55,21 +60,32 @@ public class ProjectListController {
         }
     }
 
-    // Initialization method to load assignments for the current user
+    /**
+     * Initialization method to load assignments for the current user.
+     */
     @FXML
     private void initialize() {
         List<Assignment> assignments = assignmentDAO.getAllAssignments(LoginController.username);
         renderCards(assignments);
     }
 
-    // Handles the search functionality for searching assignments
+    /**
+     * Handles the search functionality for searching assignments based on user input.
+     *
+     * @throws IOException If an error occurs while searching for assignments.
+     */
     @FXML
     private void onSearch() throws IOException {
         List<Assignment> result = assignmentDAO.searchAssignments(searchField.getText());
         renderCards(result);
     }
 
-    // Creates a card representation for an assignment to be appended the fxml page
+    /**
+     * Creates a card representation for an assignment to be appended to the FXML page.
+     *
+     * @param assignment The assignment to be represented in a card.
+     * @return A VBox representing the assignment card.
+     */
     private VBox createCard(Assignment assignment) {
         VBox newCard = new VBox();
         newCard.getStyleClass().add("card");
@@ -96,7 +112,12 @@ public class ProjectListController {
         return newCard;
     }
 
-    // Sets the style of the status label based on the assignment's status
+    /**
+     * Sets the style of the status label based on the assignment's status.
+     *
+     * @param statusLabel The label to be styled based on the assignment status.
+     * @param assignment The assignment whose status is used for styling.
+     */
     private void setStatusLabelStyle(Label statusLabel, Assignment assignment) {
         switch (assignment.getStatus()) {
             case URGENT:
@@ -121,13 +142,23 @@ public class ProjectListController {
                 break;
         }
     }
-    // Adds a new assignment and renders it in the fxml page
+
+    /**
+     * Adds a new assignment and renders it in the FXML page.
+     *
+     * @param assignment The assignment to be added and displayed.
+     */
     public void addNewAssignment(Assignment assignment) {
         VBox newCard = createCard(assignment);
         cardContainer.getChildren().add(newCard);
         assignmentDAO.addAssignment(assignment);
     }
-    // Opens a new window for creating a new assignment
+
+    /**
+     * Opens a new window for creating a new assignment.
+     *
+     * @throws IOException If an error occurs while loading the new assignment view.
+     */
     @FXML
     private void onNewAssignmentClick() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/cab302project/create-new-assignment.fxml"));
@@ -140,7 +171,11 @@ public class ProjectListController {
         newStage.show();
     }
 
-    // Opens a new window for creating a new subject
+    /**
+     * Opens a new window for creating a new subject.
+     *
+     * @throws IOException If an error occurs while loading the new subject view.
+     */
     @FXML
     private void onAddNewSubjectClick() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/cab302project/add-new-subject.fxml"));
@@ -151,3 +186,4 @@ public class ProjectListController {
         newStage.show();
     }
 }
+

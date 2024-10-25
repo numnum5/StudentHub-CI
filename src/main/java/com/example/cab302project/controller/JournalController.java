@@ -10,13 +10,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 /**
- * Controller for managing Journal page
+ * Handles connection to the database and sets the main controller.
  */
 public class JournalController implements IController {
     private SqliteJournalDAO connection = new SqliteJournalDAO();
 
-    @FXML
-    private Button viewEntry;
 
     private MainController mainController;
 
@@ -25,6 +23,10 @@ public class JournalController implements IController {
         this.mainController =  mainController;
         System.out.println(this.mainController);
     }
+
+    /**
+     * Handles FXML objects.
+     */
 
     @FXML
     public TextArea MoodText;
@@ -35,7 +37,9 @@ public class JournalController implements IController {
     @FXML
     private ListView<String> entriesListView;
 
-
+    /**
+     * Handles journal entry submission by adding it into the database.
+     */
     public void Submit() {
         String moodString = MoodText.getText();
         String entryString = JournalText.getText();
@@ -43,6 +47,9 @@ public class JournalController implements IController {
         Journal newJournal = new Journal(entryString, moodString, userName);
         connection.addEntry(newJournal);
     }
+    /**
+     * Handles viewentry click by returning entries from the database to the entry list
+     */
 
     @FXML
     public void viewEntry() {
